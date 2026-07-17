@@ -1,0 +1,248 @@
+"""Combined Pipeline: Runs Pipeline2, Pipeline3, then Pipeline4 for each month.
+
+Flow per month:
+  1. Pipeline2: Multi-pass fetch all listing data → store in DB
+  2. Pipeline3: Fetch bid results/RA results for all tenders in that month → update DB
+  3. Pipeline4: Extract participants from newly scraped tenders → update TenderAnalytics
+  4. Move to next month
+
+Usage:
+    python pipeline_main/run.py                  # Process all months in range below
+    python pipeline_main/run.py 2024-01 2024-06  # Custom range
+
+Features:
+  - Fault tolerance: Each pipeline wrapped in try-catch
+  - Graceful degradation: If one pipeline fails, others still run
+  - Progress tracking: Summary of successes/failures at end
+  - Error logging: Failures saved to logs/pipeline_failures.log
+"""
+import sys
+import os
+import time
+import signal
+import asyncio
+from datetime import datetime, timezone
+
+# Add project root to path
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from pipeline2.orchestrator import process_month as pipeline2_process_month
+from pipeline3.orchestrator import process_month as pipeline3_process_month
+from pipeline4.orchestrator import run_pipeline as pipeline4_run
+from pipeline2.db import create_indexes as p2_create_indexes, create_indexes_for_year, init_month_status, reset_in_progress_months
+
+# ═══════════════════════════════════════════════════════════════
+# CONFIG — Change these to set the month range
+# ═══════════════════════════════════════════════════════════════
+START_YEAR = 2026
+START_MONTH = 4
+END_YEAR = 2026
+END_MONTH = 4
+# ═══════════════════════════════════════════════════════════════
+
+_shutdown = False
+
+
+def _log_failure_to_file(month, pipeline, error):
+    """Log pipeline failure to logs/pipeline_failures.log"""
+    log_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), "logs")
+    os.makedirs(log_dir, exist_ok=True)
+    log_file = os.path.join(log_dir, "pipeline_failures.log")
+    
+    timestamp = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC")
+    try:
+        with open(log_file, "a", encoding="utf-8") as f:
+            f.write(f"\n{'='*70}\n")
+            f.write(f"[{timestamp}] {month} - {pipeline}\n")
+            f.write(f"{'-'*70}\n")
+            f.write(f"{error}\n")
+    except Exception:
+        pass  # Silent fail on logging
+
+
+def _signal_handler(sig, frame):
+    print("\n  [!] Force shutdown — killing all workers.")
+    os._exit(1)
+
+
+def generate_month_list(start_year, start_month, end_year, end_month):
+    months = []
+    y, m = start_year, start_month
+    while (y, m) <= (end_year, end_month):
+        months.append(f"{y:04d}-{m:02d}")
+        m += 1
+        if m > 12:
+            m = 1
+            y += 1
+    return months
+
+
+def main():
+    global _shutdown
+    signal.signal(signal.SIGINT, _signal_handler)
+    signal.signal(signal.SIGTERM, _signal_handler)
+
+    # Parse optional CLI args: start_month end_month
+    if len(sys.argv) >= 3:
+        start = sys.argv[1]  # e.g. "2024-01"
+        end = sys.argv[2]    # e.g. "2024-06"
+        sy, sm = int(start[:4]), int(start[5:7])
+        ey, em = int(end[:4]), int(end[5:7])
+    elif len(sys.argv) == 2:
+        # Single month
+        start = sys.argv[1]
+        sy, sm = int(start[:4]), int(start[5:7])
+        ey, em = sy, sm
+    else:
+        sy, sm = START_YEAR, START_MONTH
+        ey, em = END_YEAR, END_MONTH
+
+    months = generate_month_list(sy, sm, ey, em)
+
+    print("=" * 70)
+    print("  COMBINED PIPELINE — Pipeline2 + Pipeline3 + Pipeline4")
+    print("=" * 70)
+    print(f"  Months to process: {len(months)} ({months[0]} to {months[-1]})")
+    print("=" * 70)
+
+    # Initialize DB indexes
+    print("\n  Initializing database indexes...")
+    try:
+        p2_create_indexes()
+        # Create indexes for year-based tender collections
+        years = set(m[:4] for m in months)
+        for year in sorted(years):
+            create_indexes_for_year(year)
+        print("  ✓ Indexes created successfully")
+    except Exception as e:
+        print(f"  ✗ WARNING: Index creation failed: {str(e)[:200]}")
+        print("  Continuing anyway (indexes may already exist)...")
+
+    # Reset any months stuck as in_progress from a previous crashed run
+    try:
+        reset_count = reset_in_progress_months()
+        if reset_count > 0:
+            print(f"  [!] Reset {reset_count} in_progress month(s) to pending (from previous crash)")
+    except Exception as e:
+        print(f"  ✗ WARNING: Failed to reset in-progress months: {str(e)[:200]}")
+        print("  Continuing anyway...")
+
+    # Track success/failure for final summary
+    pipeline_stats = {
+        "months_completed": 0,
+        "months_partial": 0,
+        "months_failed": 0,
+        "failures": []
+    }
+
+    for i, month in enumerate(months):
+        if _shutdown:
+            print(f"\n  [!] Stopped. Completed {i}/{len(months)} months.")
+            break
+
+        t_start = time.time()
+
+        print(f"\n{'#' * 70}")
+        print(f"  MONTH {i+1}/{len(months)}: {month}")
+        print(f"{'#' * 70}")
+
+        p2_success = False
+        p3_success = False
+        p4_success = False
+
+        # Step 1: Pipeline2 — Extract all listings
+        print(f"\n  [STEP 1] Pipeline2: Extracting all listings for {month}...")
+        try:
+            init_month_status(month)
+            pipeline2_process_month(month)
+            p2_success = True
+            print(f"  ✓ Pipeline2 completed successfully")
+        except Exception as e:
+            error_msg = f"{type(e).__name__}: {str(e)}"
+            print(f"  ✗ Pipeline2 FAILED: {error_msg[:200]}")
+            _log_failure_to_file(month, "Pipeline2", error_msg)
+            pipeline_stats["failures"].append({
+                "month": month,
+                "pipeline": "Pipeline2",
+                "error": error_msg[:500]
+            })
+
+        if _shutdown:
+            break
+
+        # Step 2: Pipeline3 — Extract results for this month
+        print(f"\n  [STEP 2] Pipeline3: Extracting results for {month}...")
+        try:
+            asyncio.run(pipeline3_process_month(month))
+            p3_success = True
+            print(f"  ✓ Pipeline3 completed successfully")
+        except Exception as e:
+            error_msg = f"{type(e).__name__}: {str(e)}"
+            print(f"  ✗ Pipeline3 FAILED: {error_msg[:200]}")
+            _log_failure_to_file(month, "Pipeline3", error_msg)
+            pipeline_stats["failures"].append({
+                "month": month,
+                "pipeline": "Pipeline3",
+                "error": error_msg[:500]
+            })
+
+        if _shutdown:
+            break
+
+        # Step 3: Pipeline4 — Update derived analytics collections
+        print(f"\n  [STEP 3] Pipeline4: Updating derived analytics for {month}...")
+        try:
+            pipeline4_run(skip_competitors=False, month_filter=month)
+            p4_success = True
+            print(f"  ✓ Pipeline4 completed successfully")
+        except Exception as e:
+            error_msg = f"{type(e).__name__}: {str(e)}"
+            print(f"  ✗ Pipeline4 FAILED: {error_msg[:200]}")
+            _log_failure_to_file(month, "Pipeline4", error_msg)
+            pipeline_stats["failures"].append({
+                "month": month,
+                "pipeline": "Pipeline4",
+                "error": error_msg[:500]
+            })
+
+        elapsed = time.time() - t_start
+
+        # Track month completion status
+        if p2_success and p3_success and p4_success:
+            pipeline_stats["months_completed"] += 1
+            print(f"\n  ✓ Month {month} FULLY COMPLETE — Total time: {elapsed:.0f}s ({elapsed/60:.1f}min)")
+        elif p2_success or p3_success or p4_success:
+            pipeline_stats["months_partial"] += 1
+            print(f"\n  ⚠ Month {month} PARTIALLY COMPLETE — Total time: {elapsed:.0f}s ({elapsed/60:.1f}min)")
+        else:
+            pipeline_stats["months_failed"] += 1
+            print(f"\n  ✗ Month {month} FAILED — All pipelines failed — Total time: {elapsed:.0f}s ({elapsed/60:.1f}min)")
+
+    # Final summary
+    print(f"\n{'=' * 70}")
+    print("  PIPELINE EXECUTION SUMMARY")
+    print(f"{'=' * 70}")
+    print(f"  Total months processed    : {len(months)}")
+    print(f"  Fully completed           : {pipeline_stats['months_completed']}")
+    print(f"  Partially completed       : {pipeline_stats['months_partial']}")
+    print(f"  Failed                    : {pipeline_stats['months_failed']}")
+    
+    if pipeline_stats["failures"]:
+        print(f"\n  ⚠ FAILURES ({len(pipeline_stats['failures'])}):")
+        for fail in pipeline_stats["failures"]:
+            print(f"    • {fail['month']} - {fail['pipeline']}: {fail['error'][:150]}")
+        print(f"\n  Detailed errors logged to: logs/pipeline_failures.log")
+    else:
+        print(f"\n  ✓ All pipelines completed successfully!")
+    
+    print(f"{'=' * 70}")
+    
+    # Exit with error code if there were any failures
+    if pipeline_stats["failures"]:
+        sys.exit(1)
+    else:
+        sys.exit(0)
+
+
+if __name__ == "__main__":
+    main()
