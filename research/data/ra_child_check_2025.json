@@ -1,0 +1,6435 @@
+[
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/6602044",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2024/B/5633465",
+  "state": "RA child not awarded [(0, 1)]",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/6922894",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/5882141",
+  "state": "RA child AWARDED (fetched by pipeline)",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/6752271",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/6091686",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/6143935",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/6380542",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/6440194",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/7013169",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/5827549",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/5840044",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/5828478",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/6261304",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/5927317",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/6710415",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/6746569",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/6232121",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/5844933",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/6694531",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/6747503",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/6543844",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/6922156",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/6952570",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/6789831",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/6783053",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/6807663",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/6559639",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/6916393",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/6931994",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/6639852",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/6202989",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/6260393",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/6497539",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/6664168",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/6473753",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/6602830",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/6675072",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/6829111",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/6024205",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/6221463",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/5979478",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2024/B/5718968",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/6834118",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2024/B/5756068",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/6411086",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/5837416",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/6890137",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/6189570",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/5861572",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/5995301",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/6049538",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/6316230",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/6089692",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/6520038",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/6822103",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/6752156",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/6448283",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/6373370",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/6445785",
+  "state": "RA child not awarded [(0, 1)]",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/6222958",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/5914788",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/6674512",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/5830652",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/5962029",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/6486549",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/6099996",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/7013498",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/6005863",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/6595947",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/6675523",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/5803553",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/5777807",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/6187541",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/6418037",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/5777504",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/6733975",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/6595674",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/6654127",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/5951860",
+  "state": "RA child AWARDED (fetched by pipeline)",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/6891718",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/6993716",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/6174306",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/6736558",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2024/B/5750461",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6214016",
+  "state": "RA child AWARDED (fetched by pipeline)",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6621821",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6127507",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6335034",
+  "state": "RA child AWARDED (fetched by pipeline)",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6141028",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6356863",
+  "state": "RA child not awarded [(0, 1)]",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6561158",
+  "state": "RA child not awarded [(0, 1)]",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2024/B/5681040",
+  "state": "RA child not awarded [(2, 1)]",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6931961",
+  "state": "RA child AWARDED (fetched by pipeline)",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6464162",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/5857385",
+  "state": "RA child AWARDED (fetched by pipeline)",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6501074",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6709821",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6512820",
+  "state": "RA child AWARDED (fetched by pipeline)",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6618335",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2024/B/5768856",
+  "state": "RA child AWARDED (fetched by pipeline)",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6910669",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6066266",
+  "state": "RA child AWARDED (fetched by pipeline)",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6895921",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6614374",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6323139",
+  "state": "RA child AWARDED (fetched by pipeline)",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/5967120",
+  "state": "RA child not awarded [(0, 1)]",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6258201",
+  "state": "RA child not awarded [(2, 1)]",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6362146",
+  "state": "RA child not awarded [(0, 1)]",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6432144",
+  "state": "RA child not awarded [(0, 1)]",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/6510086",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/6543614",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/6815372",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/6514582",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/6565975",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/6748037",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/6654284",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/6767676",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/6823525",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/6914986",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/6652355",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/6627064",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/6797162",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/6683536",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "awarded_live",
+  "bid_number": "GEM/2025/B/6967631",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6719296",
+  "state": "RA child AWARDED (fetched by pipeline)",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6861281",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/5967317",
+  "state": "RA child AWARDED (fetched by pipeline)",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/5817382",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6962266",
+  "state": "RA child AWARDED (fetched by pipeline)",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6550802",
+  "state": "RA child AWARDED (fetched by pipeline)",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6730652",
+  "state": "RA child AWARDED (fetched by pipeline)",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2024/B/5711622",
+  "state": "RA child not awarded [(0, 1)]",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/5874441",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6016344",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6192837",
+  "state": "RA child AWARDED (fetched by pipeline)",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6216128",
+  "state": "RA child AWARDED (fetched by pipeline)",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6348173",
+  "state": "RA child not awarded [(0, 1)]",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6308578",
+  "state": "RA child not awarded [(0, 1)]",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6548562",
+  "state": "RA child AWARDED (fetched by pipeline)",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6437771",
+  "state": "RA child not awarded [(0, 1)]",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6866961",
+  "state": "RA child AWARDED (fetched by pipeline)",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6037498",
+  "state": "RA child AWARDED (fetched by pipeline)",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2024/B/5703661",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6668241",
+  "state": "RA child not awarded [(0, 1)]",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6083480",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6781954",
+  "state": "RA child AWARDED (fetched by pipeline)",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/5776072",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6461505",
+  "state": "RA child AWARDED (fetched by pipeline)",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/5792447",
+  "state": "RA child not awarded [(0, 1)]",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/5966747",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6196511",
+  "state": "RA child AWARDED (fetched by pipeline)",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6063352",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2024/B/5599320",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6837638",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6928319",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2024/B/5672652",
+  "state": "RA child AWARDED (fetched by pipeline)",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/7005588",
+  "state": "RA child AWARDED (fetched by pipeline)",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6449341",
+  "state": "RA child AWARDED (fetched by pipeline)",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6898797",
+  "state": "RA child not awarded [(0, 1)]",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6124291",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/6764740",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/6114589",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/6711044",
+  "state": "RA child not awarded [(2, 3)]",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/5846237",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/5935117",
+  "state": "RA child not awarded [(2, 3)]",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/5901128",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/5860840",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/5862467",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/7037950",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/5901027",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/6348574",
+  "state": "RA child not awarded [(2, 3)]",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/6772790",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/6639867",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/5835163",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2024/B/5689656",
+  "state": "RA child not awarded [(0, 1)]",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/6042023",
+  "state": "RA child not awarded [(2, 3)]",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/6184948",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/6052632",
+  "state": "RA child not awarded [(2, 3)]",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/6223402",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/6814723",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/6021789",
+  "state": "RA child not awarded [(2, 3)]",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/6747283",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/6324057",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/6167157",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/6887808",
+  "state": "RA child not awarded [(2, 3)]",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2024/B/5768955",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/6680148",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/6130032",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/6658171",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/6043422",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/6957390",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/6496194",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2024/B/5746792",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/6702744",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6715304",
+  "state": "RA child AWARDED (fetched by pipeline)",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6547112",
+  "state": "RA child AWARDED (fetched by pipeline)",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6305329",
+  "state": "RA child AWARDED (fetched by pipeline)",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6499735",
+  "state": "RA child AWARDED (fetched by pipeline)",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6282049",
+  "state": "RA child not awarded [(0, 1)]",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6777490",
+  "state": "RA child not awarded [(0, 1)]",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6791453",
+  "state": "RA child AWARDED (fetched by pipeline)",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6769118",
+  "state": "RA child AWARDED (fetched by pipeline)",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6769035",
+  "state": "RA child not awarded [(0, 1)]",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6092361",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6790669",
+  "state": "RA child AWARDED (fetched by pipeline)",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6896608",
+  "state": "RA child not awarded [(0, 1)]",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6357280",
+  "state": "RA child AWARDED (fetched by pipeline)",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/5857724",
+  "state": "RA child not awarded [(2, 1)]",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6375522",
+  "state": "RA child AWARDED (fetched by pipeline)",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6293034",
+  "state": "RA child not awarded [(0, 1)]",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6414508",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/5986639",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6239254",
+  "state": "RA child AWARDED (fetched by pipeline)",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2024/B/5392950",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/5959937",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6700801",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6795904",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6957776",
+  "state": "RA child not awarded [(0, 1)]",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6517473",
+  "state": "RA child AWARDED (fetched by pipeline)",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/5934973",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6108378",
+  "state": "RA child not awarded [(0, 1)]",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6897656",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6318863",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6530887",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6893564",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6389324",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6292590",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6303455",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6956022",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/5853987",
+  "state": "RA child AWARDED (fetched by pipeline)",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6753307",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6937514",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6064542",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6934882",
+  "state": "RA child not awarded [(0, 1)]",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/5812972",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6937615",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6265526",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6107683",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6578094",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6369758",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/5772945",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6800255",
+  "state": "RA child not awarded [(0, 1)]",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/7009237",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6842377",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6824241",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6803959",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6920853",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6836094",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6951890",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6905625",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6965203",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6608002",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6832507",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6754056",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6925047",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6769505",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6845067",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6894734",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/6323394",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/5966234",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/6702119",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/5926768",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/6893999",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/6325659",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/6761892",
+  "state": "RA child not awarded [(2, 3)]",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/6800038",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/6232056",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/6869148",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/6263849",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/6752848",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/6011173",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/6925992",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/6908803",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/6623664",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/6647631",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/6841500",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/6736999",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/5805664",
+  "state": "RA child not awarded [(2, 3)]",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/6699715",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/6341739",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/6528870",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/6696684",
+  "state": "RA child not awarded [(0, 3)]",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/6135738",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/6900023",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/6783504",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/7002563",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/6967873",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/5823991",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/6258178",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/6954445",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/6034674",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/6922684",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/5863025",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/6418641",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/6741541",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/7003597",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/6673595",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/6844856",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/6902126",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/6627209",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/6806867",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6332475",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6916516",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2024/B/5668659",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6285761",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6678858",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6339549",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6999801",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6640112",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6848158",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2024/B/5728349",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/6635741",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/6151192",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/6180859",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/6889234",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/5859946",
+  "state": "RA child not awarded [(0, 1)]",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/6143994",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/6845949",
+  "state": "RA child not awarded [(0, 3)]",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/6312006",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/6689508",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/5874623",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/5965121",
+  "state": "RA child not awarded [(0, 1)]",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/6048682",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/5798739",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/6894471",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/5913835",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2024/B/5648590",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/6782604",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/6224992",
+  "state": "RA child not awarded [(0, 1)]",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/6922383",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/6858998",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/6065977",
+  "state": "RA child not awarded [(0, 3)]",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2024/B/5596343",
+  "state": "RA child not awarded [(0, 3)]",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6899162",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6292939",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6120126",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6641186",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6182727",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/5887144",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6132407",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2024/B/5764727",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/5835414",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/5784064",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6026803",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6641827",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6681413",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6970385",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6037109",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6683382",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6824995",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6926713",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6207713",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6472544",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6960888",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6774306",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2024/B/5715347",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6050990",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/5984967",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6864940",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6273817",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6622111",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/5927969",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2024/B/5487128",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6942662",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6106783",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6816319",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6403108",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6654465",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6892269",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6484827",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6766936",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6503713",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6540056",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6617028",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6948761",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6745289",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/5806482",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6864257",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6558106",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6504137",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6798133",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6786379",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6860260",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6618513",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6792205",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6927312",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6636778",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/7006285",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6951339",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6938522",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6845225",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6500339",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6939222",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6768843",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6871405",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6818304",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6999172",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/5981482",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6691907",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6553886",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2024/B/5725806",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6049342",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/5848271",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6596958",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6495307",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/5929824",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/7012120",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6904833",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/5911704",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6813054",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6987844",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6585743",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6417569",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6356351",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6249074",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/5997136",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6577833",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6793097",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/5777816",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6196350",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6430032",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/5921103",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6290060",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6643112",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6428109",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2024/B/5702685",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6545033",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6265547",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2024/B/5734870",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6629283",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2024/B/5560447",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6666179",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6337528",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6007529",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/5837930",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6715422",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6795847",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2024/B/5720659",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6824971",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/5800885",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6328649",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6943934",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2024/B/5648984",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6500073",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6629910",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6080644",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/5801662",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/7007701",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6085789",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6420113",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/5830442",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6603166",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2024/B/5727582",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6789629",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6338927",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6180204",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6089192",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6698674",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6577402",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/5858530",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6959002",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6124517",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6751506",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6098209",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2024/B/5703562",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/5854537",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6502598",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6783434",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6824094",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6251213",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6834092",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6717258",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6420172",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/5902753",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6207091",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/5970114",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/5805669",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6519719",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/5934465",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6844644",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6754931",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6590548",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6698298",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6702425",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6461667",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6163703",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6497395",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6899148",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6420330",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6063897",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6701526",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6301895",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6857497",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6259005",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6445537",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2024/B/5650835",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6484802",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2024/B/5727126",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6890584",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2024/B/5763581",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6876116",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6338315",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6133318",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6366935",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6832932",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6344973",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6542126",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/5944331",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6090391",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6254718",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6564823",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6341509",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6476264",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6817295",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2024/B/5756991",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6831611",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/5978400",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6347873",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6778839",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6360387",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6469334",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6225381",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6154121",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6807323",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6687646",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6927382",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6687553",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6771862",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6057238",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6203334",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6963264",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6802191",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6631227",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6972714",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6551883",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6990053",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/7032570",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6703646",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6499303",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6917130",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6566747",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6826204",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6921835",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6995032",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6563856",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6975610",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6898683",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6769803",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6683244",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6952494",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6594867",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6660740",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6939601",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6991878",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6831377",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6537799",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6535167",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6930704",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6430404",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6682888",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6593375",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6357334",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6792812",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/5992074",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6318715",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/5951136",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6609759",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6153872",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6394483",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6541627",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6406856",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/5890940",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6702889",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6546662",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6944174",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6083236",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6544629",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6929194",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6078349",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6314361",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6147437",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6830216",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6732209",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6787764",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6331757",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6556920",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6324044",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6636769",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6512717",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6502349",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6899945",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6944285",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6915402",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6509549",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6701099",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6497637",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6779742",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6665078",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6935264",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6655388",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6597826",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6758545",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6767543",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6500523",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6818011",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6795690",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6804093",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6607576",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6739239",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6538412",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6847882",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6516741",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6717846",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2024/B/5689910",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6206808",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6848592",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6078050",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6641604",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6915942",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6608251",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6353619",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6166974",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6532502",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6605300",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6906357",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2024/B/5286472",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6531970",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6970923",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6705087",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6538903",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6334859",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/5883628",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2024/B/5769610",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6917534",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6902591",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6183456",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/5814877",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6592950",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6805453",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6394029",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6862081",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6924893",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6212833",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6034297",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6052257",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2024/B/5754184",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6305761",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6808155",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2024/B/5716691",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/5829519",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6261957",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6924246",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6827568",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6964881",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6504747",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/5810781",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6322003",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6423668",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6345194",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6183433",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6461876",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6747390",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6752385",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6732806",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6458938",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/5931922",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6844646",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6312271",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6526514",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6602351",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6796082",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6662268",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6554111",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/5813634",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6674797",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6409436",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2024/B/5641659",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/5881187",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6753085",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6593897",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2024/B/5700604",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6310393",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6193110",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2024/B/5741167",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2024/B/5648975",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/5972455",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6865122",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6814412",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6201859",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6491583",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6804168",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6067206",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6737787",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2024/B/5650574",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6818582",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6756760",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6942705",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6850803",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6505652",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6575244",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6520764",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6448644",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/5845672",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6833648",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6628533",
+  "state": "RA child AWARDED (fetched by pipeline)",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6954528",
+  "state": "RA child AWARDED (fetched by pipeline)",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6546379",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6599879",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6488702",
+  "state": "RA child AWARDED (fetched by pipeline)",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/7017927",
+  "state": "RA child AWARDED (fetched by pipeline)",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6756566",
+  "state": "RA child not awarded [(0, 1)]",
+  "n_children": 1,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6212310",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6145131",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6284241",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6538492",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6167827",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6526979",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_live",
+  "bid_number": "GEM/2025/B/6985225",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6544756",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6887663",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6505669",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/5895575",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6154778",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6751094",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6008657",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6967342",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/5794467",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6986512",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6574221",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/5862909",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6824081",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6706335",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6940674",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6870310",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6327673",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6606445",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6549545",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6849697",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6949719",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6166658",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6474483",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2024/B/5657911",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6605700",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2024/B/5423034",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6533262",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6850159",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/7015730",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6590149",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6498416",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6744248",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6346915",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6857934",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6833053",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2024/B/5691933",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6608963",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6658323",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6229222",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/5877921",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/5841975",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6135117",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6092336",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/5847392",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6663037",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6530741",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2024/B/5720741",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6426713",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6101511",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6294774",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6356465",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6019954",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/5798819",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/5923724",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6693787",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6087667",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6507279",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2024/B/5724944",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6338392",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6728210",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6398079",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6239102",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6433661",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6925370",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/5961219",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/5808191",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6961845",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6091814",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6041594",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6920897",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6795955",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6027508",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6338285",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6674663",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6693531",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6206022",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/5936945",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/5870956",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6784272",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6959225",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6185923",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6316142",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6178213",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/5959995",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6939262",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2024/B/5641448",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6027936",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2024/B/5710276",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/5869630",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6936043",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6625963",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2024/B/5711903",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6694540",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6333309",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6838682",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6586775",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6973764",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6900949",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6932621",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6658424",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6020231",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6454670",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6357122",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6894605",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6193679",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6801939",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6056941",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6573664",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6897992",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6578215",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6682736",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6569246",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/5845925",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6618283",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6666347",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6099633",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6596668",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6608724",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6895663",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6370158",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/5811913",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6307098",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6368481",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6726832",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6078148",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/5894637",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6901726",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6136860",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/7007675",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/5785247",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6801910",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2024/B/5734611",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2024/B/5743566",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6863127",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6934494",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6650418",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6952842",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6268893",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/6963285",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/6902447",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/6933985",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/6913179",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/6708967",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/6832141",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/6910446",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/6803860",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "fin_cancelled",
+  "bid_number": "GEM/2025/B/6735933",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6532504",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6847819",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6817567",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6832382",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6970846",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6636822",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6922010",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6993992",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6263433",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6644408",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/5784256",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6260034",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6148189",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6701920",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6989714",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6492218",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6393513",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6233275",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": true
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6587264",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6271758",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6854943",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6555404",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6853142",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6709565",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6410148",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6338122",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6523138",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6695805",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6222017",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/5948435",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6528847",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_live",
+  "bid_number": "GEM/2025/B/6929904",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6746596",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6021067",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6850625",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6522692",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6849110",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6884163",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6793926",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6456830",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6935992",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6746683",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6961971",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6171392",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6453884",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6606186",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "tech_cancelled",
+  "bid_number": "GEM/2025/B/6059116",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6431944",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6562283",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6633512",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6539956",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6263289",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ },
+ {
+  "group": "noteval_live",
+  "bid_number": "GEM/2025/B/6784308",
+  "state": "no RA child",
+  "n_children": 0,
+  "has_participants": false
+ }
+]

@@ -1,130 +1,280 @@
 """
-Database layer for Pipeline2: MongoDB connection, tender storage, month status.
+Database layer for Pipeline2: PostgreSQL connection, staged tender storage, month status.
 
-Collections:
-  - tenderGemAll:      All scraped tender documents
-  - pipeline2_status:  Per-month multi-pass progress tracking
-  - failed_pages:      Pages that failed to fetch (for retry/debugging)
-  - error_logs:        All error events from pipeline2 and pipeline3
+Tables:
+  - staging.tenders_raw:  This run's newly scraped listing rows, keyed (run_id, bid_id).
+                          Pruned down to only genuinely-new bid_ids once a month's
+                          capture completes (see complete_month / prune_known_bid_ids).
+  - pipeline2_status:     Per-month multi-pass progress tracking (was pipeline2_status
+                          collection). Also carries this month's run_id.
+  - failed_pages:         Pages that failed to fetch (for retry/debugging).
+  - failed_tenders:       Tenders that failed result/detail fetches.
+  - error_logs:           All error events from pipeline2 and pipeline3.
 """
-import certifi
 from datetime import datetime, timezone
 from typing import Optional
 
-from pymongo import MongoClient, ASCENDING, UpdateOne
-from pymongo.errors import BulkWriteError
+import psycopg
+from psycopg.rows import dict_row
+from psycopg.types.json import Json
 
-from pipeline2.config import MONGO_URI, MONGO_DB_NAME
+from common.db import get_connection
 
-
-_client: MongoClient = None
-_db = None
-
-
-def _get_client_kwargs() -> dict:
-    """Pass tlsCAFile only when TLS is required (mongodb+srv://)."""
-    kwargs = {}
-    if MONGO_URI and MONGO_URI.startswith("mongodb+srv://"):
-        kwargs["tlsCAFile"] = certifi.where()
-    return kwargs
-
-
-def get_db():
-    """Get MongoDB database instance (lazy singleton)."""
-    global _client, _db
-    if _db is None:
-        _client = MongoClient(MONGO_URI, **_get_client_kwargs())
-        _db = _client[MONGO_DB_NAME]
-    return _db
-
-
-def get_tender_collection(month: str):
-    """Get year-based tender collection (e.g. tenders_2025) for a given month string like '2025-06'."""
-    year = month[:4]
-    db = get_db()
-    return db[f"tenders_{year}"]
-
-
-def create_indexes_for_year(year: str):
-    """Ensure indexes on a year-based tender collection."""
-    db = get_db()
-    col = db[f"tenders_{year}"]
-    col.create_index("bid_id", unique=True, sparse=True)
-    col.create_index("bid_number")
-    col.create_index("department")
-    col.create_index("end_date")
-    col.create_index("month")
-
-
-def create_indexes():
-    """Ensure indexes on status/error collections."""
-    db = get_db()
-
-    # pipeline2_status
-    db.pipeline2_status.create_index("month", unique=True)
-
-    # failed_pages
-    db.failed_pages.create_index("month")
-    db.failed_pages.create_index("page_no")
-    db.failed_pages.create_index("timestamp")
-
-    # failed_tenders
-    db.failed_tenders.create_index("bid_id")
-    db.failed_tenders.create_index("month")
-    db.failed_tenders.create_index("pipeline")
-    db.failed_tenders.create_index("timestamp")
-
-    # error_logs
-    db.error_logs.create_index("pipeline")
-    db.error_logs.create_index("month")
-    db.error_logs.create_index("timestamp")
+_SCHEMA_READY = False
 
 
 def _now():
     return datetime.now(timezone.utc)
 
 
+def _ensure_schema(conn):
+    """Create staging/status/log tables and indexes if they don't exist yet."""
+    global _SCHEMA_READY
+    if _SCHEMA_READY:
+        return
+
+    with conn.cursor() as cur:
+        cur.execute("CREATE EXTENSION IF NOT EXISTS pgcrypto;")
+        cur.execute("CREATE SCHEMA IF NOT EXISTS staging;")
+
+        cur.execute("""
+            CREATE TABLE IF NOT EXISTS staging.tenders_raw (
+                run_id                 UUID        NOT NULL,
+                batch_key              TEXT        NOT NULL,
+                bid_id                 BIGINT      NOT NULL,
+                bid_id_parent          BIGINT,
+                bid_number             TEXT,
+                bid_number_parent      TEXT,
+                ra_number              TEXT,
+                bid_type               INT,
+                eval_type              INT,
+                single_packet          INT,
+                buyer_status           INT,
+                bid_to_ra              INT,
+                ra_to_bid              INT,
+                category               TEXT,
+                items                  TEXT,
+                category_id            TEXT,
+                bid_title              TEXT,
+                department             TEXT,
+                ministry               TEXT,
+                start_date             TEXT,
+                end_date               TEXT,
+                total_quantity         INT,
+                is_high_value          BOOLEAN,
+                is_rc_bid              INT,
+                is_global_tendering    INT,
+                is_bunch               INT,
+                is_custom_item         INT,
+                has_boq                BOOLEAN,
+                tender_link            TEXT,
+                month                  TEXT,
+                buyer_details_raw      JSONB,
+                contract_details_raw   JSONB,
+                bid_result_raw         JSONB,
+                ra_result_raw          JSONB,
+                scraped_at             TIMESTAMPTZ,
+                listing_scraped_at     TIMESTAMPTZ,
+                validated              BOOLEAN     NOT NULL DEFAULT FALSE,
+                validation_errors      JSONB,
+                merged_at              TIMESTAMPTZ,
+                PRIMARY KEY (run_id, bid_id)
+            );
+        """)
+        cur.execute("""
+            CREATE INDEX IF NOT EXISTS ix_staging_tenders_raw_batch
+                ON staging.tenders_raw (run_id, batch_key);
+        """)
+
+        cur.execute("""
+            CREATE TABLE IF NOT EXISTS pipeline2_status (
+                month           TEXT        PRIMARY KEY,
+                run_id          UUID        NOT NULL DEFAULT gen_random_uuid(),
+                status          TEXT        NOT NULL DEFAULT 'pending',
+                total_tenders   INT         NOT NULL DEFAULT 0,
+                unique_captured INT         NOT NULL DEFAULT 0,
+                passes_done     INT         NOT NULL DEFAULT 0,
+                last_pass_new   INT         NOT NULL DEFAULT 0,
+                error_message   TEXT,
+                started_at      TIMESTAMPTZ,
+                completed_at    TIMESTAMPTZ,
+                updated_at      TIMESTAMPTZ NOT NULL DEFAULT now()
+            );
+        """)
+
+        cur.execute("""
+            CREATE TABLE IF NOT EXISTS failed_pages (
+                id          BIGSERIAL   PRIMARY KEY,
+                pipeline    TEXT        NOT NULL DEFAULT 'pipeline2',
+                month       TEXT        NOT NULL,
+                page_no     INT         NOT NULL,
+                worker_id   INT,
+                pass_num    INT         NOT NULL DEFAULT 0,
+                error       TEXT,
+                logged_at   TIMESTAMPTZ NOT NULL DEFAULT now()
+            );
+        """)
+        cur.execute("CREATE INDEX IF NOT EXISTS ix_failed_pages_month ON failed_pages (month);")
+        cur.execute("CREATE INDEX IF NOT EXISTS ix_failed_pages_page_no ON failed_pages (page_no);")
+        cur.execute("CREATE INDEX IF NOT EXISTS ix_failed_pages_logged_at ON failed_pages (logged_at);")
+
+        cur.execute("""
+            CREATE TABLE IF NOT EXISTS failed_tenders (
+                id          BIGSERIAL   PRIMARY KEY,
+                pipeline    TEXT        NOT NULL,
+                bid_id      BIGINT      NOT NULL,
+                month       TEXT        NOT NULL,
+                worker_id   INT,
+                error       TEXT,
+                retry_count INT         NOT NULL DEFAULT 0,
+                resolved    BOOLEAN     NOT NULL DEFAULT FALSE,
+                logged_at   TIMESTAMPTZ NOT NULL DEFAULT now()
+            );
+        """)
+        cur.execute("CREATE INDEX IF NOT EXISTS ix_failed_tenders_bid_id ON failed_tenders (bid_id);")
+        cur.execute("CREATE INDEX IF NOT EXISTS ix_failed_tenders_month ON failed_tenders (month);")
+        cur.execute("CREATE INDEX IF NOT EXISTS ix_failed_tenders_pipeline ON failed_tenders (pipeline);")
+        cur.execute("CREATE INDEX IF NOT EXISTS ix_failed_tenders_logged_at ON failed_tenders (logged_at);")
+
+        cur.execute("""
+            CREATE TABLE IF NOT EXISTS error_logs (
+                id          BIGSERIAL   PRIMARY KEY,
+                pipeline    TEXT        NOT NULL,
+                month       TEXT        NOT NULL,
+                worker_id   INT         NOT NULL DEFAULT 0,
+                bid_id      BIGINT      NOT NULL DEFAULT 0,
+                page_no     INT         NOT NULL DEFAULT 0,
+                error       TEXT,
+                context     TEXT,
+                logged_at   TIMESTAMPTZ NOT NULL DEFAULT now()
+            );
+        """)
+        cur.execute("CREATE INDEX IF NOT EXISTS ix_error_logs_pipeline ON error_logs (pipeline);")
+        cur.execute("CREATE INDEX IF NOT EXISTS ix_error_logs_month ON error_logs (month);")
+        cur.execute("CREATE INDEX IF NOT EXISTS ix_error_logs_logged_at ON error_logs (logged_at);")
+
+    _SCHEMA_READY = True
+
+
+def create_indexes():
+    """Ensure staging/status/log tables and indexes exist (was Mongo index setup)."""
+    conn = get_connection()
+    _ensure_schema(conn)
+
+
+def _get_run_id(month: str):
+    """This month's run_id, assigned once by init_month_status()."""
+    conn = get_connection()
+    _ensure_schema(conn)
+    with conn.cursor() as cur:
+        cur.execute("SELECT run_id FROM pipeline2_status WHERE month = %s", (month,))
+        row = cur.fetchone()
+        return row[0] if row else None
+
+
 # ═══════════════════════════════════════════════════════════════
-# Tender Storage (bulk upsert with dedup)
+# Tender Storage (staged bulk upsert with dedup)
 # ═══════════════════════════════════════════════════════════════
+
+# Plain (non-JSON) staging columns, in the order they're written.
+_STAGING_COLUMNS = [
+    "bid_id", "bid_id_parent", "bid_number", "bid_number_parent", "ra_number",
+    "bid_type", "eval_type", "single_packet", "buyer_status", "bid_to_ra", "ra_to_bid",
+    "category", "items", "category_id", "bid_title", "department", "ministry",
+    "start_date", "end_date", "total_quantity", "is_high_value", "is_rc_bid",
+    "is_global_tendering", "is_bunch", "is_custom_item", "has_boq", "tender_link",
+    "month", "scraped_at", "listing_scraped_at",
+]
+
+# doc key -> staging column, for the JSONB detail blobs (empty at pipeline2 time,
+# filled in later by pipeline3, but the columns exist on this same staging row).
+_JSON_DOC_TO_COLUMN = {
+    "buyer_details": "buyer_details_raw",
+    "contract_details": "contract_details_raw",
+    "bid_result": "bid_result_raw",
+    "ra_result": "ra_result_raw",
+}
+
+_INSERT_COLUMNS = _STAGING_COLUMNS + list(_JSON_DOC_TO_COLUMN.values())
+_INSERT_SQL = f"""
+    INSERT INTO staging.tenders_raw (run_id, batch_key, {", ".join(_INSERT_COLUMNS)})
+    VALUES ({", ".join(["%s"] * (len(_INSERT_COLUMNS) + 2))})
+    ON CONFLICT (run_id, bid_id) DO NOTHING
+"""
+
+
+def _doc_to_row(run_id, month, doc):
+    values = [run_id, month]
+    values.extend(doc.get(col) for col in _STAGING_COLUMNS)
+    for doc_key in _JSON_DOC_TO_COLUMN:
+        val = doc.get(doc_key)
+        values.append(Json(val) if val is not None else None)
+    return values
+
 
 def bulk_upsert_tenders(docs: list, month: str, chunk_size: int = 5000) -> int:
     """
-    Bulk upsert tender documents in chunks. Uses bid_id as unique key.
-    Only inserts new documents, skips existing ones.
-    Processes in chunks to avoid holding all UpdateOne objects in memory.
-    Returns count of newly inserted documents.
+    Bulk upsert tender documents into staging.tenders_raw, in chunks.
+    Uses (run_id, bid_id) as the unique key -- only inserts rows not already
+    staged for this month's run, skips existing ones (mirrors old $setOnInsert).
+    Processes in chunks to avoid holding everything in memory.
+    Returns count of newly inserted rows.
     """
     if not docs:
         return 0
 
-    col = get_tender_collection(month)
+    run_id = _get_run_id(month)
+    conn = get_connection()
     total_upserted = 0
 
-    for i in range(0, len(docs), chunk_size):
-        chunk = docs[i:i + chunk_size]
-        operations = [
-            UpdateOne(
-                {"bid_id": doc["bid_id"]},
-                {"$setOnInsert": doc},
-                upsert=True
-            )
-            for doc in chunk
-        ]
-        try:
-            result = col.bulk_write(operations, ordered=False)
-            total_upserted += result.upserted_count
-        except BulkWriteError as e:
-            total_upserted += e.details.get("nUpserted", 0)
-        del operations  # Free chunk memory immediately
+    with conn.cursor() as cur:
+        for i in range(0, len(docs), chunk_size):
+            chunk = docs[i:i + chunk_size]
+            newly = 0
+            for doc in chunk:
+                cur.execute(_INSERT_SQL, _doc_to_row(run_id, month, doc))
+                newly += cur.rowcount
+            total_upserted += newly
+            del chunk
 
     return total_upserted
 
 
 def get_month_bid_count(month: str) -> int:
-    """Get count of tenders already stored for a given month."""
-    col = get_tender_collection(month)
-    return col.count_documents({"month": month})
+    """Count of tenders currently staged for this month's run (pre-prune)."""
+    run_id = _get_run_id(month)
+    if run_id is None:
+        return 0
+    conn = get_connection()
+    with conn.cursor() as cur:
+        cur.execute(
+            "SELECT COUNT(*) FROM staging.tenders_raw WHERE run_id = %s AND batch_key = %s",
+            (run_id, month),
+        )
+        return cur.fetchone()[0]
+
+
+def prune_known_bid_ids(month: str) -> int:
+    """
+    Remove staged rows for this month's run whose bid_id already exists in
+    production `tenders` (any year) -- leaves only genuinely new bid_ids staged
+    for pipeline3/pipeline4 to pick up. Called once capture finishes, from
+    complete_month().
+    """
+    run_id = _get_run_id(month)
+    if run_id is None:
+        return 0
+    conn = get_connection()
+    with conn.cursor() as cur:
+        cur.execute(
+            """
+            DELETE FROM staging.tenders_raw sr
+            USING tenders t
+            WHERE sr.run_id = %s AND sr.batch_key = %s AND sr.bid_id = t.bid_id
+            """,
+            (run_id, month),
+        )
+        return cur.rowcount
 
 
 # ═══════════════════════════════════════════════════════════════
@@ -132,48 +282,46 @@ def get_month_bid_count(month: str) -> int:
 # ═══════════════════════════════════════════════════════════════
 
 def log_failed_page(month: str, page_no: int, worker_id: int, error: str, pass_num: int = 0):
-    """Log a failed page fetch to the failed_pages collection."""
-    db = get_db()
-    db.failed_pages.insert_one({
-        "pipeline": "pipeline2",
-        "month": month,
-        "page_no": page_no,
-        "worker_id": worker_id,
-        "pass_num": pass_num,
-        "error": error[:1000],
-        "timestamp": _now(),
-    })
+    """Log a failed page fetch to the failed_pages table."""
+    conn = get_connection()
+    _ensure_schema(conn)
+    with conn.cursor() as cur:
+        cur.execute(
+            """
+            INSERT INTO failed_pages (pipeline, month, page_no, worker_id, pass_num, error, logged_at)
+            VALUES ('pipeline2', %s, %s, %s, %s, %s, %s)
+            """,
+            (month, page_no, worker_id, pass_num, error[:1000], _now()),
+        )
 
 
 def log_failed_tender(bid_id: int, month: str, worker_id: int, error: str, pipeline: str = "pipeline3"):
-    """Log a failed tender result fetch to the failed_tenders collection."""
-    db = get_db()
-    db.failed_tenders.insert_one({
-        "pipeline": pipeline,
-        "bid_id": bid_id,
-        "month": month,
-        "worker_id": worker_id,
-        "error": error[:1000],
-        "retry_count": 0,
-        "resolved": False,
-        "timestamp": _now(),
-    })
+    """Log a failed tender result fetch to the failed_tenders table."""
+    conn = get_connection()
+    _ensure_schema(conn)
+    with conn.cursor() as cur:
+        cur.execute(
+            """
+            INSERT INTO failed_tenders (pipeline, bid_id, month, worker_id, error, retry_count, resolved, logged_at)
+            VALUES (%s, %s, %s, %s, %s, 0, FALSE, %s)
+            """,
+            (pipeline, bid_id, month, worker_id, error[:1000], _now()),
+        )
 
 
 def log_error(pipeline: str, month: str, error: str, context: str = "",
               worker_id: int = 0, bid_id: int = 0, page_no: int = 0):
-    """Log any error event to the error_logs collection."""
-    db = get_db()
-    db.error_logs.insert_one({
-        "pipeline": pipeline,
-        "month": month,
-        "worker_id": worker_id,
-        "bid_id": bid_id,
-        "page_no": page_no,
-        "error": error[:2000],
-        "context": context[:500],
-        "timestamp": _now(),
-    })
+    """Log any error event to the error_logs table."""
+    conn = get_connection()
+    _ensure_schema(conn)
+    with conn.cursor() as cur:
+        cur.execute(
+            """
+            INSERT INTO error_logs (pipeline, month, worker_id, bid_id, page_no, error, context, logged_at)
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
+            """,
+            (pipeline, month, worker_id, bid_id, page_no, error[:2000], context[:500], _now()),
+        )
 
 
 # ═══════════════════════════════════════════════════════════════
@@ -181,88 +329,105 @@ def log_error(pipeline: str, month: str, error: str, context: str = "",
 # ═══════════════════════════════════════════════════════════════
 
 def init_month_status(month: str):
-    """Initialize a month in pipeline2_status if not exists."""
-    db = get_db()
-    db.pipeline2_status.update_one(
-        {"month": month},
-        {"$setOnInsert": {
-            "month": month,
-            "status": "pending",
-            "total_tenders": 0,
-            "unique_captured": 0,
-            "passes_done": 0,
-            "last_pass_new": 0,
-            "error_message": None,
-            "started_at": None,
-            "completed_at": None,
-            "updated_at": _now(),
-        }},
-        upsert=True
-    )
+    """Initialize a month in pipeline2_status if not exists (also assigns its run_id)."""
+    conn = get_connection()
+    _ensure_schema(conn)
+    with conn.cursor() as cur:
+        cur.execute(
+            """
+            INSERT INTO pipeline2_status (month, status, updated_at)
+            VALUES (%s, 'pending', %s)
+            ON CONFLICT (month) DO NOTHING
+            """,
+            (month, _now()),
+        )
 
 
 def start_month(month: str):
     """Mark month as in_progress."""
-    db = get_db()
-    db.pipeline2_status.update_one(
-        {"month": month},
-        {"$set": {
-            "status": "in_progress",
-            "started_at": _now(),
-            "updated_at": _now(),
-        }}
-    )
+    conn = get_connection()
+    with conn.cursor() as cur:
+        cur.execute(
+            """
+            UPDATE pipeline2_status
+            SET status = 'in_progress', started_at = %s, updated_at = %s
+            WHERE month = %s
+            """,
+            (_now(), _now(), month),
+        )
 
 
 def update_month_progress(month: str, pass_num: int, unique_captured: int,
                           last_pass_new: int, total_tenders: int = 0):
     """Update progress after each pass."""
-    db = get_db()
-    update = {
-        "$set": {
-            "passes_done": pass_num,
-            "unique_captured": unique_captured,
-            "last_pass_new": last_pass_new,
-            "updated_at": _now(),
-        }
-    }
-    if total_tenders > 0:
-        update["$set"]["total_tenders"] = total_tenders
-    db.pipeline2_status.update_one({"month": month}, update)
+    conn = get_connection()
+    with conn.cursor() as cur:
+        if total_tenders > 0:
+            cur.execute(
+                """
+                UPDATE pipeline2_status
+                SET passes_done = %s, unique_captured = %s, last_pass_new = %s,
+                    total_tenders = %s, updated_at = %s
+                WHERE month = %s
+                """,
+                (pass_num, unique_captured, last_pass_new, total_tenders, _now(), month),
+            )
+        else:
+            cur.execute(
+                """
+                UPDATE pipeline2_status
+                SET passes_done = %s, unique_captured = %s, last_pass_new = %s, updated_at = %s
+                WHERE month = %s
+                """,
+                (pass_num, unique_captured, last_pass_new, _now(), month),
+            )
 
 
 def complete_month(month: str, unique_captured: int, passes_done: int):
-    """Mark month as completed."""
-    db = get_db()
-    db.pipeline2_status.update_one(
-        {"month": month},
-        {"$set": {
-            "status": "completed",
-            "unique_captured": unique_captured,
-            "passes_done": passes_done,
-            "completed_at": _now(),
-            "updated_at": _now(),
-        }}
-    )
+    """
+    Mark month as completed. Capture is finished at this point, so this is also
+    where staging gets pruned down to only bid_ids not already in production
+    `tenders` -- pipeline3/4 downstream only ever see genuinely new bid_ids.
+    """
+    pruned = prune_known_bid_ids(month)
+
+    conn = get_connection()
+    with conn.cursor() as cur:
+        cur.execute(
+            """
+            UPDATE pipeline2_status
+            SET status = 'completed', unique_captured = %s, passes_done = %s,
+                completed_at = %s, updated_at = %s
+            WHERE month = %s
+            """,
+            (unique_captured, passes_done, _now(), _now(), month),
+        )
+
+    if pruned:
+        print(f"  [db] Pruned {pruned} already-known bid_id(s) from staging for {month} "
+              f"-> {unique_captured - pruned} new.")
 
 
 def fail_month(month: str, error: str):
     """Mark month as failed."""
-    db = get_db()
-    db.pipeline2_status.update_one(
-        {"month": month},
-        {"$set": {
-            "status": "failed",
-            "error_message": error,
-            "updated_at": _now(),
-        }}
-    )
+    conn = get_connection()
+    with conn.cursor() as cur:
+        cur.execute(
+            """
+            UPDATE pipeline2_status
+            SET status = 'failed', error_message = %s, updated_at = %s
+            WHERE month = %s
+            """,
+            (error, _now(), month),
+        )
 
 
 def get_month_status(month: str) -> Optional[dict]:
     """Get current status for a month."""
-    db = get_db()
-    return db.pipeline2_status.find_one({"month": month}, {"_id": 0})
+    conn = get_connection()
+    with conn.cursor(row_factory=dict_row) as cur:
+        cur.execute("SELECT * FROM pipeline2_status WHERE month = %s", (month,))
+        return cur.fetchone()
 
 
 def reset_in_progress_months():
@@ -270,26 +435,33 @@ def reset_in_progress_months():
     Reset any months stuck in 'in_progress' back to 'pending'.
     Call this at startup to recover from mid-run crashes.
     """
-    db = get_db()
-    result = db.pipeline2_status.update_many(
-        {"status": "in_progress"},
-        {"$set": {"status": "pending", "updated_at": _now()}}
-    )
-    return result.modified_count
+    conn = get_connection()
+    with conn.cursor() as cur:
+        cur.execute(
+            "UPDATE pipeline2_status SET status = 'pending', updated_at = %s WHERE status = 'in_progress'",
+            (_now(),),
+        )
+        return cur.rowcount
 
 
 def get_next_pending_month() -> Optional[str]:
     """Get the next month that needs processing (oldest pending/failed first)."""
-    db = get_db()
-    doc = db.pipeline2_status.find_one(
-        {"status": {"$in": ["pending", "failed"]}},
-        {"month": 1},
-        sort=[("month", ASCENDING)]
-    )
-    return doc["month"] if doc else None
+    conn = get_connection()
+    with conn.cursor() as cur:
+        cur.execute(
+            """
+            SELECT month FROM pipeline2_status
+            WHERE status IN ('pending', 'failed')
+            ORDER BY month ASC LIMIT 1
+            """
+        )
+        row = cur.fetchone()
+        return row[0] if row else None
 
 
 def get_all_month_statuses() -> list:
     """Get all month statuses for summary display."""
-    db = get_db()
-    return list(db.pipeline2_status.find({}, {"_id": 0}).sort("month", ASCENDING))
+    conn = get_connection()
+    with conn.cursor(row_factory=dict_row) as cur:
+        cur.execute("SELECT * FROM pipeline2_status ORDER BY month ASC")
+        return cur.fetchall()

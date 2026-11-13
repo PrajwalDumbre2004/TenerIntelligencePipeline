@@ -2,12 +2,14 @@
 Pipeline3 Configuration
 
 This pipeline fetches bid results, RA results, buyer details, and contract details
-for tenders already stored in DB by pipeline2. It reads bid_ids from MongoDB,
-scrapes the result pages, and updates the existing records.
+for tenders already staged in Postgres by pipeline2. It reads bid_ids from
+staging.tenders_raw, scrapes the result pages, and updates the existing rows.
 """
 import os
 from pathlib import Path
 from dotenv import load_dotenv
+
+from common.config import START_YEAR, START_MONTH, END_YEAR, END_MONTH
 
 # Load .env from the root a100 folder (one level up)
 load_dotenv(Path(__file__).parent.parent / ".env")
@@ -17,24 +19,18 @@ load_dotenv(Path(__file__).parent.parent / ".env")
 # ═══════════════════════════════════════════════════════════════
 BASE_URL = "https://bidplus.gem.gov.in"
 
-# Date range to process (same as pipeline2)
-START_YEAR = 2018
-START_MONTH = 6
-END_YEAR = 2018
-END_MONTH = 12
+# Date range to process — see common/config.py (shared with pipeline2
+# and pipeline_main/run.py so all three stay in sync)
 
 # ═══════════════════════════════════════════════════════════════
-# MongoDB Connection (Atlas)
+# PostgreSQL Connection
 # ═══════════════════════════════════════════════════════════════
-MONGO_URI = os.getenv(
-    "MONGO_URI"
-)
-MONGO_DB_NAME = os.getenv("MONGO_DB_NAME", "TenderIntelligence")
+POSTGRES_DSN = os.getenv("POSTGRES_DSN")
 
 # ═══════════════════════════════════════════════════════════════
 # Worker Settings
 # ═══════════════════════════════════════════════════════════════
-NUM_WORKERS = 24            # Parallel browser instances
+NUM_WORKERS = 10          # Parallel browser instances
 PAGES_PER_BROWSER = 6      # Concurrent pages per browser
 
 # Rate limiting
@@ -48,4 +44,9 @@ BROWSER_VIEWPORT = {"width": 1280, "height": 800}
 
 # Retry settings
 MAX_RETRIES = 3
+
+# ═══════════════════════════════════════════════════════════════
+# Derivation (participant extraction, runs after scraping per month)
+# ═══════════════════════════════════════════════════════════════
+DERIVE_BATCH_SIZE = 2000   # Scraped tenders to flatten into participations per batch
 

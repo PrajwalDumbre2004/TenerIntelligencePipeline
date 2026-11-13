@@ -8,6 +8,8 @@ import os
 from pathlib import Path
 from dotenv import load_dotenv
 
+from common.config import START_YEAR, START_MONTH, END_YEAR, END_MONTH
+
 # Load .env from the root a100 folder (one level up)
 load_dotenv(Path(__file__).parent.parent / ".env")
 
@@ -16,24 +18,18 @@ load_dotenv(Path(__file__).parent.parent / ".env")
 # ═══════════════════════════════════════════════════════════════
 BASE_URL = "https://bidplus.gem.gov.in"
 
-# Date range to scrape
-# START_YEAR = 2018
-# START_MONTH = 6
-# END_YEAR = 2018
-# END_MONTH = 12
+# Date range to scrape — see common/config.py (shared with pipeline3
+# and pipeline_main/run.py so all three stay in sync)
 
 # ═══════════════════════════════════════════════════════════════
-# MongoDB Connection (Atlas)
+# PostgreSQL Connection
 # ═══════════════════════════════════════════════════════════════
-MONGO_URI = os.getenv(
-    "MONGO_URI"
-)
-MONGO_DB_NAME = os.getenv("MONGO_DB_NAME", "TenderIntelligence")
+POSTGRES_DSN = os.getenv("POSTGRES_DSN")
 
 # ═══════════════════════════════════════════════════════════════
 # Worker Settings
 # ═══════════════════════════════════════════════════════════════
-NUM_WORKERS = 24            # Parallel browser workers per pass
+NUM_WORKERS = 10          # Parallel browser workers per pass
 
 # Multi-pass settings
 MAX_PASSES = 15             # Max passes per month before moving on

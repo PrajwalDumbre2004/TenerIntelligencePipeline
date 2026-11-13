@@ -1,10 +1,9 @@
-"""Combined Pipeline: Runs Pipeline2, Pipeline3, then Pipeline4 for each month.
+"""Combined Pipeline: Runs Pipeline2 and Pipeline3 for each month.
 
 Flow per month:
   1. Pipeline2: Multi-pass fetch all listing data → store in DB
   2. Pipeline3: Fetch bid results/RA results for all tenders in that month → update DB
-  3. Pipeline4: Extract participants from newly scraped tenders → update TenderAnalytics
-  4. Move to next month
+  3. Move to next month
 
 Usage:
     python pipeline_main/run.py                  # Process all months in range below
@@ -28,17 +27,13 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from pipeline2.orchestrator import process_month as pipeline2_process_month
 from pipeline3.orchestrator import process_month as pipeline3_process_month
-from pipeline4.orchestrator import run_pipeline as pipeline4_run
-from pipeline2.db import create_indexes as p2_create_indexes, create_indexes_for_year, init_month_status, reset_in_progress_months
+from pipeline2.db import create_indexes as p2_create_indexes, init_month_status, reset_in_progress_months
 
 # ═══════════════════════════════════════════════════════════════
-# CONFIG — Change these to set the month range
+# CONFIG — month range, shared with pipeline2/pipeline3 via common/config.py.
+# Change it there (or pass CLI args below) to affect all three.
 # ═══════════════════════════════════════════════════════════════
-START_YEAR = 2026
-START_MONTH = 4
-END_YEAR = 2026
-END_MONTH = 4
-# ═══════════════════════════════════════════════════════════════
+from common.config import START_YEAR, START_MONTH, END_YEAR, END_MONTH
 
 _shutdown = False
 
@@ -100,7 +95,7 @@ def main():
     months = generate_month_list(sy, sm, ey, em)
 
     print("=" * 70)
-    print("  COMBINED PIPELINE — Pipeline2 + Pipeline3 + Pipeline4")
+    print("  COMBINED PIPELINE — Pipeline2 + Pipeline3")
     print("=" * 70)
     print(f"  Months to process: {len(months)} ({months[0]} to {months[-1]})")
     print("=" * 70)
@@ -109,10 +104,6 @@ def main():
     print("\n  Initializing database indexes...")
     try:
         p2_create_indexes()
-        # Create indexes for year-based tender collections
-        years = set(m[:4] for m in months)
-        for year in sorted(years):
-            create_indexes_for_year(year)
         print("  ✓ Indexes created successfully")
     except Exception as e:
         print(f"  ✗ WARNING: Index creation failed: {str(e)[:200]}")
@@ -148,7 +139,6 @@ def main():
 
         p2_success = False
         p3_success = False
-        p4_success = False
 
         # Step 1: Pipeline2 — Extract all listings
         print(f"\n  [STEP 1] Pipeline2: Extracting all listings for {month}...")
@@ -186,32 +176,13 @@ def main():
                 "error": error_msg[:500]
             })
 
-        if _shutdown:
-            break
-
-        # Step 3: Pipeline4 — Update derived analytics collections
-        print(f"\n  [STEP 3] Pipeline4: Updating derived analytics for {month}...")
-        try:
-            pipeline4_run(skip_competitors=False, month_filter=month)
-            p4_success = True
-            print(f"  ✓ Pipeline4 completed successfully")
-        except Exception as e:
-            error_msg = f"{type(e).__name__}: {str(e)}"
-            print(f"  ✗ Pipeline4 FAILED: {error_msg[:200]}")
-            _log_failure_to_file(month, "Pipeline4", error_msg)
-            pipeline_stats["failures"].append({
-                "month": month,
-                "pipeline": "Pipeline4",
-                "error": error_msg[:500]
-            })
-
         elapsed = time.time() - t_start
 
         # Track month completion status
-        if p2_success and p3_success and p4_success:
+        if p2_success and p3_success:
             pipeline_stats["months_completed"] += 1
             print(f"\n  ✓ Month {month} FULLY COMPLETE — Total time: {elapsed:.0f}s ({elapsed/60:.1f}min)")
-        elif p2_success or p3_success or p4_success:
+        elif p2_success or p3_success:
             pipeline_stats["months_partial"] += 1
             print(f"\n  ⚠ Month {month} PARTIALLY COMPLETE — Total time: {elapsed:.0f}s ({elapsed/60:.1f}min)")
         else:

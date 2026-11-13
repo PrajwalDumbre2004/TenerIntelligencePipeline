@@ -1,0 +1,3272 @@
+{
+ "year": 2025,
+ "cells": {
+  "awarded_live|all": {
+   "count": 595242,
+   "n": 30,
+   "errors": 0,
+   "k": 30,
+   "full_masked": 0,
+   "part_masked": 0,
+   "rate": [
+    1.0,
+    0.8864829086095221,
+    1.0
+   ],
+   "full_rate": [
+    0.0,
+    0.0,
+    0.113517091390478
+   ],
+   "part_rate": [
+    0.0,
+    0.0,
+    0.113517091390478
+   ],
+   "proj": {
+    "with": 595242.0,
+    "with_lo": 527671.8594865492,
+    "with_hi": 595242.0,
+    "clean": 595242.0,
+    "part_masked": 0.0,
+    "full_masked": 0.0,
+    "without": 0.0
+   }
+  },
+  "awarded_live|product": {
+   "count": 438412,
+   "n": 15,
+   "errors": 0,
+   "k": 15,
+   "full_masked": 0,
+   "part_masked": 0,
+   "rate": [
+    1.0,
+    0.7961107336956521,
+    1.0
+   ],
+   "full_rate": [
+    0.0,
+    0.0,
+    0.20388926630434784
+   ],
+   "part_rate": [
+    0.0,
+    0.0,
+    0.20388926630434784
+   ],
+   "proj": {
+    "with": 438412.0,
+    "with_lo": 349024.4989809782,
+    "with_hi": 438412.0,
+    "clean": 438412.0,
+    "part_masked": 0.0,
+    "full_masked": 0.0,
+    "without": 0.0
+   }
+  },
+  "awarded_live|service": {
+   "count": 156830,
+   "n": 15,
+   "errors": 0,
+   "k": 15,
+   "full_masked": 0,
+   "part_masked": 0,
+   "rate": [
+    1.0,
+    0.7961107336956521,
+    1.0
+   ],
+   "full_rate": [
+    0.0,
+    0.0,
+    0.20388926630434784
+   ],
+   "part_rate": [
+    0.0,
+    0.0,
+    0.20388926630434784
+   ],
+   "proj": {
+    "with": 156830.0,
+    "with_lo": 124854.04636548912,
+    "with_hi": 156830.0,
+    "clean": 156830.0,
+    "part_masked": 0.0,
+    "full_masked": 0.0,
+    "without": 0.0
+   }
+  },
+  "awarded_live|bidToRA": {
+   "count": 108070,
+   "n": 15,
+   "errors": 0,
+   "k": 15,
+   "full_masked": 0,
+   "part_masked": 0,
+   "rate": [
+    1.0,
+    0.7961107336956521,
+    1.0
+   ],
+   "full_rate": [
+    0.0,
+    0.0,
+    0.20388926630434784
+   ],
+   "part_rate": [
+    0.0,
+    0.0,
+    0.20388926630434784
+   ],
+   "proj": {
+    "with": 108070.0,
+    "with_lo": 86035.68699048912,
+    "with_hi": 108070.0,
+    "clean": 108070.0,
+    "part_masked": 0.0,
+    "full_masked": 0.0,
+    "without": 0.0
+   }
+  },
+  "awarded_live|custom": {
+   "count": 138949,
+   "n": 15,
+   "errors": 0,
+   "k": 15,
+   "full_masked": 0,
+   "part_masked": 0,
+   "rate": [
+    1.0,
+    0.7961107336956521,
+    1.0
+   ],
+   "full_rate": [
+    0.0,
+    0.0,
+    0.20388926630434784
+   ],
+   "part_rate": [
+    0.0,
+    0.0,
+    0.20388926630434784
+   ],
+   "proj": {
+    "with": 138949.0,
+    "with_lo": 110618.79033627716,
+    "with_hi": 138949.0,
+    "clean": 138949.0,
+    "part_masked": 0.0,
+    "full_masked": 0.0,
+    "without": 0.0
+   }
+  },
+  "awarded_live|boq": {
+   "count": 119140,
+   "n": 15,
+   "errors": 0,
+   "k": 15,
+   "full_masked": 0,
+   "part_masked": 0,
+   "rate": [
+    1.0,
+    0.7961107336956521,
+    1.0
+   ],
+   "full_rate": [
+    0.0,
+    0.0,
+    0.20388926630434784
+   ],
+   "part_rate": [
+    0.0,
+    0.0,
+    0.20388926630434784
+   ],
+   "proj": {
+    "with": 119140.0,
+    "with_lo": 94848.63281249999,
+    "with_hi": 119140.0,
+    "clean": 119140.0,
+    "part_masked": 0.0,
+    "full_masked": 0.0,
+    "without": 0.0
+   }
+  },
+  "awarded_live|rcbid": {
+   "count": 0,
+   "n": 0,
+   "errors": 0,
+   "k": 0,
+   "full_masked": 0,
+   "part_masked": 0,
+   "rate": [
+    null,
+    null,
+    null
+   ],
+   "full_rate": [
+    null,
+    null,
+    null
+   ],
+   "part_rate": [
+    null,
+    null,
+    null
+   ],
+   "proj": null
+  },
+  "awarded_live|gt": {
+   "count": 0,
+   "n": 0,
+   "errors": 0,
+   "k": 0,
+   "full_masked": 0,
+   "part_masked": 0,
+   "rate": [
+    null,
+    null,
+    null
+   ],
+   "full_rate": [
+    null,
+    null,
+    null
+   ],
+   "part_rate": [
+    null,
+    null,
+    null
+   ],
+   "proj": null
+  },
+  "awarded_live|lt": {
+   "count": 3049,
+   "n": 15,
+   "errors": 0,
+   "k": 15,
+   "full_masked": 0,
+   "part_masked": 0,
+   "rate": [
+    1.0,
+    0.7961107336956521,
+    1.0
+   ],
+   "full_rate": [
+    0.0,
+    0.0,
+    0.20388926630434784
+   ],
+   "part_rate": [
+    0.0,
+    0.0,
+    0.20388926630434784
+   ],
+   "proj": {
+    "with": 3049.0,
+    "with_lo": 2427.3416270380435,
+    "with_hi": 3049.0,
+    "clean": 3049.0,
+    "part_masked": 0.0,
+    "full_masked": 0.0,
+    "without": 0.0
+   }
+  },
+  "awarded_live|st": {
+   "count": 1766,
+   "n": 15,
+   "errors": 0,
+   "k": 15,
+   "full_masked": 0,
+   "part_masked": 0,
+   "rate": [
+    1.0,
+    0.7961107336956521,
+    1.0
+   ],
+   "full_rate": [
+    0.0,
+    0.0,
+    0.20388926630434784
+   ],
+   "part_rate": [
+    0.0,
+    0.0,
+    0.20388926630434784
+   ],
+   "proj": {
+    "with": 1766.0,
+    "with_lo": 1405.9315557065215,
+    "with_hi": 1766.0,
+    "clean": 1766.0,
+    "part_masked": 0.0,
+    "full_masked": 0.0,
+    "without": 0.0
+   }
+  },
+  "awarded_cancelled|all": {
+   "count": 88,
+   "n": 30,
+   "errors": 0,
+   "k": 30,
+   "full_masked": 1,
+   "part_masked": 28,
+   "rate": [
+    1.0,
+    0.8864829086095221,
+    1.0
+   ],
+   "full_rate": [
+    0.03333333333333333,
+    0.0059084379948573795,
+    0.16670751396958874
+   ],
+   "part_rate": [
+    0.9333333333333333,
+    0.7867618227892791,
+    0.9815233646723066
+   ],
+   "proj": {
+    "with": 88.0,
+    "with_lo": 78.01049595763794,
+    "with_hi": 88.0,
+    "clean": 2.933333333333333,
+    "part_masked": 82.13333333333334,
+    "full_masked": 2.933333333333333,
+    "without": 0.0
+   }
+  },
+  "awarded_cancelled|product": {
+   "count": 86,
+   "n": 15,
+   "errors": 0,
+   "k": 15,
+   "full_masked": 0,
+   "part_masked": 15,
+   "rate": [
+    1.0,
+    0.7961107336956521,
+    1.0
+   ],
+   "full_rate": [
+    0.0,
+    0.0,
+    0.20388926630434784
+   ],
+   "part_rate": [
+    1.0,
+    0.7961107336956521,
+    1.0
+   ],
+   "proj": {
+    "with": 86.0,
+    "with_lo": 68.46552309782608,
+    "with_hi": 86.0,
+    "clean": 0.0,
+    "part_masked": 86.0,
+    "full_masked": 0.0,
+    "without": 0.0
+   }
+  },
+  "awarded_cancelled|service": {
+   "count": 2,
+   "n": 2,
+   "errors": 0,
+   "k": 2,
+   "full_masked": 1,
+   "part_masked": 1,
+   "rate": [
+    1.0,
+    0.34237195288961925,
+    1.0
+   ],
+   "full_rate": [
+    0.5,
+    0.09452865480086614,
+    0.9054713451991339
+   ],
+   "part_rate": [
+    0.5,
+    0.09452865480086614,
+    0.9054713451991339
+   ],
+   "proj": {
+    "with": 2.0,
+    "with_lo": 0.6847439057792385,
+    "with_hi": 2.0,
+    "clean": 0.0,
+    "part_masked": 1.0,
+    "full_masked": 1.0,
+    "without": 0.0
+   }
+  },
+  "awarded_cancelled|bidToRA": {
+   "count": 36,
+   "n": 15,
+   "errors": 0,
+   "k": 15,
+   "full_masked": 0,
+   "part_masked": 15,
+   "rate": [
+    1.0,
+    0.7961107336956521,
+    1.0
+   ],
+   "full_rate": [
+    0.0,
+    0.0,
+    0.20388926630434784
+   ],
+   "part_rate": [
+    1.0,
+    0.7961107336956521,
+    1.0
+   ],
+   "proj": {
+    "with": 36.0,
+    "with_lo": 28.659986413043477,
+    "with_hi": 36.0,
+    "clean": 0.0,
+    "part_masked": 36.0,
+    "full_masked": 0.0,
+    "without": 0.0
+   }
+  },
+  "awarded_cancelled|custom": {
+   "count": 2,
+   "n": 2,
+   "errors": 0,
+   "k": 2,
+   "full_masked": 0,
+   "part_masked": 2,
+   "rate": [
+    1.0,
+    0.34237195288961925,
+    1.0
+   ],
+   "full_rate": [
+    0.0,
+    0.0,
+    0.6576280471103807
+   ],
+   "part_rate": [
+    1.0,
+    0.34237195288961925,
+    1.0
+   ],
+   "proj": {
+    "with": 2.0,
+    "with_lo": 0.6847439057792385,
+    "with_hi": 2.0,
+    "clean": 0.0,
+    "part_masked": 2.0,
+    "full_masked": 0.0,
+    "without": 0.0
+   }
+  },
+  "awarded_cancelled|boq": {
+   "count": 4,
+   "n": 4,
+   "errors": 0,
+   "k": 4,
+   "full_masked": 0,
+   "part_masked": 4,
+   "rate": [
+    1.0,
+    0.5100999795960008,
+    1.0
+   ],
+   "full_rate": [
+    0.0,
+    0.0,
+    0.48990002040399916
+   ],
+   "part_rate": [
+    1.0,
+    0.5100999795960008,
+    1.0
+   ],
+   "proj": {
+    "with": 4.0,
+    "with_lo": 2.0403999183840034,
+    "with_hi": 4.0,
+    "clean": 0.0,
+    "part_masked": 4.0,
+    "full_masked": 0.0,
+    "without": 0.0
+   }
+  },
+  "awarded_cancelled|rcbid": {
+   "count": 0,
+   "n": 0,
+   "errors": 0,
+   "k": 0,
+   "full_masked": 0,
+   "part_masked": 0,
+   "rate": [
+    null,
+    null,
+    null
+   ],
+   "full_rate": [
+    null,
+    null,
+    null
+   ],
+   "part_rate": [
+    null,
+    null,
+    null
+   ],
+   "proj": null
+  },
+  "awarded_cancelled|gt": {
+   "count": 0,
+   "n": 0,
+   "errors": 0,
+   "k": 0,
+   "full_masked": 0,
+   "part_masked": 0,
+   "rate": [
+    null,
+    null,
+    null
+   ],
+   "full_rate": [
+    null,
+    null,
+    null
+   ],
+   "part_rate": [
+    null,
+    null,
+    null
+   ],
+   "proj": null
+  },
+  "awarded_cancelled|lt": {
+   "count": 0,
+   "n": 0,
+   "errors": 0,
+   "k": 0,
+   "full_masked": 0,
+   "part_masked": 0,
+   "rate": [
+    null,
+    null,
+    null
+   ],
+   "full_rate": [
+    null,
+    null,
+    null
+   ],
+   "part_rate": [
+    null,
+    null,
+    null
+   ],
+   "proj": null
+  },
+  "awarded_cancelled|st": {
+   "count": 0,
+   "n": 0,
+   "errors": 0,
+   "k": 0,
+   "full_masked": 0,
+   "part_masked": 0,
+   "rate": [
+    null,
+    null,
+    null
+   ],
+   "full_rate": [
+    null,
+    null,
+    null
+   ],
+   "part_rate": [
+    null,
+    null,
+    null
+   ],
+   "proj": null
+  },
+  "fin_live|all": {
+   "count": 181380,
+   "n": 30,
+   "errors": 0,
+   "k": 30,
+   "full_masked": 2,
+   "part_masked": 5,
+   "rate": [
+    1.0,
+    0.8864829086095221,
+    1.0
+   ],
+   "full_rate": [
+    0.06666666666666667,
+    0.01847663532769335,
+    0.21323817721072091
+   ],
+   "part_rate": [
+    0.16666666666666666,
+    0.07336434240351683,
+    0.33564705185680177
+   ],
+   "proj": {
+    "with": 181380.0,
+    "with_lo": 160790.2699635951,
+    "with_hi": 181380.0,
+    "clean": 139058.0,
+    "part_masked": 30230.0,
+    "full_masked": 12092.0,
+    "without": 0.0
+   }
+  },
+  "fin_live|product": {
+   "count": 152195,
+   "n": 15,
+   "errors": 0,
+   "k": 15,
+   "full_masked": 0,
+   "part_masked": 3,
+   "rate": [
+    1.0,
+    0.7961107336956521,
+    1.0
+   ],
+   "full_rate": [
+    0.0,
+    0.0,
+    0.20388926630434784
+   ],
+   "part_rate": [
+    0.2,
+    0.07047420643610414,
+    0.4518593533465045
+   ],
+   "proj": {
+    "with": 152195.0,
+    "with_lo": 121164.07311480977,
+    "with_hi": 152195.0,
+    "clean": 121756.0,
+    "part_masked": 30439.0,
+    "full_masked": 0.0,
+    "without": 0.0
+   }
+  },
+  "fin_live|service": {
+   "count": 29185,
+   "n": 15,
+   "errors": 0,
+   "k": 15,
+   "full_masked": 5,
+   "part_masked": 1,
+   "rate": [
+    1.0,
+    0.7961107336956521,
+    1.0
+   ],
+   "full_rate": [
+    0.3333333333333333,
+    0.15176100694691236,
+    0.5828687484878701
+   ],
+   "part_rate": [
+    0.06666666666666667,
+    0.011866588606194856,
+    0.2981707755242399
+   ],
+   "proj": {
+    "with": 29185.0,
+    "with_lo": 23234.491762907608,
+    "with_hi": 29185.0,
+    "clean": 17511.0,
+    "part_masked": 1945.6666666666667,
+    "full_masked": 9728.333333333334,
+    "without": 0.0
+   }
+  },
+  "fin_live|bidToRA": {
+   "count": 5838,
+   "n": 15,
+   "errors": 0,
+   "k": 15,
+   "full_masked": 0,
+   "part_masked": 0,
+   "rate": [
+    1.0,
+    0.7961107336956521,
+    1.0
+   ],
+   "full_rate": [
+    0.0,
+    0.0,
+    0.20388926630434784
+   ],
+   "part_rate": [
+    0.0,
+    0.0,
+    0.20388926630434784
+   ],
+   "proj": {
+    "with": 5838.0,
+    "with_lo": 4647.694463315217,
+    "with_hi": 5838.0,
+    "clean": 5838.0,
+    "part_masked": 0.0,
+    "full_masked": 0.0,
+    "without": 0.0
+   }
+  },
+  "fin_live|custom": {
+   "count": 53282,
+   "n": 15,
+   "errors": 0,
+   "k": 15,
+   "full_masked": 0,
+   "part_masked": 5,
+   "rate": [
+    1.0,
+    0.7961107336956521,
+    1.0
+   ],
+   "full_rate": [
+    0.0,
+    0.0,
+    0.20388926630434784
+   ],
+   "part_rate": [
+    0.3333333333333333,
+    0.15176100694691236,
+    0.5828687484878701
+   ],
+   "proj": {
+    "with": 53282.0,
+    "with_lo": 42418.372112771736,
+    "with_hi": 53282.0,
+    "clean": 35521.333333333336,
+    "part_masked": 17760.666666666668,
+    "full_masked": 0.0,
+    "without": 0.0
+   }
+  },
+  "fin_live|boq": {
+   "count": 47191,
+   "n": 15,
+   "errors": 0,
+   "k": 15,
+   "full_masked": 1,
+   "part_masked": 4,
+   "rate": [
+    1.0,
+    0.7961107336956521,
+    1.0
+   ],
+   "full_rate": [
+    0.06666666666666667,
+    0.011866588606194856,
+    0.2981707755242399
+   ],
+   "part_rate": [
+    0.26666666666666666,
+    0.1089727610318281,
+    0.5195088965768675
+   ],
+   "proj": {
+    "with": 47191.0,
+    "with_lo": 37569.26163383152,
+    "with_hi": 47191.0,
+    "clean": 31460.666666666668,
+    "part_masked": 12584.266666666666,
+    "full_masked": 3146.0666666666666,
+    "without": 0.0
+   }
+  },
+  "fin_live|rcbid": {
+   "count": 7,
+   "n": 7,
+   "errors": 0,
+   "k": 7,
+   "full_masked": 0,
+   "part_masked": 2,
+   "rate": [
+    1.0,
+    0.6456611570247934,
+    1.0
+   ],
+   "full_rate": [
+    0.0,
+    0.0,
+    0.35433884297520657
+   ],
+   "part_rate": [
+    0.2857142857142857,
+    0.0822171657090155,
+    0.6410709098517873
+   ],
+   "proj": {
+    "with": 7.0,
+    "with_lo": 4.519628099173554,
+    "with_hi": 7.0,
+    "clean": 5.0,
+    "part_masked": 2.0,
+    "full_masked": 0.0,
+    "without": 0.0
+   }
+  },
+  "fin_live|gt": {
+   "count": 0,
+   "n": 0,
+   "errors": 0,
+   "k": 0,
+   "full_masked": 0,
+   "part_masked": 0,
+   "rate": [
+    null,
+    null,
+    null
+   ],
+   "full_rate": [
+    null,
+    null,
+    null
+   ],
+   "part_rate": [
+    null,
+    null,
+    null
+   ],
+   "proj": null
+  },
+  "fin_live|lt": {
+   "count": 588,
+   "n": 30,
+   "errors": 0,
+   "k": 29,
+   "full_masked": 2,
+   "part_masked": 3,
+   "rate": [
+    0.9666666666666667,
+    0.8332924860304112,
+    0.9940915620051425
+   ],
+   "full_rate": [
+    0.06666666666666667,
+    0.01847663532769335,
+    0.21323817721072091
+   ],
+   "part_rate": [
+    0.1,
+    0.03459925995971615,
+    0.25621441315266624
+   ],
+   "proj": {
+    "with": 568.4,
+    "with_lo": 489.97598178588174,
+    "with_hi": 584.5258384590238,
+    "clean": 470.4,
+    "part_masked": 58.8,
+    "full_masked": 39.2,
+    "without": 19.599999999999994
+   }
+  },
+  "fin_live|st": {
+   "count": 242,
+   "n": 15,
+   "errors": 0,
+   "k": 15,
+   "full_masked": 1,
+   "part_masked": 0,
+   "rate": [
+    1.0,
+    0.7961107336956521,
+    1.0
+   ],
+   "full_rate": [
+    0.06666666666666667,
+    0.011866588606194856,
+    0.2981707755242399
+   ],
+   "part_rate": [
+    0.0,
+    0.0,
+    0.20388926630434784
+   ],
+   "proj": {
+    "with": 242.0,
+    "with_lo": 192.6587975543478,
+    "with_hi": 242.0,
+    "clean": 225.86666666666667,
+    "part_masked": 0.0,
+    "full_masked": 16.133333333333333,
+    "without": 0.0
+   }
+  },
+  "fin_cancelled|all": {
+   "count": 47309,
+   "n": 30,
+   "errors": 0,
+   "k": 30,
+   "full_masked": 8,
+   "part_masked": 0,
+   "rate": [
+    1.0,
+    0.8864829086095221,
+    1.0
+   ],
+   "full_rate": [
+    0.26666666666666666,
+    0.14182495553910618,
+    0.4444830204431169
+   ],
+   "part_rate": [
+    0.0,
+    0.0,
+    0.113517091390478
+   ],
+   "proj": {
+    "with": 47309.0,
+    "with_lo": 41938.61992340788,
+    "with_hi": 47309.0,
+    "clean": 34693.26666666667,
+    "part_masked": 0.0,
+    "full_masked": 12615.733333333334,
+    "without": 0.0
+   }
+  },
+  "fin_cancelled|product": {
+   "count": 31465,
+   "n": 15,
+   "errors": 0,
+   "k": 15,
+   "full_masked": 3,
+   "part_masked": 0,
+   "rate": [
+    1.0,
+    0.7961107336956521,
+    1.0
+   ],
+   "full_rate": [
+    0.2,
+    0.07047420643610414,
+    0.4518593533465045
+   ],
+   "part_rate": [
+    0.0,
+    0.0,
+    0.20388926630434784
+   ],
+   "proj": {
+    "with": 31465.0,
+    "with_lo": 25049.624235733692,
+    "with_hi": 31465.0,
+    "clean": 25172.0,
+    "part_masked": 0.0,
+    "full_masked": 6293.0,
+    "without": 0.0
+   }
+  },
+  "fin_cancelled|service": {
+   "count": 15844,
+   "n": 15,
+   "errors": 0,
+   "k": 15,
+   "full_masked": 4,
+   "part_masked": 0,
+   "rate": [
+    1.0,
+    0.7961107336956521,
+    1.0
+   ],
+   "full_rate": [
+    0.26666666666666666,
+    0.1089727610318281,
+    0.5195088965768675
+   ],
+   "part_rate": [
+    0.0,
+    0.0,
+    0.20388926630434784
+   ],
+   "proj": {
+    "with": 15844.0,
+    "with_lo": 12613.578464673912,
+    "with_hi": 15844.0,
+    "clean": 11618.933333333332,
+    "part_masked": 0.0,
+    "full_masked": 4225.066666666667,
+    "without": 0.0
+   }
+  },
+  "fin_cancelled|bidToRA": {
+   "count": 5332,
+   "n": 15,
+   "errors": 0,
+   "k": 15,
+   "full_masked": 0,
+   "part_masked": 0,
+   "rate": [
+    1.0,
+    0.7961107336956521,
+    1.0
+   ],
+   "full_rate": [
+    0.0,
+    0.0,
+    0.20388926630434784
+   ],
+   "part_rate": [
+    0.0,
+    0.0,
+    0.20388926630434784
+   ],
+   "proj": {
+    "with": 5332.0,
+    "with_lo": 4244.862432065217,
+    "with_hi": 5332.0,
+    "clean": 5332.0,
+    "part_masked": 0.0,
+    "full_masked": 0.0,
+    "without": 0.0
+   }
+  },
+  "fin_cancelled|custom": {
+   "count": 9140,
+   "n": 15,
+   "errors": 0,
+   "k": 15,
+   "full_masked": 2,
+   "part_masked": 1,
+   "rate": [
+    1.0,
+    0.7961107336956521,
+    1.0
+   ],
+   "full_rate": [
+    0.13333333333333333,
+    0.0373604698913593,
+    0.3788249920651624
+   ],
+   "part_rate": [
+    0.06666666666666667,
+    0.011866588606194856,
+    0.2981707755242399
+   ],
+   "proj": {
+    "with": 9140.0,
+    "with_lo": 7276.45210597826,
+    "with_hi": 9140.0,
+    "clean": 7312.0,
+    "part_masked": 609.3333333333334,
+    "full_masked": 1218.6666666666667,
+    "without": 0.0
+   }
+  },
+  "fin_cancelled|boq": {
+   "count": 4928,
+   "n": 15,
+   "errors": 0,
+   "k": 15,
+   "full_masked": 2,
+   "part_masked": 2,
+   "rate": [
+    1.0,
+    0.7961107336956521,
+    1.0
+   ],
+   "full_rate": [
+    0.13333333333333333,
+    0.0373604698913593,
+    0.3788249920651624
+   ],
+   "part_rate": [
+    0.13333333333333333,
+    0.0373604698913593,
+    0.3788249920651624
+   ],
+   "proj": {
+    "with": 4928.0,
+    "with_lo": 3923.2336956521735,
+    "with_hi": 4928.0,
+    "clean": 3613.866666666667,
+    "part_masked": 657.0666666666667,
+    "full_masked": 657.0666666666667,
+    "without": 0.0
+   }
+  },
+  "fin_cancelled|rcbid": {
+   "count": 0,
+   "n": 0,
+   "errors": 0,
+   "k": 0,
+   "full_masked": 0,
+   "part_masked": 0,
+   "rate": [
+    null,
+    null,
+    null
+   ],
+   "full_rate": [
+    null,
+    null,
+    null
+   ],
+   "part_rate": [
+    null,
+    null,
+    null
+   ],
+   "proj": null
+  },
+  "fin_cancelled|gt": {
+   "count": 0,
+   "n": 0,
+   "errors": 0,
+   "k": 0,
+   "full_masked": 0,
+   "part_masked": 0,
+   "rate": [
+    null,
+    null,
+    null
+   ],
+   "full_rate": [
+    null,
+    null,
+    null
+   ],
+   "part_rate": [
+    null,
+    null,
+    null
+   ],
+   "proj": null
+  },
+  "fin_cancelled|lt": {
+   "count": 168,
+   "n": 15,
+   "errors": 0,
+   "k": 15,
+   "full_masked": 4,
+   "part_masked": 0,
+   "rate": [
+    1.0,
+    0.7961107336956521,
+    1.0
+   ],
+   "full_rate": [
+    0.26666666666666666,
+    0.1089727610318281,
+    0.5195088965768675
+   ],
+   "part_rate": [
+    0.0,
+    0.0,
+    0.20388926630434784
+   ],
+   "proj": {
+    "with": 168.0,
+    "with_lo": 133.74660326086956,
+    "with_hi": 168.0,
+    "clean": 123.2,
+    "part_masked": 0.0,
+    "full_masked": 44.8,
+    "without": 0.0
+   }
+  },
+  "fin_cancelled|st": {
+   "count": 53,
+   "n": 15,
+   "errors": 0,
+   "k": 15,
+   "full_masked": 11,
+   "part_masked": 0,
+   "rate": [
+    1.0,
+    0.7961107336956521,
+    1.0
+   ],
+   "full_rate": [
+    0.7333333333333333,
+    0.4804911034231324,
+    0.8910272389681718
+   ],
+   "part_rate": [
+    0.0,
+    0.0,
+    0.20388926630434784
+   ],
+   "proj": {
+    "with": 53.0,
+    "with_lo": 42.19386888586956,
+    "with_hi": 53.0,
+    "clean": 14.133333333333333,
+    "part_masked": 0.0,
+    "full_masked": 38.86666666666667,
+    "without": 0.0
+   }
+  },
+  "tech_live|all": {
+   "count": 33412,
+   "n": 60,
+   "errors": 0,
+   "k": 14,
+   "full_masked": 6,
+   "part_masked": 0,
+   "rate": [
+    0.23333333333333334,
+    0.1443943161843107,
+    0.3543651134039202
+   ],
+   "full_rate": [
+    0.1,
+    0.04664219945723587,
+    0.20149694492511044
+   ],
+   "part_rate": [
+    0.0,
+    0.0,
+    0.06017393047793289
+   ],
+   "proj": {
+    "with": 7796.133333333333,
+    "with_lo": 4824.5028923501895,
+    "with_hi": 11840.04716905178,
+    "clean": 4454.933333333333,
+    "part_masked": 0.0,
+    "full_masked": 3341.2,
+    "without": 25615.866666666665
+   }
+  },
+  "tech_live|product": {
+   "count": 26747,
+   "n": 30,
+   "errors": 0,
+   "k": 4,
+   "full_masked": 3,
+   "part_masked": 0,
+   "rate": [
+    0.13333333333333333,
+    0.05309569424218104,
+    0.2968168394441695
+   ],
+   "full_rate": [
+    0.1,
+    0.03459925995971615,
+    0.25621441315266624
+   ],
+   "part_rate": [
+    0.0,
+    0.0,
+    0.113517091390478
+   ],
+   "proj": {
+    "with": 3566.2666666666664,
+    "with_lo": 1420.1505338956163,
+    "with_hi": 7938.960004613201,
+    "clean": 891.5666666666667,
+    "part_masked": 0.0,
+    "full_masked": 2674.7,
+    "without": 23180.733333333334
+   }
+  },
+  "tech_live|service": {
+   "count": 6665,
+   "n": 30,
+   "errors": 0,
+   "k": 10,
+   "full_masked": 3,
+   "part_masked": 0,
+   "rate": [
+    0.3333333333333333,
+    0.19230295526846194,
+    0.5122027418616973
+   ],
+   "full_rate": [
+    0.1,
+    0.03459925995971615,
+    0.25621441315266624
+   ],
+   "part_rate": [
+    0.0,
+    0.0,
+    0.113517091390478
+   ],
+   "proj": {
+    "with": 2221.6666666666665,
+    "with_lo": 1281.6991968642988,
+    "with_hi": 3413.8312745082126,
+    "clean": 1555.1666666666667,
+    "part_masked": 0.0,
+    "full_masked": 666.5,
+    "without": 4443.333333333334
+   }
+  },
+  "tech_live|bidToRA": {
+   "count": 0,
+   "n": 0,
+   "errors": 0,
+   "k": 0,
+   "full_masked": 0,
+   "part_masked": 0,
+   "rate": [
+    null,
+    null,
+    null
+   ],
+   "full_rate": [
+    null,
+    null,
+    null
+   ],
+   "part_rate": [
+    null,
+    null,
+    null
+   ],
+   "proj": null
+  },
+  "tech_live|custom": {
+   "count": 8929,
+   "n": 30,
+   "errors": 0,
+   "k": 2,
+   "full_masked": 0,
+   "part_masked": 0,
+   "rate": [
+    0.06666666666666667,
+    0.01847663532769335,
+    0.21323817721072091
+   ],
+   "full_rate": [
+    0.0,
+    0.0,
+    0.113517091390478
+   ],
+   "part_rate": [
+    0.0,
+    0.0,
+    0.113517091390478
+   ],
+   "proj": {
+    "with": 595.2666666666667,
+    "with_lo": 164.97787684097392,
+    "with_hi": 1904.003684314527,
+    "clean": 595.2666666666667,
+    "part_masked": 0.0,
+    "full_masked": 0.0,
+    "without": 8333.733333333334
+   }
+  },
+  "tech_live|boq": {
+   "count": 4376,
+   "n": 30,
+   "errors": 0,
+   "k": 2,
+   "full_masked": 1,
+   "part_masked": 0,
+   "rate": [
+    0.06666666666666667,
+    0.01847663532769335,
+    0.21323817721072091
+   ],
+   "full_rate": [
+    0.03333333333333333,
+    0.0059084379948573795,
+    0.16670751396958874
+   ],
+   "part_rate": [
+    0.0,
+    0.0,
+    0.113517091390478
+   ],
+   "proj": {
+    "with": 291.73333333333335,
+    "with_lo": 80.8537561939861,
+    "with_hi": 933.1302634741147,
+    "clean": 145.86666666666667,
+    "part_masked": 0.0,
+    "full_masked": 145.86666666666667,
+    "without": 4084.266666666667
+   }
+  },
+  "tech_live|rcbid": {
+   "count": 0,
+   "n": 0,
+   "errors": 0,
+   "k": 0,
+   "full_masked": 0,
+   "part_masked": 0,
+   "rate": [
+    null,
+    null,
+    null
+   ],
+   "full_rate": [
+    null,
+    null,
+    null
+   ],
+   "part_rate": [
+    null,
+    null,
+    null
+   ],
+   "proj": null
+  },
+  "tech_live|gt": {
+   "count": 0,
+   "n": 0,
+   "errors": 0,
+   "k": 0,
+   "full_masked": 0,
+   "part_masked": 0,
+   "rate": [
+    null,
+    null,
+    null
+   ],
+   "full_rate": [
+    null,
+    null,
+    null
+   ],
+   "part_rate": [
+    null,
+    null,
+    null
+   ],
+   "proj": null
+  },
+  "tech_live|lt": {
+   "count": 53,
+   "n": 30,
+   "errors": 0,
+   "k": 2,
+   "full_masked": 0,
+   "part_masked": 0,
+   "rate": [
+    0.06666666666666667,
+    0.01847663532769335,
+    0.21323817721072091
+   ],
+   "full_rate": [
+    0.0,
+    0.0,
+    0.113517091390478
+   ],
+   "part_rate": [
+    0.0,
+    0.0,
+    0.113517091390478
+   ],
+   "proj": {
+    "with": 3.533333333333333,
+    "with_lo": 0.9792616723677475,
+    "with_hi": 11.301623392168208,
+    "clean": 3.533333333333333,
+    "part_masked": 0.0,
+    "full_masked": 0.0,
+    "without": 49.46666666666667
+   }
+  },
+  "tech_live|st": {
+   "count": 18,
+   "n": 18,
+   "errors": 0,
+   "k": 2,
+   "full_masked": 1,
+   "part_masked": 0,
+   "rate": [
+    0.1111111111111111,
+    0.031018868453582787,
+    0.3280024486660421
+   ],
+   "full_rate": [
+    0.05555555555555555,
+    0.009874935830924525,
+    0.2575779980200754
+   ],
+   "part_rate": [
+    0.0,
+    0.0,
+    0.1758845505823749
+   ],
+   "proj": {
+    "with": 2.0,
+    "with_lo": 0.5583396321644902,
+    "with_hi": 5.904044075988758,
+    "clean": 1.0,
+    "part_masked": 0.0,
+    "full_masked": 1.0,
+    "without": 16.0
+   }
+  },
+  "tech_cancelled|all": {
+   "count": 55253,
+   "n": 60,
+   "errors": 0,
+   "k": 13,
+   "full_masked": 9,
+   "part_masked": 0,
+   "rate": [
+    0.21666666666666667,
+    0.13122921046407016,
+    0.3362026834734252
+   ],
+   "full_rate": [
+    0.15,
+    0.08097349242295689,
+    0.26114825891159615
+   ],
+   "part_rate": [
+    0.0,
+    0.0,
+    0.06017393047793289
+   ],
+   "proj": {
+    "with": 11971.483333333334,
+    "with_lo": 7250.807565771268,
+    "with_hi": 18576.20686995716,
+    "clean": 3683.5333333333333,
+    "part_masked": 0.0,
+    "full_masked": 8287.95,
+    "without": 43281.51666666666
+   }
+  },
+  "tech_cancelled|product": {
+   "count": 39656,
+   "n": 30,
+   "errors": 0,
+   "k": 7,
+   "full_masked": 3,
+   "part_masked": 0,
+   "rate": [
+    0.23333333333333334,
+    0.11792239210501232,
+    0.40928672330324267
+   ],
+   "full_rate": [
+    0.1,
+    0.03459925995971615,
+    0.25621441315266624
+   ],
+   "part_rate": [
+    0.0,
+    0.0,
+    0.113517091390478
+   ],
+   "proj": {
+    "with": 9253.066666666668,
+    "with_lo": 4676.330381316368,
+    "with_hi": 16230.674299313392,
+    "clean": 5287.466666666666,
+    "part_masked": 0.0,
+    "full_masked": 3965.6,
+    "without": 30402.93333333333
+   }
+  },
+  "tech_cancelled|service": {
+   "count": 15597,
+   "n": 30,
+   "errors": 0,
+   "k": 9,
+   "full_masked": 2,
+   "part_masked": 0,
+   "rate": [
+    0.3,
+    0.16664562643958933,
+    0.4787612101166018
+   ],
+   "full_rate": [
+    0.06666666666666667,
+    0.01847663532769335,
+    0.21323817721072091
+   ],
+   "part_rate": [
+    0.0,
+    0.0,
+    0.113517091390478
+   ],
+   "proj": {
+    "with": 4679.099999999999,
+    "with_lo": 2599.1718355782746,
+    "with_hi": 7467.238594188638,
+    "clean": 3639.3,
+    "part_masked": 0.0,
+    "full_masked": 1039.8,
+    "without": 10917.9
+   }
+  },
+  "tech_cancelled|bidToRA": {
+   "count": 0,
+   "n": 0,
+   "errors": 0,
+   "k": 0,
+   "full_masked": 0,
+   "part_masked": 0,
+   "rate": [
+    null,
+    null,
+    null
+   ],
+   "full_rate": [
+    null,
+    null,
+    null
+   ],
+   "part_rate": [
+    null,
+    null,
+    null
+   ],
+   "proj": null
+  },
+  "tech_cancelled|custom": {
+   "count": 11148,
+   "n": 30,
+   "errors": 0,
+   "k": 3,
+   "full_masked": 2,
+   "part_masked": 0,
+   "rate": [
+    0.1,
+    0.03459925995971615,
+    0.25621441315266624
+   ],
+   "full_rate": [
+    0.06666666666666667,
+    0.01847663532769335,
+    0.21323817721072091
+   ],
+   "part_rate": [
+    0.0,
+    0.0,
+    0.113517091390478
+   ],
+   "proj": {
+    "with": 1114.8,
+    "with_lo": 385.7125500309156,
+    "with_hi": 2856.2782778259234,
+    "clean": 371.6,
+    "part_masked": 0.0,
+    "full_masked": 743.2,
+    "without": 10033.2
+   }
+  },
+  "tech_cancelled|boq": {
+   "count": 6286,
+   "n": 30,
+   "errors": 0,
+   "k": 10,
+   "full_masked": 5,
+   "part_masked": 0,
+   "rate": [
+    0.3333333333333333,
+    0.19230295526846194,
+    0.5122027418616973
+   ],
+   "full_rate": [
+    0.16666666666666666,
+    0.07336434240351683,
+    0.33564705185680177
+   ],
+   "part_rate": [
+    0.0,
+    0.0,
+    0.113517091390478
+   ],
+   "proj": {
+    "with": 2095.333333333333,
+    "with_lo": 1208.8163768175518,
+    "with_hi": 3219.7064353426294,
+    "clean": 1047.6666666666667,
+    "part_masked": 0.0,
+    "full_masked": 1047.6666666666667,
+    "without": 4190.666666666667
+   }
+  },
+  "tech_cancelled|rcbid": {
+   "count": 0,
+   "n": 0,
+   "errors": 0,
+   "k": 0,
+   "full_masked": 0,
+   "part_masked": 0,
+   "rate": [
+    null,
+    null,
+    null
+   ],
+   "full_rate": [
+    null,
+    null,
+    null
+   ],
+   "part_rate": [
+    null,
+    null,
+    null
+   ],
+   "proj": null
+  },
+  "tech_cancelled|gt": {
+   "count": 0,
+   "n": 0,
+   "errors": 0,
+   "k": 0,
+   "full_masked": 0,
+   "part_masked": 0,
+   "rate": [
+    null,
+    null,
+    null
+   ],
+   "full_rate": [
+    null,
+    null,
+    null
+   ],
+   "part_rate": [
+    null,
+    null,
+    null
+   ],
+   "proj": null
+  },
+  "tech_cancelled|lt": {
+   "count": 90,
+   "n": 30,
+   "errors": 0,
+   "k": 1,
+   "full_masked": 0,
+   "part_masked": 0,
+   "rate": [
+    0.03333333333333333,
+    0.0059084379948573795,
+    0.16670751396958874
+   ],
+   "full_rate": [
+    0.0,
+    0.0,
+    0.113517091390478
+   ],
+   "part_rate": [
+    0.0,
+    0.0,
+    0.113517091390478
+   ],
+   "proj": {
+    "with": 3.0,
+    "with_lo": 0.5317594195371642,
+    "with_hi": 15.003676257262986,
+    "clean": 3.0,
+    "part_masked": 0.0,
+    "full_masked": 0.0,
+    "without": 87.0
+   }
+  },
+  "tech_cancelled|st": {
+   "count": 17,
+   "n": 17,
+   "errors": 0,
+   "k": 1,
+   "full_masked": 0,
+   "part_masked": 0,
+   "rate": [
+    0.058823529411764705,
+    0.01046013064516424,
+    0.269825452035628
+   ],
+   "full_rate": [
+    0.0,
+    0.0,
+    0.18432366037156456
+   ],
+   "part_rate": [
+    0.0,
+    0.0,
+    0.18432366037156456
+   ],
+   "proj": {
+    "with": 1.0,
+    "with_lo": 0.17782222096779207,
+    "with_hi": 4.587032684605676,
+    "clean": 1.0,
+    "part_masked": 0.0,
+    "full_masked": 0.0,
+    "without": 16.0
+   }
+  },
+  "noteval_live|all": {
+   "count": 83692,
+   "n": 60,
+   "errors": 0,
+   "k": 28,
+   "full_masked": 15,
+   "part_masked": 0,
+   "rate": [
+    0.4666666666666667,
+    0.34627701540988,
+    0.5910679132886489
+   ],
+   "full_rate": [
+    0.25,
+    0.1577638557841185,
+    0.372323109454848
+   ],
+   "part_rate": [
+    0.0,
+    0.0,
+    0.06017393047793289
+   ],
+   "proj": {
+    "with": 39056.26666666667,
+    "with_lo": 28980.615973683674,
+    "with_hi": 49467.65579895361,
+    "clean": 18133.266666666666,
+    "part_masked": 0.0,
+    "full_masked": 20923.0,
+    "without": 44635.73333333333
+   }
+  },
+  "noteval_live|product": {
+   "count": 71780,
+   "n": 30,
+   "errors": 0,
+   "k": 15,
+   "full_masked": 5,
+   "part_masked": 0,
+   "rate": [
+    0.5,
+    0.33153851227173764,
+    0.6684614877282624
+   ],
+   "full_rate": [
+    0.16666666666666666,
+    0.07336434240351683,
+    0.33564705185680177
+   ],
+   "part_rate": [
+    0.0,
+    0.0,
+    0.113517091390478
+   ],
+   "proj": {
+    "with": 35890.0,
+    "with_lo": 23797.83441086533,
+    "with_hi": 47982.165589134675,
+    "clean": 23926.666666666668,
+    "part_masked": 0.0,
+    "full_masked": 11963.333333333334,
+    "without": 35890.0
+   }
+  },
+  "noteval_live|service": {
+   "count": 11912,
+   "n": 30,
+   "errors": 0,
+   "k": 19,
+   "full_masked": 2,
+   "part_masked": 0,
+   "rate": [
+    0.6333333333333333,
+    0.45513246433604937,
+    0.7812629779598231
+   ],
+   "full_rate": [
+    0.06666666666666667,
+    0.01847663532769335,
+    0.21323817721072091
+   ],
+   "part_rate": [
+    0.0,
+    0.0,
+    0.113517091390478
+   ],
+   "proj": {
+    "with": 7544.266666666666,
+    "with_lo": 5421.53791517102,
+    "with_hi": 9306.404593457413,
+    "clean": 6750.133333333333,
+    "part_masked": 0.0,
+    "full_masked": 794.1333333333333,
+    "without": 4367.733333333334
+   }
+  },
+  "noteval_live|bidToRA": {
+   "count": 50437,
+   "n": 15,
+   "errors": 0,
+   "k": 15,
+   "full_masked": 10,
+   "part_masked": 0,
+   "rate": [
+    1.0,
+    0.7961107336956521,
+    1.0
+   ],
+   "full_rate": [
+    0.6666666666666666,
+    0.41713125151212976,
+    0.8482389930530876
+   ],
+   "part_rate": [
+    0.0,
+    0.0,
+    0.20388926630434784
+   ],
+   "proj": {
+    "with": 50437.0,
+    "with_lo": 40153.43707540761,
+    "with_hi": 50437.0,
+    "clean": 16812.333333333332,
+    "part_masked": 0.0,
+    "full_masked": 33624.666666666664,
+    "without": 0.0
+   }
+  },
+  "noteval_live|custom": {
+   "count": 22355,
+   "n": 30,
+   "errors": 0,
+   "k": 17,
+   "full_masked": 7,
+   "part_masked": 0,
+   "rate": [
+    0.5666666666666667,
+    0.3919700954540873,
+    0.7262276256938489
+   ],
+   "full_rate": [
+    0.23333333333333334,
+    0.11792239210501232,
+    0.40928672330324267
+   ],
+   "part_rate": [
+    0.0,
+    0.0,
+    0.113517091390478
+   ],
+   "proj": {
+    "with": 12667.833333333332,
+    "with_lo": 8762.491483876121,
+    "with_hi": 16234.818572385992,
+    "clean": 7451.666666666667,
+    "part_masked": 0.0,
+    "full_masked": 5216.166666666667,
+    "without": 9687.166666666668
+   }
+  },
+  "noteval_live|boq": {
+   "count": 11719,
+   "n": 27,
+   "errors": 0,
+   "k": 18,
+   "full_masked": 0,
+   "part_masked": 0,
+   "rate": [
+    0.6666666666666666,
+    0.47824419872105484,
+    0.8135694555640665
+   ],
+   "full_rate": [
+    0.0,
+    6.938893903907228e-18,
+    0.12455903714463581
+   ],
+   "part_rate": [
+    0.0,
+    6.938893903907228e-18,
+    0.12455903714463581
+   ],
+   "proj": {
+    "with": 7812.666666666666,
+    "with_lo": 5604.543764812041,
+    "with_hi": 9534.220449755296,
+    "clean": 7812.666666666667,
+    "part_masked": 0.0,
+    "full_masked": 0.0,
+    "without": 3906.333333333334
+   }
+  },
+  "noteval_live|rcbid": {
+   "count": 3,
+   "n": 3,
+   "errors": 0,
+   "k": 0,
+   "full_masked": 0,
+   "part_masked": 0,
+   "rate": [
+    0.0,
+    0.0,
+    0.5615060804490177
+   ],
+   "full_rate": [
+    0.0,
+    0.0,
+    0.5615060804490177
+   ],
+   "part_rate": [
+    0.0,
+    0.0,
+    0.5615060804490177
+   ],
+   "proj": {
+    "with": 0.0,
+    "with_lo": 0.0,
+    "with_hi": 1.6845182413470532,
+    "clean": 0.0,
+    "part_masked": 0.0,
+    "full_masked": 0.0,
+    "without": 3.0
+   }
+  },
+  "noteval_live|gt": {
+   "count": 0,
+   "n": 0,
+   "errors": 0,
+   "k": 0,
+   "full_masked": 0,
+   "part_masked": 0,
+   "rate": [
+    null,
+    null,
+    null
+   ],
+   "full_rate": [
+    null,
+    null,
+    null
+   ],
+   "part_rate": [
+    null,
+    null,
+    null
+   ],
+   "proj": null
+  },
+  "noteval_live|lt": {
+   "count": 268,
+   "n": 28,
+   "errors": 0,
+   "k": 9,
+   "full_masked": 3,
+   "part_masked": 0,
+   "rate": [
+    0.32142857142857145,
+    0.1793304754342074,
+    0.5066149544436882
+   ],
+   "full_rate": [
+    0.10714285714285714,
+    0.03711769205479949,
+    0.2719622536765708
+   ],
+   "part_rate": [
+    0.0,
+    0.0,
+    0.12064720365810762
+   ],
+   "proj": {
+    "with": 86.14285714285715,
+    "with_lo": 48.06056741636758,
+    "with_hi": 135.77280779090844,
+    "clean": 57.42857142857143,
+    "part_masked": 0.0,
+    "full_masked": 28.714285714285715,
+    "without": 181.85714285714286
+   }
+  },
+  "noteval_live|st": {
+   "count": 153,
+   "n": 15,
+   "errors": 0,
+   "k": 0,
+   "full_masked": 0,
+   "part_masked": 0,
+   "rate": [
+    0.0,
+    0.0,
+    0.20388926630434784
+   ],
+   "full_rate": [
+    0.0,
+    0.0,
+    0.20388926630434784
+   ],
+   "part_rate": [
+    0.0,
+    0.0,
+    0.20388926630434784
+   ],
+   "proj": {
+    "with": 0.0,
+    "with_lo": 0.0,
+    "with_hi": 31.19505774456522,
+    "clean": 0.0,
+    "part_masked": 0.0,
+    "full_masked": 0.0,
+    "without": 153.0
+   }
+  },
+  "cancelled_stage0|all": {
+   "count": 73946,
+   "n": 30,
+   "errors": 0,
+   "k": 0,
+   "full_masked": 0,
+   "part_masked": 0,
+   "rate": [
+    0.0,
+    0.0,
+    0.113517091390478
+   ],
+   "full_rate": [
+    0.0,
+    0.0,
+    0.113517091390478
+   ],
+   "part_rate": [
+    0.0,
+    0.0,
+    0.113517091390478
+   ],
+   "proj": {
+    "with": 0.0,
+    "with_lo": 0.0,
+    "with_hi": 8394.134839960287,
+    "clean": 0.0,
+    "part_masked": 0.0,
+    "full_masked": 0.0,
+    "without": 73946.0
+   }
+  },
+  "cancelled_stage0|product": {
+   "count": 54571,
+   "n": 15,
+   "errors": 0,
+   "k": 0,
+   "full_masked": 0,
+   "part_masked": 0,
+   "rate": [
+    0.0,
+    0.0,
+    0.20388926630434784
+   ],
+   "full_rate": [
+    0.0,
+    0.0,
+    0.20388926630434784
+   ],
+   "part_rate": [
+    0.0,
+    0.0,
+    0.20388926630434784
+   ],
+   "proj": {
+    "with": 0.0,
+    "with_lo": 0.0,
+    "with_hi": 11126.441151494566,
+    "clean": 0.0,
+    "part_masked": 0.0,
+    "full_masked": 0.0,
+    "without": 54571.0
+   }
+  },
+  "cancelled_stage0|service": {
+   "count": 19375,
+   "n": 15,
+   "errors": 0,
+   "k": 0,
+   "full_masked": 0,
+   "part_masked": 0,
+   "rate": [
+    0.0,
+    0.0,
+    0.20388926630434784
+   ],
+   "full_rate": [
+    0.0,
+    0.0,
+    0.20388926630434784
+   ],
+   "part_rate": [
+    0.0,
+    0.0,
+    0.20388926630434784
+   ],
+   "proj": {
+    "with": 0.0,
+    "with_lo": 0.0,
+    "with_hi": 3950.3545346467395,
+    "clean": 0.0,
+    "part_masked": 0.0,
+    "full_masked": 0.0,
+    "without": 19375.0
+   }
+  },
+  "cancelled_stage0|bidToRA": {
+   "count": 972,
+   "n": 15,
+   "errors": 0,
+   "k": 15,
+   "full_masked": 15,
+   "part_masked": 0,
+   "rate": [
+    1.0,
+    0.7961107336956521,
+    1.0
+   ],
+   "full_rate": [
+    1.0,
+    0.7961107336956521,
+    1.0
+   ],
+   "part_rate": [
+    0.0,
+    0.0,
+    0.20388926630434784
+   ],
+   "proj": {
+    "with": 972.0,
+    "with_lo": 773.8196331521739,
+    "with_hi": 972.0,
+    "clean": 0.0,
+    "part_masked": 0.0,
+    "full_masked": 972.0,
+    "without": 0.0
+   }
+  },
+  "cancelled_stage0|custom": {
+   "count": 11723,
+   "n": 15,
+   "errors": 0,
+   "k": 0,
+   "full_masked": 0,
+   "part_masked": 0,
+   "rate": [
+    0.0,
+    0.0,
+    0.20388926630434784
+   ],
+   "full_rate": [
+    0.0,
+    0.0,
+    0.20388926630434784
+   ],
+   "part_rate": [
+    0.0,
+    0.0,
+    0.20388926630434784
+   ],
+   "proj": {
+    "with": 0.0,
+    "with_lo": 0.0,
+    "with_hi": 2390.1938688858695,
+    "clean": 0.0,
+    "part_masked": 0.0,
+    "full_masked": 0.0,
+    "without": 11723.0
+   }
+  },
+  "cancelled_stage0|boq": {
+   "count": 9458,
+   "n": 15,
+   "errors": 0,
+   "k": 0,
+   "full_masked": 0,
+   "part_masked": 0,
+   "rate": [
+    0.0,
+    0.0,
+    0.20388926630434784
+   ],
+   "full_rate": [
+    0.0,
+    0.0,
+    0.20388926630434784
+   ],
+   "part_rate": [
+    0.0,
+    0.0,
+    0.20388926630434784
+   ],
+   "proj": {
+    "with": 0.0,
+    "with_lo": 0.0,
+    "with_hi": 1928.3846807065217,
+    "clean": 0.0,
+    "part_masked": 0.0,
+    "full_masked": 0.0,
+    "without": 9458.0
+   }
+  },
+  "cancelled_stage0|rcbid": {
+   "count": 0,
+   "n": 0,
+   "errors": 0,
+   "k": 0,
+   "full_masked": 0,
+   "part_masked": 0,
+   "rate": [
+    null,
+    null,
+    null
+   ],
+   "full_rate": [
+    null,
+    null,
+    null
+   ],
+   "part_rate": [
+    null,
+    null,
+    null
+   ],
+   "proj": null
+  },
+  "cancelled_stage0|gt": {
+   "count": 0,
+   "n": 0,
+   "errors": 0,
+   "k": 0,
+   "full_masked": 0,
+   "part_masked": 0,
+   "rate": [
+    null,
+    null,
+    null
+   ],
+   "full_rate": [
+    null,
+    null,
+    null
+   ],
+   "part_rate": [
+    null,
+    null,
+    null
+   ],
+   "proj": null
+  },
+  "cancelled_stage0|lt": {
+   "count": 455,
+   "n": 15,
+   "errors": 0,
+   "k": 0,
+   "full_masked": 0,
+   "part_masked": 0,
+   "rate": [
+    0.0,
+    0.0,
+    0.20388926630434784
+   ],
+   "full_rate": [
+    0.0,
+    0.0,
+    0.20388926630434784
+   ],
+   "part_rate": [
+    0.0,
+    0.0,
+    0.20388926630434784
+   ],
+   "proj": {
+    "with": 0.0,
+    "with_lo": 0.0,
+    "with_hi": 92.76961616847827,
+    "clean": 0.0,
+    "part_masked": 0.0,
+    "full_masked": 0.0,
+    "without": 455.0
+   }
+  },
+  "cancelled_stage0|st": {
+   "count": 232,
+   "n": 15,
+   "errors": 0,
+   "k": 0,
+   "full_masked": 0,
+   "part_masked": 0,
+   "rate": [
+    0.0,
+    0.0,
+    0.20388926630434784
+   ],
+   "full_rate": [
+    0.0,
+    0.0,
+    0.20388926630434784
+   ],
+   "part_rate": [
+    0.0,
+    0.0,
+    0.20388926630434784
+   ],
+   "proj": {
+    "with": 0.0,
+    "with_lo": 0.0,
+    "with_hi": 47.302309782608695,
+    "clean": 0.0,
+    "part_masked": 0.0,
+    "full_masked": 0.0,
+    "without": 232.0
+   }
+  }
+ },
+ "groups": {
+  "awarded_live": {
+   "count": 595242,
+   "bucket": "fetched",
+   "with": 595242.0,
+   "with_lo": 527671.8594865492,
+   "with_hi": 595242.0,
+   "clean": 595242.0,
+   "part_masked": 0.0,
+   "full_masked": 0.0,
+   "without": 0.0
+  },
+  "awarded_cancelled": {
+   "count": 88,
+   "bucket": "fetched",
+   "with": 88.0,
+   "with_lo": 78.01049595763794,
+   "with_hi": 88.0,
+   "clean": 2.933333333333333,
+   "part_masked": 82.13333333333334,
+   "full_masked": 2.933333333333333,
+   "without": 0.0
+  },
+  "fin_live": {
+   "count": 181380,
+   "bucket": "missed",
+   "with": 181380.0,
+   "with_lo": 160790.2699635951,
+   "with_hi": 181380.0,
+   "clean": 139058.0,
+   "part_masked": 30230.0,
+   "full_masked": 12092.0,
+   "without": 0.0
+  },
+  "fin_cancelled": {
+   "count": 47309,
+   "bucket": "missed",
+   "with": 47309.0,
+   "with_lo": 41938.61992340788,
+   "with_hi": 47309.0,
+   "clean": 34693.26666666667,
+   "part_masked": 0.0,
+   "full_masked": 12615.733333333334,
+   "without": 0.0
+  },
+  "tech_live": {
+   "count": 33412,
+   "bucket": "missed",
+   "with": 7796.133333333333,
+   "with_lo": 4824.5028923501895,
+   "with_hi": 11840.04716905178,
+   "clean": 4454.933333333333,
+   "part_masked": 0.0,
+   "full_masked": 3341.2,
+   "without": 25615.866666666665
+  },
+  "tech_cancelled": {
+   "count": 55253,
+   "bucket": "missed",
+   "with": 11971.483333333334,
+   "with_lo": 7250.807565771268,
+   "with_hi": 18576.20686995716,
+   "clean": 3683.5333333333333,
+   "part_masked": 0.0,
+   "full_masked": 8287.95,
+   "without": 43281.51666666666
+  },
+  "noteval_live": {
+   "count": 83692,
+   "bucket": "missed",
+   "with": 39056.26666666667,
+   "with_lo": 28980.615973683674,
+   "with_hi": 49467.65579895361,
+   "clean": 18133.266666666666,
+   "part_masked": 0.0,
+   "full_masked": 20923.0,
+   "without": 44635.73333333333
+  },
+  "cancelled_stage0": {
+   "count": 73946,
+   "bucket": "missed",
+   "with": 0.0,
+   "with_lo": 0.0,
+   "with_hi": 8394.134839960287,
+   "clean": 0.0,
+   "part_masked": 0.0,
+   "full_masked": 0.0,
+   "without": 73946.0
+  }
+ },
+ "types": {
+  "product": {
+   "fetched_count": 438498.0,
+   "fetched_with": 438498.0,
+   "fetched_with_lo": 349092.96450407605,
+   "fetched_with_hi": 438498.0,
+   "fetched_full_masked": 0.0,
+   "fetched_part_masked": 86.0,
+   "fetched_without": 0.0,
+   "missed_count": 376414.0,
+   "missed_with": 232369.33333333334,
+   "missed_with_lo": 176108.01267662077,
+   "missed_with_hi": 266938.24104455585,
+   "missed_full_masked": 24896.633333333335,
+   "missed_part_masked": 30439.0,
+   "missed_without": 144044.66666666666,
+   "all_bids": 814912
+  },
+  "service": {
+   "fetched_count": 156832.0,
+   "fetched_with": 156832.0,
+   "fetched_with_lo": 124854.7311093949,
+   "fetched_with_hi": 156832.0,
+   "fetched_full_masked": 1.0,
+   "fetched_part_masked": 1.0,
+   "fetched_without": 0.0,
+   "missed_count": 98578.0,
+   "missed_with": 59474.033333333326,
+   "missed_with_lo": 45150.47917519511,
+   "missed_with_hi": 69166.828996801,
+   "missed_full_masked": 16453.833333333336,
+   "missed_part_masked": 1945.6666666666667,
+   "missed_without": 39103.96666666667,
+   "all_bids": 255410
+  },
+  "bidToRA": {
+   "fetched_count": 108106.0,
+   "fetched_with": 108106.0,
+   "fetched_with_lo": 86064.34697690216,
+   "fetched_with_hi": 108106.0,
+   "fetched_full_masked": 0.0,
+   "fetched_part_masked": 36.0,
+   "fetched_without": 0.0,
+   "missed_count": 62579.0,
+   "missed_with": 62579.0,
+   "missed_with_lo": 49819.813603940216,
+   "missed_with_hi": 62579.0,
+   "missed_full_masked": 34596.666666666664,
+   "missed_part_masked": 0.0,
+   "missed_without": 0.0,
+   "all_bids": 170685
+  },
+  "custom": {
+   "fetched_count": 138951.0,
+   "fetched_with": 138951.0,
+   "fetched_with_lo": 110619.47508018294,
+   "fetched_with_hi": 138951.0,
+   "fetched_full_masked": 0.0,
+   "fetched_part_masked": 2.0,
+   "fetched_without": 0.0,
+   "missed_count": 116577.0,
+   "missed_with": 76799.90000000001,
+   "missed_with_lo": 59008.00612949801,
+   "missed_with_hi": 85807.2944034123,
+   "missed_full_masked": 7178.033333333334,
+   "missed_part_masked": 18370.0,
+   "missed_without": 39777.100000000006,
+   "all_bids": 255528
+  },
+  "boq": {
+   "fetched_count": 119144.0,
+   "fetched_with": 119144.0,
+   "fetched_with_lo": 94850.67321241838,
+   "fetched_with_hi": 119144.0,
+   "fetched_full_masked": 0.0,
+   "fetched_part_masked": 4.0,
+   "fetched_without": 0.0,
+   "missed_count": 83958.0,
+   "missed_with": 62318.73333333333,
+   "missed_with_lo": 48386.70922730728,
+   "missed_with_hi": 67734.44182927857,
+   "missed_full_masked": 4996.666666666667,
+   "missed_part_masked": 13241.333333333334,
+   "missed_without": 21639.26666666667,
+   "all_bids": 203102
+  },
+  "rcbid": {
+   "fetched_count": 0.0,
+   "missed_count": 10.0,
+   "missed_with": 7.0,
+   "missed_with_lo": 4.519628099173554,
+   "missed_with_hi": 8.684518241347053,
+   "missed_full_masked": 0.0,
+   "missed_part_masked": 2.0,
+   "missed_without": 3.0,
+   "all_bids": 10
+  },
+  "gt": {
+   "fetched_count": 0.0,
+   "missed_count": 0.0,
+   "all_bids": 0
+  },
+  "lt": {
+   "fetched_count": 3049.0,
+   "fetched_with": 3049.0,
+   "fetched_with_lo": 2427.3416270380435,
+   "fetched_with_hi": 3049.0,
+   "fetched_full_masked": 0.0,
+   "fetched_part_masked": 0.0,
+   "fetched_without": 0.0,
+   "missed_count": 1622.0,
+   "missed_with": 829.0761904761904,
+   "missed_with_lo": 673.2941735550238,
+   "missed_with_hi": 1007.3735620678417,
+   "missed_full_masked": 112.71428571428572,
+   "missed_part_masked": 58.8,
+   "missed_without": 792.9238095238095,
+   "all_bids": 4671
+  },
+  "st": {
+   "fetched_count": 1766.0,
+   "fetched_with": 1766.0,
+   "fetched_with_lo": 1405.9315557065215,
+   "fetched_with_hi": 1766.0,
+   "fetched_full_masked": 0.0,
+   "fetched_part_masked": 0.0,
+   "fetched_without": 0.0,
+   "missed_count": 715.0,
+   "missed_with": 298.0,
+   "missed_with_lo": 235.58882829334965,
+   "missed_with_hi": 383.98844428776835,
+   "missed_full_masked": 56.0,
+   "missed_part_masked": 0.0,
+   "missed_without": 417.0,
+   "all_bids": 2481
+  }
+ },
+ "months": {
+  "2025-01": {
+   "fetched_count": 55025.0,
+   "fetched_with": 55025.0,
+   "fetched_without": 0.0,
+   "missed_count": 41640.0,
+   "missed_with": 23981.216666666667,
+   "missed_without": 17658.783333333333,
+   "all_bids": 96665
+  },
+  "2025-02": {
+   "fetched_count": 55595.0,
+   "fetched_with": 55595.0,
+   "fetched_without": 0.0,
+   "missed_count": 42291.0,
+   "missed_with": 24180.233333333334,
+   "missed_without": 18110.766666666666,
+   "all_bids": 97886
+  },
+  "2025-03": {
+   "fetched_count": 54502.0,
+   "fetched_with": 54502.0,
+   "fetched_without": 0.0,
+   "missed_count": 41771.0,
+   "missed_with": 23512.85,
+   "missed_without": 18258.15,
+   "all_bids": 96273
+  },
+  "2025-04": {
+   "fetched_count": 32583.0,
+   "fetched_with": 32583.0,
+   "fetched_without": 0.0,
+   "missed_count": 27684.0,
+   "missed_with": 17379.88333333333,
+   "missed_without": 10304.116666666667,
+   "all_bids": 60267
+  },
+  "2025-05": {
+   "fetched_count": 41470.0,
+   "fetched_with": 41470.0,
+   "fetched_without": 0.0,
+   "missed_count": 33308.0,
+   "missed_with": 21420.88333333333,
+   "missed_without": 11887.116666666665,
+   "all_bids": 74778
+  },
+  "2025-06": {
+   "fetched_count": 46814.0,
+   "fetched_with": 46814.0,
+   "fetched_without": 0.0,
+   "missed_count": 35729.0,
+   "missed_with": 22783.4,
+   "missed_without": 12945.6,
+   "all_bids": 82543
+  },
+  "2025-07": {
+   "fetched_count": 55062.0,
+   "fetched_with": 55062.0,
+   "fetched_without": 0.0,
+   "missed_count": 44242.0,
+   "missed_with": 27239.433333333334,
+   "missed_without": 17002.566666666666,
+   "all_bids": 99304
+  },
+  "2025-08": {
+   "fetched_count": 50839.0,
+   "fetched_with": 50839.0,
+   "fetched_without": 0.0,
+   "missed_count": 42704.0,
+   "missed_with": 25882.55,
+   "missed_without": 16821.449999999997,
+   "all_bids": 93543
+  },
+  "2025-09": {
+   "fetched_count": 53371.0,
+   "fetched_with": 53371.0,
+   "fetched_without": 0.0,
+   "missed_count": 43835.0,
+   "missed_with": 26551.016666666666,
+   "missed_without": 17283.983333333334,
+   "all_bids": 97206
+  },
+  "2025-10": {
+   "fetched_count": 48784.0,
+   "fetched_with": 48784.0,
+   "fetched_without": 0.0,
+   "missed_count": 39386.0,
+   "missed_with": 23950.100000000002,
+   "missed_without": 15435.9,
+   "all_bids": 88170
+  },
+  "2025-11": {
+   "fetched_count": 46569.0,
+   "fetched_with": 46569.0,
+   "fetched_without": 0.0,
+   "missed_count": 37431.0,
+   "missed_with": 23125.983333333334,
+   "missed_without": 14305.016666666666,
+   "all_bids": 84000
+  },
+  "2025-12": {
+   "fetched_count": 54716.0,
+   "fetched_with": 54716.0,
+   "fetched_without": 0.0,
+   "missed_count": 44971.0,
+   "missed_with": 27505.333333333332,
+   "missed_without": 17465.666666666664,
+   "all_bids": 99687
+  }
+ },
+ "extra": {
+  "by_quarter": {
+   "awarded_live": {
+    "Q1": {
+     "n": 28,
+     "k": 28,
+     "rate": 1.0,
+     "full_masked": 0
+    },
+    "Q2": {
+     "n": 20,
+     "k": 20,
+     "rate": 1.0,
+     "full_masked": 0
+    },
+    "Q3": {
+     "n": 40,
+     "k": 40,
+     "rate": 1.0,
+     "full_masked": 0
+    },
+    "Q4": {
+     "n": 47,
+     "k": 47,
+     "rate": 1.0,
+     "full_masked": 0
+    }
+   },
+   "awarded_cancelled": {
+    "Q2": {
+     "n": 3,
+     "k": 3,
+     "rate": 1.0,
+     "full_masked": 0
+    },
+    "Q3": {
+     "n": 6,
+     "k": 6,
+     "rate": 1.0,
+     "full_masked": 1
+    },
+    "Q4": {
+     "n": 41,
+     "k": 41,
+     "rate": 1.0,
+     "full_masked": 0
+    }
+   },
+   "fin_live": {
+    "Q1": {
+     "n": 27,
+     "k": 26,
+     "rate": 0.9629629629629629,
+     "full_masked": 2
+    },
+    "Q2": {
+     "n": 29,
+     "k": 29,
+     "rate": 1.0,
+     "full_masked": 0
+    },
+    "Q3": {
+     "n": 45,
+     "k": 45,
+     "rate": 1.0,
+     "full_masked": 7
+    },
+    "Q4": {
+     "n": 56,
+     "k": 56,
+     "rate": 1.0,
+     "full_masked": 2
+    }
+   },
+   "fin_cancelled": {
+    "Q1": {
+     "n": 36,
+     "k": 36,
+     "rate": 1.0,
+     "full_masked": 5
+    },
+    "Q2": {
+     "n": 25,
+     "k": 25,
+     "rate": 1.0,
+     "full_masked": 5
+    },
+    "Q3": {
+     "n": 23,
+     "k": 23,
+     "rate": 1.0,
+     "full_masked": 7
+    },
+    "Q4": {
+     "n": 51,
+     "k": 51,
+     "rate": 1.0,
+     "full_masked": 17
+    }
+   },
+   "tech_live": {
+    "Q1": {
+     "n": 43,
+     "k": 7,
+     "rate": 0.16279069767441862,
+     "full_masked": 2
+    },
+    "Q2": {
+     "n": 37,
+     "k": 7,
+     "rate": 0.1891891891891892,
+     "full_masked": 4
+    },
+    "Q3": {
+     "n": 61,
+     "k": 11,
+     "rate": 0.18032786885245902,
+     "full_masked": 4
+    },
+    "Q4": {
+     "n": 85,
+     "k": 11,
+     "rate": 0.12941176470588237,
+     "full_masked": 4
+    }
+   },
+   "tech_cancelled": {
+    "Q1": {
+     "n": 40,
+     "k": 8,
+     "rate": 0.2,
+     "full_masked": 4
+    },
+    "Q2": {
+     "n": 38,
+     "k": 7,
+     "rate": 0.18421052631578946,
+     "full_masked": 3
+    },
+    "Q3": {
+     "n": 65,
+     "k": 15,
+     "rate": 0.23076923076923078,
+     "full_masked": 9
+    },
+    "Q4": {
+     "n": 84,
+     "k": 14,
+     "rate": 0.16666666666666666,
+     "full_masked": 5
+    }
+   },
+   "noteval_live": {
+    "Q1": {
+     "n": 41,
+     "k": 32,
+     "rate": 0.7804878048780488,
+     "full_masked": 12
+    },
+    "Q2": {
+     "n": 42,
+     "k": 25,
+     "rate": 0.5952380952380952,
+     "full_masked": 10
+    },
+    "Q3": {
+     "n": 81,
+     "k": 33,
+     "rate": 0.4074074074074074,
+     "full_masked": 13
+    },
+    "Q4": {
+     "n": 74,
+     "k": 31,
+     "rate": 0.4189189189189189,
+     "full_masked": 7
+    }
+   },
+   "cancelled_stage0": {
+    "Q1": {
+     "n": 27,
+     "k": 5,
+     "rate": 0.18518518518518517,
+     "full_masked": 5
+    },
+    "Q2": {
+     "n": 17,
+     "k": 4,
+     "rate": 0.23529411764705882,
+     "full_masked": 4
+    },
+    "Q3": {
+     "n": 42,
+     "k": 5,
+     "rate": 0.11904761904761904,
+     "full_masked": 5
+    },
+    "Q4": {
+     "n": 49,
+     "k": 1,
+     "rate": 0.02040816326530612,
+     "full_masked": 1
+    }
+   }
+  },
+  "ra_vs_bid": {
+   "awarded_live": {
+    "Bid (/B/)": {
+     "n": 100,
+     "k": 100,
+     "rate": 1.0,
+     "full_masked": 0
+    },
+    "RA (/R/)": {
+     "n": 35,
+     "k": 35,
+     "rate": 1.0,
+     "full_masked": 0
+    }
+   },
+   "awarded_cancelled": {
+    "Bid (/B/)": {
+     "n": 25,
+     "k": 25,
+     "rate": 1.0,
+     "full_masked": 1
+    },
+    "RA (/R/)": {
+     "n": 25,
+     "k": 25,
+     "rate": 1.0,
+     "full_masked": 0
+    }
+   },
+   "fin_live": {
+    "Bid (/B/)": {
+     "n": 140,
+     "k": 139,
+     "rate": 0.9928571428571429,
+     "full_masked": 11
+    },
+    "RA (/R/)": {
+     "n": 17,
+     "k": 17,
+     "rate": 1.0,
+     "full_masked": 0
+    }
+   },
+   "fin_cancelled": {
+    "Bid (/B/)": {
+     "n": 109,
+     "k": 109,
+     "rate": 1.0,
+     "full_masked": 34
+    },
+    "RA (/R/)": {
+     "n": 26,
+     "k": 26,
+     "rate": 1.0,
+     "full_masked": 0
+    }
+   },
+   "tech_live": {
+    "Bid (/B/)": {
+     "n": 226,
+     "k": 36,
+     "rate": 0.1592920353982301,
+     "full_masked": 14
+    }
+   },
+   "tech_cancelled": {
+    "Bid (/B/)": {
+     "n": 227,
+     "k": 44,
+     "rate": 0.19383259911894274,
+     "full_masked": 21
+    }
+   },
+   "noteval_live": {
+    "Bid (/B/)": {
+     "n": 117,
+     "k": 0,
+     "rate": 0.0,
+     "full_masked": 0
+    },
+    "RA (/R/)": {
+     "n": 121,
+     "k": 121,
+     "rate": 1.0,
+     "full_masked": 42
+    }
+   },
+   "cancelled_stage0": {
+    "Bid (/B/)": {
+     "n": 120,
+     "k": 0,
+     "rate": 0.0,
+     "full_masked": 0
+    },
+    "RA (/R/)": {
+     "n": 15,
+     "k": 15,
+     "rate": 1.0,
+     "full_masked": 15
+    }
+   }
+  },
+  "single_packet": {
+   "awarded_live": {
+    "single_packet=0": {
+     "n": 99,
+     "k": 99,
+     "rate": 1.0,
+     "full_masked": 0
+    },
+    "single_packet=1": {
+     "n": 36,
+     "k": 36,
+     "rate": 1.0,
+     "full_masked": 0
+    }
+   },
+   "awarded_cancelled": {
+    "single_packet=0": {
+     "n": 50,
+     "k": 50,
+     "rate": 1.0,
+     "full_masked": 1
+    }
+   },
+   "fin_live": {
+    "single_packet=0": {
+     "n": 141,
+     "k": 141,
+     "rate": 1.0,
+     "full_masked": 1
+    },
+    "single_packet=1": {
+     "n": 16,
+     "k": 15,
+     "rate": 0.9375,
+     "full_masked": 10
+    }
+   },
+   "fin_cancelled": {
+    "single_packet=0": {
+     "n": 97,
+     "k": 97,
+     "rate": 1.0,
+     "full_masked": 4
+    },
+    "single_packet=1": {
+     "n": 38,
+     "k": 38,
+     "rate": 1.0,
+     "full_masked": 30
+    }
+   },
+   "tech_live": {
+    "single_packet=0": {
+     "n": 226,
+     "k": 36,
+     "rate": 0.1592920353982301,
+     "full_masked": 14
+    }
+   },
+   "tech_cancelled": {
+    "single_packet=0": {
+     "n": 227,
+     "k": 44,
+     "rate": 0.19383259911894274,
+     "full_masked": 21
+    }
+   },
+   "noteval_live": {
+    "single_packet=0": {
+     "n": 215,
+     "k": 121,
+     "rate": 0.5627906976744186,
+     "full_masked": 42
+    },
+    "single_packet=1": {
+     "n": 23,
+     "k": 0,
+     "rate": 0.0,
+     "full_masked": 0
+    }
+   },
+   "cancelled_stage0": {
+    "single_packet=0": {
+     "n": 109,
+     "k": 15,
+     "rate": 0.13761467889908258,
+     "full_masked": 15
+    },
+    "single_packet=1": {
+     "n": 26,
+     "k": 0,
+     "rate": 0.0,
+     "full_masked": 0
+    }
+   }
+  },
+  "sample_sizes": {
+   "rows": 1323,
+   "unique_bids": 1303,
+   "errors": 0
+  }
+ },
+ "totals": {
+  "fetched_count": 595330.0,
+  "fetched_with": 595330.0,
+  "fetched_with_lo": 527749.8699825068,
+  "fetched_with_hi": 595330.0,
+  "fetched_clean": 595244.9333333333,
+  "fetched_part_masked": 82.13333333333334,
+  "fetched_full_masked": 2.933333333333333,
+  "fetched_without": 0.0,
+  "missed_count": 474992.0,
+  "missed_with": 287512.88333333336,
+  "missed_with_lo": 243784.81631880815,
+  "missed_with_hi": 316967.04467792285,
+  "missed_clean": 200022.99999999997,
+  "missed_part_masked": 30230.0,
+  "missed_full_masked": 57259.88333333333,
+  "missed_without": 187479.11666666667,
+  "all_bids": 1070322
+ },
+ "adjusted": {
+  "groups": {
+   "fin_live": {
+    "n_all": 181380,
+    "n_ra": 5838,
+    "n_b": 175542,
+    "rate_ra": 1.0,
+    "rate_b": 0.9928571428571429,
+    "with_total": 180126.12857142856,
+    "dup_parent_page": 0.0,
+    "dup_awarded_ra_child": 50154.85714285714,
+    "frac_awarded_ra_child": 0.28776978417266186,
+    "child_sample_n": 139,
+    "unique_new": 129971.27142857143
+   },
+   "fin_cancelled": {
+    "n_all": 47309,
+    "n_ra": 5332,
+    "n_b": 41977,
+    "rate_ra": 1.0,
+    "rate_b": 1.0,
+    "with_total": 47309.0,
+    "dup_parent_page": 0.0,
+    "dup_awarded_ra_child": 0.0,
+    "frac_awarded_ra_child": 0.0,
+    "child_sample_n": 109,
+    "unique_new": 47309.0
+   },
+   "tech_live": {
+    "n_all": 33412,
+    "n_ra": 0,
+    "n_b": 33412,
+    "rate_ra": 0,
+    "rate_b": 0.1592920353982301,
+    "with_total": 5322.265486725663,
+    "dup_parent_page": 0.0,
+    "dup_awarded_ra_child": 0.0,
+    "frac_awarded_ra_child": 0.0,
+    "child_sample_n": 36,
+    "unique_new": 5322.265486725663
+   },
+   "tech_cancelled": {
+    "n_all": 55253,
+    "n_ra": 0,
+    "n_b": 55253,
+    "rate_ra": 0,
+    "rate_b": 0.19383259911894274,
+    "with_total": 10709.832599118943,
+    "dup_parent_page": 0.0,
+    "dup_awarded_ra_child": 0.0,
+    "frac_awarded_ra_child": 0.0,
+    "child_sample_n": 44,
+    "unique_new": 10709.832599118943
+   },
+   "noteval_live": {
+    "n_all": 83692,
+    "n_ra": 50437,
+    "n_b": 33255,
+    "rate_ra": 1.0,
+    "rate_b": 0,
+    "with_total": 50437.0,
+    "dup_parent_page": 50437.0,
+    "dup_awarded_ra_child": 0.0,
+    "frac_awarded_ra_child": 0.0,
+    "child_sample_n": 0,
+    "unique_new": 0.0
+   },
+   "cancelled_stage0": {
+    "n_all": 73946,
+    "n_ra": 972,
+    "n_b": 72974,
+    "rate_ra": 1.0,
+    "rate_b": 0,
+    "with_total": 972.0,
+    "dup_parent_page": 972.0,
+    "dup_awarded_ra_child": 0.0,
+    "frac_awarded_ra_child": 0.0,
+    "child_sample_n": 0,
+    "unique_new": 0.0
+   }
+  },
+  "unique_new_total": 193312.36951441603,
+  "dup_parent_total": 51409.0,
+  "dup_child_total": 50154.85714285714,
+  "with_total": 294876.2266572732
+ }
+}

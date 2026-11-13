@@ -1,14 +1,17 @@
 """
-Participant extraction for Pipeline4.
+Participant extraction for Pipeline3.
 
-This module contains the exact same preprocessing logic as derived_claude.py:
+This is a standalone copy of pipeline4/extract.py's logic, run here instead --
+right after pipeline3 finishes scraping a tender's bid_result/ra_result, not
+later inside pipeline4's merge step. Kept as a standalone copy (rather than
+importing pipeline4.extract from pipeline3) for the same reason pipeline4's
+copy stated: no import dependency between pipeline packages.
+
+Logic:
   - Seller name normalization (MSE/MII suffix stripping, uppercase)
   - RA vs Bid precedence based on bid_number pattern
   - Technical + Financial evaluation parsing
   - Winner determination and outcome classification
-
-It is kept as a standalone copy so pipeline4 has no import dependency on
-derived_collections/ and can be deployed independently.
 """
 import re
 from typing import Optional
@@ -75,11 +78,10 @@ def _extract_rank_num(rank: str | None) -> int | None:
 
 def extract_participants(tender: dict) -> list[dict]:
     """
-    Extract all participants from a single tender document.
-    Returns a flat list of participation records with all fields needed
-    for seller_tenders, seller_buyers, seller_categories, and seller_competitors.
+    Extract all participants from a single tender's raw scraped result.
+    Returns a flat list of participation records -- one per seller who took
+    part in this tender.
 
-    Logic mirrors derived_claude.py exactly:
       - RA precedence: if bid_number contains /R/ or /RA/, use ra_result only
       - Otherwise use bid_result only
       - Technical evaluation → seller_name, mse_status, technical_status
@@ -108,7 +110,6 @@ def extract_participants(tender: dict) -> list[dict]:
     # ── RA precedence ──────────────────────────────────────────────────────
     is_ra_bid = bool(re.search(r"/(?:R|RA)/", bid_number))
     active_result = ra_result if is_ra_bid else bid_result
-    active_source = "ra" if is_ra_bid else "bid"
 
     participants: dict[str, dict] = {}
 
@@ -228,9 +229,9 @@ def extract_participants(tender: dict) -> list[dict]:
             "rank_num": p["rank_num"],
             "total_price": p["total_price"],
             "is_winner": p["is_winner"],
-            "winner_id": winner_id,
-            "winner_name": winner_name,
-            "winner_price": winner_price,
+            "winner_id": p["seller_id"] if p["is_winner"] else winner_id,
+            "winner_name": p["seller_name"] if p["is_winner"] else winner_name,
+            "winner_price": p["total_price"] if p["is_winner"] else winner_price,
             "technical_status": p.get("technical_status") or "",
             "outcome": outcome,
         })

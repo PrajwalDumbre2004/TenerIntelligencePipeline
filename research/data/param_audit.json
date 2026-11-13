@@ -1,0 +1,1187 @@
+{
+ "year": 2025,
+ "generated_at": "2026-11-13T14:27:31",
+ "range": [
+  "01-Jan-2025",
+  "31-Dec-2025"
+ ],
+ "status_matrix": {
+  "ongoing_bids|": 0,
+  "ongoing_bids|tech_evaluated": 0,
+  "ongoing_bids|fin_evaluated": 0,
+  "ongoing_bids|bid_awarded": 0,
+  "ongoing_bids|bogus_value": 0,
+  "bidrastatus|": 893726,
+  "bidrastatus|tech_evaluated": 33412,
+  "bidrastatus|fin_evaluated": 181380,
+  "bidrastatus|bid_awarded": 595242,
+  "bidrastatus|bogus_value": 893726,
+  "cancelled_bids|": 176596,
+  "cancelled_bids|tech_evaluated": 55253,
+  "cancelled_bids|fin_evaluated": 47309,
+  "cancelled_bids|bid_awarded": 88,
+  "cancelled_bids|bogus_value": 176596,
+  "all_bids|": 1070322,
+  "all_bids|tech_evaluated": 88665,
+  "all_bids|fin_evaluated": 228689,
+  "all_bids|bid_awarded": 595330,
+  "all_bids|bogus_value": 1070322,
+  "bogus_value|": 1070322,
+  "bogus_value|tech_evaluated": 88665,
+  "bogus_value|fin_evaluated": 228689,
+  "bogus_value|bid_awarded": 595330,
+  "bogus_value|bogus_value": 1070322,
+  "(byStatus key omitted)|all_bids": 1070322
+ },
+ "by_type": {
+  "all": 1070322,
+  "product": 814912,
+  "service": 255410,
+  "bidToRA": 170685,
+  "custom": 255528,
+  "boq": 203102,
+  "rcbid": 10,
+  "gt": 0,
+  "lt": 4671,
+  "st": 2481,
+  "bogus_value": 1070322
+ },
+ "by_type_sum_of_specific": 1706799,
+ "by_type_fingerprint": {
+  "all": {
+   "n_docs": 150,
+   "b_bid_type": {
+    "1": 113,
+    "2": 37
+   },
+   "b_is_custom_item": {
+    "0": 116,
+    "1": 34
+   },
+   "bd_details_is_boq": {
+    "None": 124,
+    "True": 26
+   },
+   "is_rc_bid": {
+    "0": 150
+   },
+   "ba_is_global_tendering": {
+    "0": 150
+   },
+   "ba_is_limited_tendering": {
+    "0": 103,
+    "None": 47
+   },
+   "ba_is_single_packet": {
+    "0": 135,
+    "1": 15
+   },
+   "b_eval_type": {
+    "0": 136,
+    "1": 14
+   },
+   "b_type": {
+    "1": 37,
+    "0": 113
+   },
+   "is_high_value": {
+    "False": 147,
+    "True": 3
+   },
+   "b_bid_to_ra": {
+    "1": 29,
+    "2": 79,
+    "0": 42
+   },
+   "b_ra_to_bid": {
+    "1": 143,
+    "0": 7
+   },
+   "b_is_bunch": {
+    "1": 99,
+    "2": 12,
+    "14": 5,
+    "145": 1,
+    "121": 1,
+    "47": 1,
+    "4": 3,
+    "13": 1,
+    "3": 2,
+    "12": 2,
+    "7": 5,
+    "11": 2,
+    "18": 1,
+    "21": 1,
+    "5": 5,
+    "6": 3,
+    "198": 1,
+    "100": 1,
+    "23": 1,
+    "8": 2,
+    "9": 1
+   },
+   "bid_number_kind": {
+    "B": 113,
+    "RA": 37
+   }
+  },
+  "product": {
+   "n_docs": 150,
+   "b_bid_type": {
+    "1": 135,
+    "2": 15
+   },
+   "b_is_custom_item": {
+    "0": 92,
+    "1": 58
+   },
+   "bd_details_is_boq": {
+    "None": 121,
+    "True": 29
+   },
+   "is_rc_bid": {
+    "0": 150
+   },
+   "ba_is_global_tendering": {
+    "0": 150
+   },
+   "ba_is_limited_tendering": {
+    "0": 117,
+    "None": 33
+   },
+   "ba_is_single_packet": {
+    "0": 127,
+    "1": 23
+   },
+   "b_eval_type": {
+    "0": 137,
+    "1": 12,
+    "3": 1
+   },
+   "b_type": {
+    "0": 150
+   },
+   "is_high_value": {
+    "False": 149,
+    "True": 1
+   },
+   "b_bid_to_ra": {
+    "0": 42,
+    "1": 35,
+    "2": 73
+   },
+   "b_ra_to_bid": {
+    "1": 144,
+    "0": 6
+   },
+   "b_is_bunch": {
+    "1": 94,
+    "30": 1,
+    "10": 5,
+    "5": 5,
+    "7": 2,
+    "2": 15,
+    "8": 2,
+    "96": 1,
+    "3": 5,
+    "6": 1,
+    "9": 3,
+    "29": 1,
+    "92": 1,
+    "78": 1,
+    "71": 1,
+    "12": 1,
+    "4": 1,
+    "21": 1,
+    "40": 1,
+    "18": 1,
+    "25": 1,
+    "11": 1,
+    "55": 1,
+    "16": 2,
+    "50": 1,
+    "15": 1
+   },
+   "bid_number_kind": {
+    "B": 135,
+    "RA": 15
+   }
+  },
+  "service": {
+   "n_docs": 150,
+   "b_bid_type": {
+    "1": 132,
+    "2": 18
+   },
+   "b_is_custom_item": {
+    "0": 150
+   },
+   "bd_details_is_boq": {
+    "None": 150
+   },
+   "is_rc_bid": {
+    "0": 150
+   },
+   "ba_is_global_tendering": {
+    "0": 150
+   },
+   "ba_is_limited_tendering": {
+    "None": 54,
+    "0": 95,
+    "2": 1
+   },
+   "ba_is_single_packet": {
+    "0": 130,
+    "1": 20
+   },
+   "b_eval_type": {
+    "0": 144,
+    "1": 6
+   },
+   "b_type": {
+    "1": 150
+   },
+   "is_high_value": {
+    "False": 133,
+    "True": 17
+   },
+   "b_bid_to_ra": {
+    "2": 92,
+    "0": 32,
+    "1": 26
+   },
+   "b_ra_to_bid": {
+    "1": 145,
+    "0": 5
+   },
+   "b_is_bunch": {
+    "1": 119,
+    "12": 1,
+    "3": 5,
+    "6": 2,
+    "2": 12,
+    "7": 2,
+    "4": 3,
+    "8": 1,
+    "10": 1,
+    "13": 1,
+    "17": 1,
+    "15": 1,
+    "5": 1
+   },
+   "bid_number_kind": {
+    "B": 132,
+    "RA": 18
+   }
+  },
+  "bidToRA": {
+   "n_docs": 150,
+   "b_bid_type": {
+    "2": 150
+   },
+   "b_is_custom_item": {
+    "1": 33,
+    "0": 117
+   },
+   "bd_details_is_boq": {
+    "None": 120,
+    "True": 30
+   },
+   "is_rc_bid": {
+    "0": 150
+   },
+   "ba_is_global_tendering": {
+    "0": 150
+   },
+   "ba_is_limited_tendering": {
+    "0": 106,
+    "None": 44
+   },
+   "ba_is_single_packet": {
+    "0": 150
+   },
+   "b_eval_type": {
+    "1": 28,
+    "0": 119,
+    "3": 3
+   },
+   "b_type": {
+    "0": 127,
+    "1": 23
+   },
+   "is_high_value": {
+    "False": 146,
+    "True": 4
+   },
+   "b_bid_to_ra": {
+    "1": 62,
+    "2": 88
+   },
+   "b_ra_to_bid": {
+    "1": 121,
+    "0": 29
+   },
+   "b_is_bunch": {
+    "2": 11,
+    "1": 71,
+    "14": 1,
+    "5": 13,
+    "105": 1,
+    "3": 8,
+    "45": 1,
+    "8": 4,
+    "4": 2,
+    "6": 5,
+    "50": 1,
+    "16": 1,
+    "13": 3,
+    "12": 3,
+    "15": 3,
+    "22": 1,
+    "7": 1,
+    "117": 1,
+    "94": 1,
+    "25": 1,
+    "23": 1,
+    "57": 1,
+    "11": 1,
+    "81": 1,
+    "30": 1,
+    "40": 1,
+    "10": 2,
+    "20": 1,
+    "29": 1,
+    "17": 3,
+    "9": 1,
+    "28": 2,
+    "26": 1
+   },
+   "bid_number_kind": {
+    "RA": 150
+   }
+  },
+  "custom": {
+   "n_docs": 150,
+   "b_bid_type": {
+    "1": 130,
+    "2": 20
+   },
+   "b_is_custom_item": {
+    "1": 150
+   },
+   "bd_details_is_boq": {
+    "None": 150
+   },
+   "is_rc_bid": {
+    "0": 150
+   },
+   "ba_is_global_tendering": {
+    "0": 150
+   },
+   "ba_is_limited_tendering": {
+    "0": 149,
+    "2": 1
+   },
+   "ba_is_single_packet": {
+    "0": 134,
+    "1": 16
+   },
+   "b_eval_type": {
+    "0": 135,
+    "1": 14,
+    "2": 1
+   },
+   "b_type": {
+    "0": 150
+   },
+   "is_high_value": {
+    "False": 148,
+    "True": 2
+   },
+   "b_bid_to_ra": {
+    "2": 81,
+    "0": 30,
+    "1": 39
+   },
+   "b_ra_to_bid": {
+    "1": 141,
+    "0": 9
+   },
+   "b_is_bunch": {
+    "1": 115,
+    "4": 10,
+    "6": 1,
+    "2": 16,
+    "3": 7,
+    "8": 1
+   },
+   "bid_number_kind": {
+    "B": 130,
+    "RA": 20
+   }
+  },
+  "boq": {
+   "n_docs": 150,
+   "b_bid_type": {
+    "1": 133,
+    "2": 17
+   },
+   "b_is_custom_item": {
+    "0": 150
+   },
+   "bd_details_is_boq": {
+    "True": 150
+   },
+   "is_rc_bid": {
+    "0": 150
+   },
+   "ba_is_global_tendering": {
+    "0": 150
+   },
+   "ba_is_limited_tendering": {
+    "0": 150
+   },
+   "ba_is_single_packet": {
+    "0": 128,
+    "1": 22
+   },
+   "b_eval_type": {
+    "0": 125,
+    "1": 23,
+    "3": 2
+   },
+   "b_type": {
+    "0": 150
+   },
+   "is_high_value": {
+    "False": 144,
+    "True": 6
+   },
+   "b_bid_to_ra": {
+    "2": 85,
+    "1": 31,
+    "0": 34
+   },
+   "b_ra_to_bid": {
+    "1": 145,
+    "0": 5
+   },
+   "b_is_bunch": {
+    "5": 35,
+    "128": 1,
+    "12": 12,
+    "170": 1,
+    "11": 5,
+    "9": 5,
+    "24": 4,
+    "10": 11,
+    "18": 3,
+    "6": 19,
+    "7": 11,
+    "45": 2,
+    "13": 5,
+    "20": 2,
+    "8": 4,
+    "23": 2,
+    "100": 1,
+    "78": 1,
+    "14": 3,
+    "77": 1,
+    "29": 3,
+    "26": 1,
+    "25": 1,
+    "30": 2,
+    "93": 1,
+    "55": 2,
+    "42": 1,
+    "16": 2,
+    "89": 1,
+    "22": 1,
+    "59": 1,
+    "31": 1,
+    "21": 1,
+    "15": 2,
+    "35": 1,
+    "68": 1
+   },
+   "bid_number_kind": {
+    "B": 133,
+    "RA": 17
+   }
+  },
+  "rcbid": {
+   "n_docs": 10,
+   "b_bid_type": {
+    "1": 10
+   },
+   "b_is_custom_item": {
+    "0": 10
+   },
+   "bd_details_is_boq": {
+    "None": 10
+   },
+   "is_rc_bid": {
+    "1": 10
+   },
+   "ba_is_global_tendering": {
+    "0": 10
+   },
+   "ba_is_limited_tendering": {
+    "None": 6,
+    "0": 4
+   },
+   "ba_is_single_packet": {
+    "None": 10
+   },
+   "b_eval_type": {
+    "2": 10
+   },
+   "b_type": {
+    "0": 10
+   },
+   "is_high_value": {
+    "False": 10
+   },
+   "b_bid_to_ra": {
+    "0": 10
+   },
+   "b_ra_to_bid": {
+    "1": 10
+   },
+   "b_is_bunch": {
+    "1": 10
+   },
+   "bid_number_kind": {
+    "B": 10
+   }
+  },
+  "lt": {
+   "n_docs": 150,
+   "b_bid_type": {
+    "1": 145,
+    "2": 5
+   },
+   "b_is_custom_item": {
+    "0": 135,
+    "1": 15
+   },
+   "bd_details_is_boq": {
+    "None": 145,
+    "True": 5
+   },
+   "is_rc_bid": {
+    "0": 150
+   },
+   "ba_is_global_tendering": {
+    "0": 150
+   },
+   "ba_is_limited_tendering": {
+    "1": 150
+   },
+   "ba_is_single_packet": {
+    "1": 37,
+    "0": 113
+   },
+   "b_eval_type": {
+    "0": 144,
+    "1": 6
+   },
+   "b_type": {
+    "1": 90,
+    "0": 60
+   },
+   "is_high_value": {
+    "False": 145,
+    "True": 5
+   },
+   "b_bid_to_ra": {
+    "2": 106,
+    "0": 39,
+    "1": 5
+   },
+   "b_ra_to_bid": {
+    "1": 150
+   },
+   "b_is_bunch": {
+    "1": 122,
+    "2": 11,
+    "6": 1,
+    "8": 2,
+    "15": 1,
+    "3": 8,
+    "16": 1,
+    "22": 1,
+    "7": 1,
+    "25": 1,
+    "5": 1
+   },
+   "bid_number_kind": {
+    "B": 145,
+    "RA": 5
+   }
+  },
+  "st": {
+   "n_docs": 150,
+   "b_bid_type": {
+    "1": 150
+   },
+   "b_is_custom_item": {
+    "0": 101,
+    "1": 49
+   },
+   "bd_details_is_boq": {
+    "None": 134,
+    "True": 16
+   },
+   "is_rc_bid": {
+    "0": 150
+   },
+   "ba_is_global_tendering": {
+    "0": 150
+   },
+   "ba_is_limited_tendering": {
+    "2": 150
+   },
+   "ba_is_single_packet": {
+    "0": 70,
+    "1": 80
+   },
+   "b_eval_type": {
+    "0": 145,
+    "1": 5
+   },
+   "b_type": {
+    "0": 78,
+    "1": 72
+   },
+   "is_high_value": {
+    "False": 138,
+    "True": 12
+   },
+   "b_bid_to_ra": {
+    "2": 111,
+    "0": 39
+   },
+   "b_ra_to_bid": {
+    "1": 150
+   },
+   "b_is_bunch": {
+    "1": 116,
+    "2": 9,
+    "3": 3,
+    "41": 1,
+    "10": 3,
+    "6": 3,
+    "5": 3,
+    "7": 2,
+    "4": 2,
+    "20": 1,
+    "87": 1,
+    "101": 1,
+    "13": 1,
+    "11": 1,
+    "21": 1,
+    "38": 1,
+    "31": 1
+   },
+   "bid_number_kind": {
+    "B": 150
+   }
+  }
+ },
+ "high_bid_value": {
+  "(empty)": 1070322,
+  "highValue": 42087,
+  "bogus_value": 1070322
+ },
+ "end_date_filter": {
+  "year (dd-Mon-yyyy)": 1070322,
+  "ISO yyyy-mm-dd": 1070322,
+  "dd/mm/yyyy": 0,
+  "from only": 5854947,
+  "to only": 5854947,
+  "no dates": 5854947,
+  "single day 15-Jan-2025": 2360,
+  "single day 16-Jan-2025": 3019,
+  "two days 15-Jan-2025..16-Jan-2025": 5379,
+  "reversed range": 0
+ },
+ "end_date_field_check": {
+  "query_day": "15-Jan-2025",
+  "final_end_date_sort": {
+   "2025-01-15": 30
+  },
+  "final_start_date_sort": {
+   "2024-07-17": 1,
+   "2024-08-07": 1,
+   "2024-08-19": 1,
+   "2024-11-26": 2,
+   "2024-11-22": 1,
+   "2024-12-20": 1,
+   "2024-12-21": 1,
+   "2024-11-25": 4,
+   "2024-12-24": 10,
+   "2024-12-25": 7,
+   "2024-12-30": 1
+  }
+ },
+ "unknown_filter_keys": {
+  "baseline": 1070322,
+  "byStartDate=Jan only": 1070322,
+  "byMinistry=bogus": 1070322
+ },
+ "page_cap": {
+  "numFound": 1070322,
+  "last_page": 107033,
+  "pages": {
+   "0": {
+    "ok": true,
+    "ndocs": 10,
+    "error": null,
+    "first_bid": "GEM/2024/B/5137020"
+   },
+   "1": {
+    "ok": true,
+    "ndocs": 10,
+    "error": null,
+    "first_bid": "GEM/2024/B/5137020"
+   },
+   "2": {
+    "ok": true,
+    "ndocs": 10,
+    "error": null,
+    "first_bid": "GEM/2024/B/5736190"
+   },
+   "1000": {
+    "ok": true,
+    "ndocs": 10,
+    "error": null,
+    "first_bid": "GEM/2024/B/5688210"
+   },
+   "5000": {
+    "ok": true,
+    "ndocs": 10,
+    "error": null,
+    "first_bid": "GEM/2025/B/5791683"
+   },
+   "10000": {
+    "ok": true,
+    "ndocs": 10,
+    "error": null,
+    "first_bid": "GEM/2025/B/5895726"
+   },
+   "20000": {
+    "ok": true,
+    "ndocs": 10,
+    "error": null,
+    "first_bid": "GEM/2025/B/5955255"
+   },
+   "50000": {
+    "ok": true,
+    "ndocs": 10,
+    "error": null,
+    "first_bid": "GEM/2025/B/6336849"
+   },
+   "100000": {
+    "ok": true,
+    "ndocs": 10,
+    "error": null,
+    "first_bid": "GEM/2025/B/6908046"
+   },
+   "107033": {
+    "ok": true,
+    "ndocs": 2,
+    "error": null,
+    "first_bid": "GEM/2025/B/6899925"
+   },
+   "107034": {
+    "ok": true,
+    "ndocs": 0,
+    "error": null,
+    "first_bid": null
+   },
+   "107133": {
+    "ok": true,
+    "ndocs": 0,
+    "error": null,
+    "first_bid": null
+   }
+  }
+ },
+ "page_size": {
+  "default": 10,
+  "top-level rows=100": 10,
+  "filter pageSize/rows=100": 10
+ },
+ "sort": {
+  "Bid-End-Date-Oldest": {
+   "numFound": 5519,
+   "page1_bid_ids": [
+    7978665,
+    7975936,
+    7974938,
+    7973341,
+    8083057,
+    8083056,
+    8082968,
+    8082952,
+    8082870,
+    8082860
+   ],
+   "page1_end_dates": [
+    "2025-07-15T09:00:00",
+    "2025-07-15T09:00:00",
+    "2025-07-15T09:00:00",
+    "2025-07-15T09:00:00",
+    "2025-07-15T09:00:00",
+    "2025-07-15T09:00:00",
+    "2025-07-15T09:00:00",
+    "2025-07-15T09:00:00",
+    "2025-07-15T09:00:00",
+    "2025-07-15T09:00:00"
+   ],
+   "page1_start_dates": [
+    "2025-06-17T18:58:50",
+    "2025-06-18T14:35:44",
+    "2025-06-23T17:34:20",
+    "2025-06-24T10:01:57",
+    "2025-07-14T09:00:00",
+    "2025-07-14T09:00:00",
+    "2025-07-13T22:00:00",
+    "2025-07-13T22:00:00",
+    "2025-07-12T20:27:21",
+    "2025-07-12T20:24:28"
+   ],
+   "page1_repeat_identical": true,
+   "page30_repeat_identical": true
+  },
+  "Bid-End-Date-Latest": {
+   "numFound": 5519,
+   "page1_bid_ids": [
+    7848409,
+    8059354,
+    8059321,
+    7888144,
+    8011471,
+    7984058,
+    7992416,
+    7990420,
+    7978710,
+    7855236
+   ],
+   "page1_end_dates": [
+    "2025-07-17T21:00:00",
+    "2025-07-17T21:00:00",
+    "2025-07-17T21:00:00",
+    "2025-07-17T21:00:00",
+    "2025-07-17T21:00:00",
+    "2025-07-17T21:00:00",
+    "2025-07-17T21:00:00",
+    "2025-07-17T21:00:00",
+    "2025-07-17T21:00:00",
+    "2025-07-17T21:00:00"
+   ],
+   "page1_start_dates": [
+    "2025-06-26T22:32:53",
+    "2025-07-07T20:47:41",
+    "2025-07-07T20:43:45",
+    "2025-05-30T15:36:50",
+    "2025-06-26T20:01:10",
+    "2025-06-19T20:07:13",
+    "2025-06-27T09:39:15",
+    "2025-06-21T11:10:36",
+    "2025-06-17T19:51:50",
+    "2025-05-17T16:05:18"
+   ],
+   "page1_repeat_identical": true,
+   "page30_repeat_identical": true
+  },
+  "Bid-Start-Date-Oldest": {
+   "numFound": 5519,
+   "page1_bid_ids": [
+    6715579,
+    6907367,
+    6969070,
+    7425977,
+    7387230,
+    7439471,
+    7548107,
+    7548826,
+    7511174,
+    7616114
+   ],
+   "page1_end_dates": [
+    "2025-07-17T11:00:00",
+    "2025-07-17T14:00:00",
+    "2025-07-17T09:00:00",
+    "2025-07-17T09:00:00",
+    "2025-07-17T16:00:00",
+    "2025-07-17T09:00:00",
+    "2025-07-16T13:00:00",
+    "2025-07-16T13:00:00",
+    "2025-07-17T11:00:00",
+    "2025-07-17T15:00:00"
+   ],
+   "page1_start_dates": [
+    "2024-08-12T13:17:20",
+    "2024-09-14T17:56:02",
+    "2024-09-30T17:48:02",
+    "2025-01-24T15:29:27",
+    "2025-01-24T18:48:11",
+    "2025-01-28T10:12:39",
+    "2025-02-19T15:55:44",
+    "2025-02-19T16:56:12",
+    "2025-03-04T14:34:33",
+    "2025-03-07T09:16:09"
+   ],
+   "page1_repeat_identical": true,
+   "page30_repeat_identical": true
+  },
+  "Bid-Start-Date-Latest": {
+   "numFound": 5519,
+   "page1_bid_ids": [
+    8093466,
+    8093377,
+    8093359,
+    8093343,
+    8093340,
+    8093280,
+    8093212,
+    8093204,
+    8093194,
+    8093192
+   ],
+   "page1_end_dates": [
+    "2025-07-17T21:00:00",
+    "2025-07-17T21:00:00",
+    "2025-07-17T20:00:00",
+    "2025-07-17T20:00:00",
+    "2025-07-17T20:00:00",
+    "2025-07-17T20:00:00",
+    "2025-07-17T20:00:00",
+    "2025-07-17T20:00:00",
+    "2025-07-17T20:00:00",
+    "2025-07-17T20:00:00"
+   ],
+   "page1_start_dates": [
+    "2025-07-16T21:00:00",
+    "2025-07-16T21:00:00",
+    "2025-07-16T20:00:00",
+    "2025-07-16T20:00:00",
+    "2025-07-16T20:00:00",
+    "2025-07-16T20:00:00",
+    "2025-07-16T20:00:00",
+    "2025-07-16T20:00:00",
+    "2025-07-16T20:00:00",
+    "2025-07-16T20:00:00"
+   ],
+   "page1_repeat_identical": true,
+   "page30_repeat_identical": true
+  },
+  "bid_id": {
+   "numFound": 5519,
+   "page1_bid_ids": [
+    7978665,
+    7978609,
+    7978507,
+    7978487,
+    7978438,
+    7978334,
+    7978176,
+    7978166,
+    7978137,
+    7978108
+   ],
+   "page1_end_dates": [
+    "2025-07-15T09:00:00",
+    "2025-07-15T10:00:00",
+    "2025-07-17T09:00:00",
+    "2025-07-16T17:00:00",
+    "2025-07-15T12:00:00",
+    "2025-07-17T13:00:00",
+    "2025-07-17T18:00:00",
+    "2025-07-16T15:00:00",
+    "2025-07-15T14:00:00",
+    "2025-07-17T18:00:00"
+   ],
+   "page1_start_dates": [
+    "2025-06-17T18:58:50",
+    "2025-06-24T07:42:48",
+    "2025-06-26T12:12:50",
+    "2025-06-25T16:14:04",
+    "2025-06-17T18:02:40",
+    "2025-06-26T17:41:30",
+    "2025-06-17T17:27:39",
+    "2025-06-17T17:52:08",
+    "2025-06-23T14:49:45",
+    "2025-06-17T17:30:26"
+   ],
+   "page1_repeat_identical": true,
+   "page30_repeat_identical": true
+  },
+  "bogus_value": {
+   "numFound": 5519,
+   "page1_bid_ids": [
+    7978665,
+    7978609,
+    7978507,
+    7978487,
+    7978438,
+    7978334,
+    7978176,
+    7978166,
+    7978137,
+    7978108
+   ],
+   "page1_end_dates": [
+    "2025-07-15T09:00:00",
+    "2025-07-15T10:00:00",
+    "2025-07-17T09:00:00",
+    "2025-07-16T17:00:00",
+    "2025-07-15T12:00:00",
+    "2025-07-17T13:00:00",
+    "2025-07-17T18:00:00",
+    "2025-07-16T15:00:00",
+    "2025-07-15T14:00:00",
+    "2025-07-17T18:00:00"
+   ],
+   "page1_start_dates": [
+    "2025-06-17T18:58:50",
+    "2025-06-24T07:42:48",
+    "2025-06-26T12:12:50",
+    "2025-06-25T16:14:04",
+    "2025-06-17T18:02:40",
+    "2025-06-26T17:41:30",
+    "2025-06-17T17:27:39",
+    "2025-06-17T17:52:08",
+    "2025-06-23T14:49:45",
+    "2025-06-17T17:30:26"
+   ],
+   "page1_repeat_identical": true,
+   "page30_repeat_identical": true
+  }
+ },
+ "drift": {
+  "window": [
+   "15-Jul-2025",
+   "17-Jul-2025"
+  ],
+  "filter": "all_bids + bid_awarded",
+  "results": {
+   "bid_id": {
+    "numFound": 5519,
+    "pages": 552,
+    "passes": [
+     {
+      "rows": 5519,
+      "unique": 5509,
+      "duplicates": 10,
+      "failed_pages": 0,
+      "cumulative_unique": 5509
+     },
+     {
+      "rows": 5519,
+      "unique": 5509,
+      "duplicates": 10,
+      "failed_pages": 0,
+      "cumulative_unique": 5519
+     }
+    ],
+    "missing_after_2_passes": 0
+   },
+   "Bid-End-Date-Oldest": {
+    "numFound": 5519,
+    "pages": 552,
+    "passes": [
+     {
+      "rows": 5519,
+      "unique": 5519,
+      "duplicates": 0,
+      "failed_pages": 0,
+      "cumulative_unique": 5519
+     },
+     {
+      "rows": 5519,
+      "unique": 5519,
+      "duplicates": 0,
+      "failed_pages": 0,
+      "cumulative_unique": 5519
+     }
+    ],
+    "missing_after_2_passes": 0
+   },
+   "Bid-Start-Date-Oldest": {
+    "numFound": 5519,
+    "pages": 552,
+    "passes": [
+     {
+      "rows": 5519,
+      "unique": 5519,
+      "duplicates": 0,
+      "failed_pages": 0,
+      "cumulative_unique": 5519
+     },
+     {
+      "rows": 5519,
+      "unique": 5519,
+      "duplicates": 0,
+      "failed_pages": 0,
+      "cumulative_unique": 5519
+     }
+    ],
+    "missing_after_2_passes": 0
+   }
+  }
+ },
+ "search": {
+  "GEM/2024/B/5631361": {
+   "exact|all_bids": {
+    "numFound": 1,
+    "top": "GEM/2024/B/5631361"
+   },
+   "fullText|all_bids": {
+    "numFound": 1,
+    "top": "GEM/2024/B/5631361"
+   },
+   "exact|bidrastatus": {
+    "numFound": 1,
+    "top": "GEM/2024/B/5631361"
+   }
+  },
+  "GEM/2024/B/5615960": {
+   "exact|all_bids": {
+    "numFound": 2,
+    "top": "GEM/2024/B/5615960"
+   },
+   "fullText|all_bids": {
+    "numFound": 2,
+    "top": "GEM/2024/B/5615960"
+   },
+   "exact|bidrastatus": {
+    "numFound": 2,
+    "top": "GEM/2024/B/5615960"
+   }
+  },
+  "GEM/2024/B/5706906": {
+   "exact|all_bids": {
+    "numFound": 1,
+    "top": "GEM/2024/B/5706906"
+   },
+   "fullText|all_bids": {
+    "numFound": 1,
+    "top": "GEM/2024/B/5706906"
+   },
+   "exact|bidrastatus": {
+    "numFound": 0,
+    "top": null
+   }
+  }
+ },
+ "pool_stats": {
+  "requests": 4698,
+  "errors": 1161,
+  "retries": 1161,
+  "csrf_refresh": 20
+ },
+ "elapsed_s": 319.2
+}

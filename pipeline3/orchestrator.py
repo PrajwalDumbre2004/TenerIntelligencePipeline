@@ -22,6 +22,7 @@ from pipeline3.db import (
     update_p3_status, get_p3_status
 )
 from pipeline3.worker import browser_worker
+from pipeline3.derive import derive_month
 
 MAX_P3_PASSES = 3  # Max retry passes for pipeline3 per month
 
@@ -64,6 +65,7 @@ async def process_month(month_str):
             update_p3_status(month_str, "completed",
                              pending=0, done=stats["done"], total=stats["total"],
                              passes=pass_num - 1)
+            derive_month(month_str)
             return True
 
         stats = get_month_result_stats(month_str)
@@ -132,6 +134,7 @@ async def process_month(month_str):
             update_p3_status(month_str, "completed",
                              pending=0, done=stats["done"], total=stats["total"],
                              passes=pass_num)
+            derive_month(month_str)
             return True
 
         # If pending remains but no progress was made, stop retrying
@@ -150,6 +153,10 @@ async def process_month(month_str):
         update_p3_status(month_str, "completed",
                          pending=0, done=stats["done"], total=stats["total"],
                          passes=MAX_P3_PASSES)
+
+    # Flatten whatever did get scraped this run, even if some tenders are
+    # still pending (they'll be picked up on the next pass/retry).
+    derive_month(month_str)
     return stats["pending"] == 0
 
 
