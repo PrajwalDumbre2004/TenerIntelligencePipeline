@@ -38,6 +38,7 @@ def _row_to_tender_dict(row: dict) -> dict:
         "buyer_details": row["buyer_details_raw"],
         "bid_result": row["bid_result_raw"],
         "ra_result": row["ra_result_raw"],
+        "stage": row.get("stage"),
     }
 
 

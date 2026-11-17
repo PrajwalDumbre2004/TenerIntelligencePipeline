@@ -161,6 +161,17 @@ SET LOCAL work_mem = '64MB';
 -- chunk size -- see the table in the header.
 SET LOCAL temp_file_limit = '20GB';
 
+-- ── Stale pairs of removed sellers ───────────────────────────────────────────
+-- The passes below only INSERT/UPDATE pairs they find. When 01_merge.sql (step
+-- 1b2) removed a seller from a re-merged bid, a pair that shared only that bid
+-- no longer exists, so it would never be updated and would stay with its old
+-- count. Delete every pair involving a removed seller first: those sellers are
+-- in impacted_sellers, so pass 1 rebuilds their real pairs and pass 2 mirrors
+-- them for non-impacted competitors. replaced_sellers is small (usually empty).
+DELETE FROM seller_competitors
+WHERE seller_id     IN (SELECT seller_id FROM replaced_sellers)
+   OR competitor_id IN (SELECT seller_id FROM replaced_sellers);
+
 -- ── Narrow scan table ────────────────────────────────────────────────────────
 -- Bids that at least one impacted seller participated in. Everything else in
 -- bid_participations is unreachable from this batch's join and is dropped here

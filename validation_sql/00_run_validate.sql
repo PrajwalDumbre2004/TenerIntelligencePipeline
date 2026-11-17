@@ -64,5 +64,6 @@ BEGIN;
 \ir 02_schema.sql
 \ir 03_validate_tenders.sql
 \ir 04_validate_participations.sql
+\ir 06_require_participants.sql
 
 COMMIT;

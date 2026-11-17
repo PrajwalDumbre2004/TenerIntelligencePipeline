@@ -8,10 +8,12 @@
 -- Idempotent / safe to re-run: only ever touches rows still flagged
 -- merged_at IS NULL, so a batch that already merged is a no-op on retry.
 --
--- Leaves two session-scoped TEMP TABLES behind for 02_sellers_profile.sql and
+-- Leaves three session-scoped TEMP TABLES behind for 02_sellers_profile.sql and
 -- 03_seller_competitors.sql to consume in the same psql session:
 --   batch_tenders     -- (run_id, bid_id) merged by this run
---   impacted_sellers  -- distinct seller_id written to bid_participations by this run
+--   impacted_sellers  -- distinct seller_id written to, or removed from,
+--                        bid_participations by this run
+--   replaced_sellers  -- seller_id removed from a re-merged bid (step 1b2)
 --
 -- No BEGIN/COMMIT here: 00_run_all.sql wraps this file together with
 -- 02_sellers_profile.sql and 03_seller_competitors.sql in a single outer
@@ -45,10 +47,15 @@ ON CONFLICT (seller_id) DO NOTHING;
 -- buyer_details_raw (pipeline3/extract.py's own logic for pulling them out).
 -- is_ra_bid is likewise re-derived from bid_number, same regex pipeline3 uses
 -- to choose bid_result vs ra_result.
+--
+-- stage / is_cancelled / bid_status come from the GeM listing (pipeline2).
+-- A stored tender only reaches this point again when its stage moved up (or it
+-- was never merged before), so overwriting them on conflict is correct.
 INSERT INTO tenders (
     bid_id, bid_id_parent, bid_number, bid_number_parent, ra_number, tender_year,
     category, department, ministry, month, end_date, buyer_name, buyer_department,
-    is_ra_bid, scraped_at, bid_result_raw, ra_result_raw, buyer_details_raw
+    is_ra_bid, scraped_at, bid_result_raw, ra_result_raw, buyer_details_raw,
+    stage, is_cancelled, bid_status, status_updated_at
 )
 SELECT
     bid_id,
@@ -68,7 +75,11 @@ SELECT
     scraped_at,
     bid_result_raw,
     ra_result_raw,
-    buyer_details_raw
+    buyer_details_raw,
+    stage,
+    is_cancelled,
+    bid_status,
+    now()
 FROM staging.tenders_raw
 WHERE merged_at IS NULL AND validated
 ON CONFLICT (bid_id, tender_year) DO UPDATE SET
@@ -87,7 +98,64 @@ ON CONFLICT (bid_id, tender_year) DO UPDATE SET
     scraped_at         = EXCLUDED.scraped_at,
     bid_result_raw     = EXCLUDED.bid_result_raw,
     ra_result_raw      = EXCLUDED.ra_result_raw,
-    buyer_details_raw  = EXCLUDED.buyer_details_raw;
+    buyer_details_raw  = EXCLUDED.buyer_details_raw,
+    stage              = COALESCE(EXCLUDED.stage, tenders.stage),
+    is_cancelled       = COALESCE(EXCLUDED.is_cancelled, tenders.is_cancelled),
+    bid_status         = COALESCE(EXCLUDED.bid_status, tenders.bid_status),
+    status_updated_at  = EXCLUDED.status_updated_at;
+
+-- 1b2. Stage moved up -> REPLACE that bid's participant set.
+-- A re-merged bid (e.g. financial evaluation -> awarded) may list fewer sellers
+-- than before. 1c below upserts the sellers that ARE on the new page; this step
+-- deletes the stored rows of sellers that are NOT on it any more, so no stale
+-- participant is left behind. Their seller_ids go into replaced_sellers so
+-- 02_sellers_profile.sql / 03_seller_competitors.sql recompute them too.
+--
+-- Two safety rules decide which bids get this treatment (replace_bids):
+--   - the bid must have new participant rows in this batch: a re-scrape with
+--     nothing usable never gets here at all (06_require_participants.sql keeps
+--     it out of batch_tenders), so good stored data is never wiped;
+--   - none of the bid's rows from THIS scrape may have been quarantined (e.g. a
+--     name masked as "******"). Otherwise a seller we already know by name
+--     would be deleted and replaced by nothing. Such bids are upsert-only: the
+--     visible sellers are updated, the now-hidden ones keep their earlier row.
+-- For brand-new bids there is nothing stored, so the DELETE is a no-op.
+DROP TABLE IF EXISTS replace_bids;
+CREATE TEMP TABLE replace_bids AS
+SELECT DISTINCT bp.run_id, bp.bid_id
+FROM staging.bid_participations_raw bp
+JOIN batch_tenders bt USING (run_id, bid_id)
+JOIN staging.tenders_raw sr ON sr.run_id = bp.run_id AND sr.bid_id = bp.bid_id
+WHERE bp.merged_at IS NULL
+  AND NOT EXISTS (
+      SELECT 1
+      FROM staging.bid_participations_quarantine q
+      WHERE q.run_id = bp.run_id AND q.bid_id = bp.bid_id
+        AND q.quarantined_at >= sr.scraped_at
+  );
+CREATE INDEX ON replace_bids (bid_id);
+ANALYZE replace_bids;
+
+DROP TABLE IF EXISTS replaced_sellers;
+CREATE TEMP TABLE replaced_sellers (seller_id TEXT PRIMARY KEY);
+
+WITH removed AS (
+    DELETE FROM bid_participations p
+    USING replace_bids rb
+    WHERE p.bid_id = rb.bid_id
+      AND NOT EXISTS (
+          SELECT 1
+          FROM staging.bid_participations_raw bp
+          WHERE bp.run_id = rb.run_id AND bp.bid_id = p.bid_id
+            AND bp.seller_id = p.seller_id AND bp.merged_at IS NULL
+      )
+    RETURNING p.seller_id
+)
+INSERT INTO replaced_sellers (seller_id)
+SELECT DISTINCT seller_id FROM removed
+ON CONFLICT (seller_id) DO NOTHING;
+
+DROP TABLE IF EXISTS replace_bids;
 
 -- 1c. Participation rows: staging.bid_participations_raw -> bid_participations.
 -- Straight column copy -- category/buyer_name/etc. are NOT duplicated here,
@@ -123,12 +191,16 @@ ON CONFLICT (seller_id, bid_id, participation_year) DO UPDATE SET
 
 -- 1d. Capture impacted sellers BEFORE flagging merged_at -- this is the set
 -- 02_sellers_profile.sql and 03_seller_competitors.sql scope their recompute to.
+-- Includes replaced_sellers (removed from a bid in 1b2), whose totals and
+-- competitor pairs must shrink accordingly.
 DROP TABLE IF EXISTS impacted_sellers;
 CREATE TEMP TABLE impacted_sellers AS
-SELECT DISTINCT bp.seller_id
+SELECT bp.seller_id
 FROM staging.bid_participations_raw bp
 JOIN batch_tenders bt USING (run_id, bid_id)
-WHERE bp.merged_at IS NULL;
+WHERE bp.merged_at IS NULL
+UNION
+SELECT seller_id FROM replaced_sellers;
 
 -- 1e. Mark this batch merged so a re-run of this script is a no-op for these rows.
 UPDATE staging.bid_participations_raw bp

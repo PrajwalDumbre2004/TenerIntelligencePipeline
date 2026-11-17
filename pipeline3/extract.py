@@ -86,8 +86,10 @@ def extract_participants(tender: dict) -> list[dict]:
       - Otherwise use bid_result only
       - Technical evaluation → seller_name, mse_status, technical_status
       - Financial evaluation → rank, total_price, is_winner
-      - Winner = L1 ranked seller
+      - Winner = L1 ranked seller, but ONLY when the bid is awarded
+        (tender["stage"] == 3, or None for pre-stage rows)
       - Outcome classification: won / lost / disqualified / no_result
+        (bids not yet awarded: disqualified / no_result only)
     """
     bid_id = tender.get("bid_id")
     bid_id_parent = tender.get("bid_id_parent")
@@ -186,6 +188,17 @@ def extract_participants(tender: dict) -> list[dict]:
     if not participants:
         return []
 
+    # Winners only exist on awarded bids. A bid at technical (1) or financial (2)
+    # evaluation already shows L1/L2 ranks, but nobody has won it yet (and it may
+    # still be cancelled), so rank and price are kept but is_winner stays False.
+    # stage None = a row from before stages existed, which were all awarded.
+    # An awarded bid that was cancelled later is still stage 3 and keeps its winner.
+    stage = tender.get("stage")
+    is_awarded = stage is None or stage >= 3
+    if not is_awarded:
+        for p in participants.values():
+            p["is_winner"] = False
+
     # Determine winner
     winner_id = ""
     winner_name = ""
@@ -205,6 +218,8 @@ def extract_participants(tender: dict) -> list[dict]:
             outcome = "won"
         elif "DISQUALIF" in (p.get("technical_status") or "").upper():
             outcome = "disqualified"
+        elif not is_awarded:
+            outcome = "no_result"        # not decided yet: no "lost" before an award
         elif p["rank_num"] is not None and p["rank_num"] > 1:
             outcome = "lost"
         elif winner_id and p["seller_id"] != winner_id:

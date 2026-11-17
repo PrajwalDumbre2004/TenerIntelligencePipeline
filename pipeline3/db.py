@@ -146,6 +146,7 @@ def get_p3_status(month: str) -> dict:
 _NEEDS_RESULTS_COLUMNS = [
     "bid_id", "bid_number", "bid_id_parent", "bid_type", "eval_type",
     "single_packet", "bid_to_ra", "ra_to_bid", "is_bunch", "has_boq",
+    "stage",   # 1 tech / 2 fin / 3 awarded -- contract page is only fetched for 3
 ]
 
 
@@ -256,6 +257,7 @@ _DERIVE_SOURCE_COLUMNS = [
     "bid_id", "bid_id_parent", "bid_number", "bid_number_parent", "ra_number",
     "category", "department", "ministry", "month", "end_date",
     "buyer_details_raw", "bid_result_raw", "ra_result_raw",
+    "stage",   # winners are only marked on awarded (stage 3) bids
 ]
 
 

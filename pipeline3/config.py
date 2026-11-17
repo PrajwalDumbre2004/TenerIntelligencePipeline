@@ -30,8 +30,9 @@ POSTGRES_DSN = os.getenv("POSTGRES_DSN")
 # ═══════════════════════════════════════════════════════════════
 # Worker Settings
 # ═══════════════════════════════════════════════════════════════
-NUM_WORKERS = 10          # Parallel browser instances
-PAGES_PER_BROWSER = 6      # Concurrent pages per browser
+NUM_WORKERS = int(os.getenv("P3_NUM_WORKERS", "10"))              # Parallel browser instances
+PAGES_PER_BROWSER = int(os.getenv("P3_PAGES_PER_BROWSER", "3"))   # Concurrent pages per browser (was 6: 60 parallel pages
+                           # got throttled by GeM; 30 is being tested)
 
 # Rate limiting
 DELAY_BETWEEN_TENDERS = 0.2  # Seconds between result page fetches

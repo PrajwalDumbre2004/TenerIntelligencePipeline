@@ -16,7 +16,7 @@ from typing import Optional
 
 import psycopg
 from psycopg.rows import dict_row
-from psycopg.types.json import Json
+from psycopg.types.json import Json, Jsonb
 
 from common.db import get_connection
 
@@ -85,6 +85,16 @@ def _ensure_schema(conn):
             CREATE INDEX IF NOT EXISTS ix_staging_tenders_raw_batch
                 ON staging.tenders_raw (run_id, batch_key);
         """)
+        # Bid stage / cancellation (see pipeline4/sql/migrations/001_bid_stage.sql):
+        #   stage        1 tech / 2 fin / 3 awarded -- the byStatus list it came from
+        #   is_cancelled GeM b_status in (3, 5)
+        #   bid_status   GeM raw b_status
+        cur.execute("""
+            ALTER TABLE staging.tenders_raw
+                ADD COLUMN IF NOT EXISTS stage        SMALLINT,
+                ADD COLUMN IF NOT EXISTS is_cancelled BOOLEAN,
+                ADD COLUMN IF NOT EXISTS bid_status   SMALLINT;
+        """)
 
         cur.execute("""
             CREATE TABLE IF NOT EXISTS pipeline2_status (
@@ -101,6 +111,8 @@ def _ensure_schema(conn):
                 updated_at      TIMESTAMPTZ NOT NULL DEFAULT now()
             );
         """)
+        # Per-status listing progress: {"fin_evaluated": {"num_found": N, "captured": M, "passes": P}, ...}
+        cur.execute("ALTER TABLE pipeline2_status ADD COLUMN IF NOT EXISTS status_counts JSONB;")
 
         cur.execute("""
             CREATE TABLE IF NOT EXISTS failed_pages (
@@ -184,6 +196,7 @@ _STAGING_COLUMNS = [
     "start_date", "end_date", "total_quantity", "is_high_value", "is_rc_bid",
     "is_global_tendering", "is_bunch", "is_custom_item", "has_boq", "tender_link",
     "month", "scraped_at", "listing_scraped_at",
+    "stage", "is_cancelled", "bid_status",
 ]
 
 # doc key -> staging column, for the JSONB detail blobs (empty at pipeline2 time,
@@ -196,10 +209,25 @@ _JSON_DOC_TO_COLUMN = {
 }
 
 _INSERT_COLUMNS = _STAGING_COLUMNS + list(_JSON_DOC_TO_COLUMN.values())
+
+# A bid repeated across pages of one list hits the (run_id, bid_id) key and is
+# kept once. A bid seen in a LOWER list and then a HIGHER one during the same
+# crawl (it moved up mid-crawl; lists are crawled tech -> fin -> awarded) gets
+# its listing status raised -- but only while it is still unscraped, so a row
+# pipeline3 already worked on is never silently changed underneath it.
+# RETURNING (xmax = 0) is TRUE only for a genuine insert, so updates aren't
+# counted as "new".
 _INSERT_SQL = f"""
-    INSERT INTO staging.tenders_raw (run_id, batch_key, {", ".join(_INSERT_COLUMNS)})
+    INSERT INTO staging.tenders_raw AS sr (run_id, batch_key, {", ".join(_INSERT_COLUMNS)})
     VALUES ({", ".join(["%s"] * (len(_INSERT_COLUMNS) + 2))})
-    ON CONFLICT (run_id, bid_id) DO NOTHING
+    ON CONFLICT (run_id, bid_id) DO UPDATE SET
+        stage              = EXCLUDED.stage,
+        is_cancelled       = EXCLUDED.is_cancelled,
+        bid_status         = EXCLUDED.bid_status,
+        buyer_status       = EXCLUDED.buyer_status,
+        listing_scraped_at = EXCLUDED.listing_scraped_at
+    WHERE EXCLUDED.stage > COALESCE(sr.stage, 0) AND sr.scraped_at IS NULL
+    RETURNING (xmax = 0) AS inserted
 """
 
 
@@ -233,7 +261,9 @@ def bulk_upsert_tenders(docs: list, month: str, chunk_size: int = 5000) -> int:
             newly = 0
             for doc in chunk:
                 cur.execute(_INSERT_SQL, _doc_to_row(run_id, month, doc))
-                newly += cur.rowcount
+                row = cur.fetchone()          # None when the conflict update was skipped
+                if row and row[0]:
+                    newly += 1
             total_upserted += newly
             del chunk
 
@@ -254,27 +284,73 @@ def get_month_bid_count(month: str) -> int:
         return cur.fetchone()[0]
 
 
-def prune_known_bid_ids(month: str) -> int:
+def get_staged_bid_ids(month: str, stage: int) -> set:
+    """bid_ids already staged for this month's run at this stage (resume after a crash)."""
+    run_id = _get_run_id(month)
+    if run_id is None:
+        return set()
+    conn = get_connection()
+    with conn.cursor() as cur:
+        cur.execute(
+            "SELECT bid_id FROM staging.tenders_raw WHERE run_id = %s AND batch_key = %s AND stage = %s",
+            (run_id, month, stage),
+        )
+        return {r[0] for r in cur.fetchall()}
+
+
+def prune_known_bid_ids(month: str) -> tuple:
     """
-    Remove staged rows for this month's run whose bid_id already exists in
-    production `tenders` (any year) -- leaves only genuinely new bid_ids staged
-    for pipeline3/pipeline4 to pick up. Called once capture finishes, from
-    complete_month().
+    Compare this month's staged bids with production `tenders` (any year) and
+    drop the ones that need no work. Called once capture finishes, from
+    complete_month(). Returns (status_updated, pruned).
+
+    A staged bid is kept (-> scraped by pipeline3 -> merged by pipeline4) when:
+      - its bid_id is not in `tenders` yet (new, or previously rejected for
+        having no valid participants), or
+      - its stage moved up (1 -> 2 -> 3). Old rows with stage NULL were all
+        fetched from the awarded list, so NULL counts as 3.
+
+    A staged bid whose stage did NOT move up is dropped. Before dropping, if only
+    its cancellation changed, `tenders.is_cancelled / bid_status /
+    status_updated_at` are updated in place -- no re-scrape, because a cancelled
+    bid's page often masks seller names and would overwrite real ones.
+    Listings without a b_status (bid_status NULL) never overwrite a known value.
     """
     run_id = _get_run_id(month)
     if run_id is None:
-        return 0
+        return 0, 0
     conn = get_connection()
     with conn.cursor() as cur:
         cur.execute(
             """
-            DELETE FROM staging.tenders_raw sr
-            USING tenders t
-            WHERE sr.run_id = %s AND sr.batch_key = %s AND sr.bid_id = t.bid_id
+            UPDATE tenders t
+            SET is_cancelled      = sr.is_cancelled,
+                bid_status        = sr.bid_status,
+                status_updated_at = now()
+            FROM staging.tenders_raw sr
+            WHERE sr.run_id = %s AND sr.batch_key = %s
+              AND t.bid_id = sr.bid_id
+              AND COALESCE(sr.stage, 3) <= COALESCE(t.stage, 3)
+              AND sr.bid_status IS NOT NULL
+              AND (sr.is_cancelled IS DISTINCT FROM t.is_cancelled
+                   OR sr.bid_status IS DISTINCT FROM t.bid_status)
             """,
             (run_id, month),
         )
-        return cur.rowcount
+        status_updated = cur.rowcount
+
+        cur.execute(
+            """
+            DELETE FROM staging.tenders_raw sr
+            USING tenders t
+            WHERE sr.run_id = %s AND sr.batch_key = %s
+              AND sr.bid_id = t.bid_id
+              AND COALESCE(sr.stage, 3) <= COALESCE(t.stage, 3)
+            """,
+            (run_id, month),
+        )
+        pruned = cur.rowcount
+    return status_updated, pruned
 
 
 # ═══════════════════════════════════════════════════════════════
@@ -383,13 +459,14 @@ def update_month_progress(month: str, pass_num: int, unique_captured: int,
             )
 
 
-def complete_month(month: str, unique_captured: int, passes_done: int):
+def complete_month(month: str, unique_captured: int, passes_done: int,
+                   status_counts: Optional[dict] = None, total_tenders: Optional[int] = None):
     """
     Mark month as completed. Capture is finished at this point, so this is also
-    where staging gets pruned down to only bid_ids not already in production
-    `tenders` -- pipeline3/4 downstream only ever see genuinely new bid_ids.
+    where staging gets pruned (see prune_known_bid_ids): pipeline3/4 downstream
+    only see new bids and bids whose stage moved up.
     """
-    pruned = prune_known_bid_ids(month)
+    status_updated, pruned = prune_known_bid_ids(month)
 
     conn = get_connection()
     with conn.cursor() as cur:
@@ -397,15 +474,21 @@ def complete_month(month: str, unique_captured: int, passes_done: int):
             """
             UPDATE pipeline2_status
             SET status = 'completed', unique_captured = %s, passes_done = %s,
+                total_tenders = COALESCE(%s, total_tenders),
+                status_counts = COALESCE(%s, status_counts),
                 completed_at = %s, updated_at = %s
             WHERE month = %s
             """,
-            (unique_captured, passes_done, _now(), _now(), month),
+            (unique_captured, passes_done, total_tenders,
+             Jsonb(status_counts) if status_counts is not None else None,
+             _now(), _now(), month),
         )
 
+    if status_updated:
+        print(f"  [db] Updated cancellation status of {status_updated} stored tender(s) for {month}.")
     if pruned:
-        print(f"  [db] Pruned {pruned} already-known bid_id(s) from staging for {month} "
-              f"-> {unique_captured - pruned} new.")
+        print(f"  [db] Pruned {pruned} already-known bid_id(s) (stage unchanged) from staging for {month} "
+              f"-> {unique_captured - pruned} to scrape (new or stage moved up).")
 
 
 def fail_month(month: str, error: str):

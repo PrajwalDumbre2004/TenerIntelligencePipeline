@@ -3,6 +3,10 @@
 -- Step D1 (pipeline4_next_steps.md): recompute the `sellers` profile card for
 -- every seller in `impacted_sellers` (populated by 01_merge.sql, same session).
 --
+-- win_rate = wins / AWARDED bids the seller took part in (bids at technical or
+-- financial evaluation have no winner yet and don't count in the denominator).
+-- total_tenders still counts every bid the seller took part in.
+--
 -- Full recompute, not an incremental patch: for each impacted seller, this
 -- reads their ENTIRE bid_participations/tenders history -- not just this
 -- batch's new rows -- and overwrites the row via ON CONFLICT DO UPDATE. This
@@ -14,9 +18,12 @@
 WITH scope AS (
     SELECT seller_id FROM impacted_sellers
 ),
+-- stage: 1 tech / 2 fin / 3 awarded; NULL = row from before stages existed
+-- (all fetched from the awarded list), so treated as 3.
 base AS (
     SELECT bp.seller_id, bp.bid_id, bp.is_winner, bp.total_price, bp.seller_name,
-           bp.mse_status, t.category, t.buyer_name, t.month
+           bp.mse_status, t.category, t.buyer_name, t.month,
+           COALESCE(t.stage, 3) AS stage
     FROM bid_participations bp
     JOIN tenders t USING (bid_id)
     WHERE bp.seller_id IN (SELECT seller_id FROM scope)
@@ -84,6 +91,9 @@ profile AS (
     SELECT
         b.seller_id,
         COUNT(DISTINCT b.bid_id)                                                          AS total_tenders,
+        -- win_rate denominator: only awarded bids can have a winner, so bids
+        -- still at technical/financial evaluation must not dilute the rate.
+        COUNT(DISTINCT b.bid_id) FILTER (WHERE b.stage = 3)                               AS awarded_tenders,
         COUNT(DISTINCT b.bid_id) FILTER (WHERE b.is_winner)                               AS total_wins,
         COALESCE(SUM(b.total_price) FILTER (WHERE b.is_winner AND b.total_price > 0), 0)  AS total_contract_value,
         COUNT(*) FILTER (WHERE b.is_winner AND b.total_price > 0)                         AS win_price_count,
@@ -104,7 +114,9 @@ SELECT
     COALESCE(m.mse_status, ''),
     p.total_tenders,
     p.total_wins,
-    ROUND(p.total_wins * 100.0 / p.total_tenders, 1),
+    CASE WHEN p.awarded_tenders > 0
+         THEN ROUND(p.total_wins * 100.0 / p.awarded_tenders, 1)
+         ELSE 0 END,
     p.total_contract_value,
     CASE WHEN p.win_price_count > 0
          THEN ROUND(p.total_contract_value / p.win_price_count, 2)
@@ -133,3 +145,21 @@ ON CONFLICT (seller_id) DO UPDATE SET
     first_seen           = EXCLUDED.first_seen,
     last_seen            = EXCLUDED.last_seen,
     updated_at           = EXCLUDED.updated_at;
+
+-- A seller removed from a re-merged bid (01_merge.sql step 1b2) who now has no
+-- participation rows at all produces no row in `profile` above, so the upsert
+-- never touches them and their old totals would stay. Reset those to zero.
+-- The sellers row itself stays: other tables may still reference seller_id.
+UPDATE sellers s
+SET total_tenders        = 0,
+    total_wins           = 0,
+    win_rate             = 0,
+    total_contract_value = 0,
+    avg_contract_value   = 0,
+    top_categories       = '[]'::jsonb,
+    top_buyers           = '[]'::jsonb,
+    first_seen           = '',
+    last_seen            = '',
+    updated_at           = now()
+WHERE s.seller_id IN (SELECT seller_id FROM replaced_sellers)
+  AND NOT EXISTS (SELECT 1 FROM bid_participations bp WHERE bp.seller_id = s.seller_id);

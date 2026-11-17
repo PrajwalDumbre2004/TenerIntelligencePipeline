@@ -8,6 +8,22 @@ Flow per month:
 Usage:
     python pipeline_main/run.py                  # Process all months in range below
     python pipeline_main/run.py 2024-01 2024-06  # Custom range
+    python pipeline_main/run.py 2025-07          # One month (re-running a month fetches
+                                                 # only what is missing: new tech/fin/awarded
+                                                 # bids, late awards, stage/cancel changes)
+    python pipeline_main/run.py 2025-07 --days 15-16   # TEST ONLY: one month, bid end
+                                                       # dates 15..16 only
+
+Each month lists three GeM statuses (pipeline2/config.py BY_STATUSES):
+technically evaluated, financially evaluated and awarded -- cancelled bids at
+those stages included.
+
+IMPORTANT: after a month finishes here, run pipeline4 before re-running that
+same month:
+    psql "$POSTGRES_DSN" -v ON_ERROR_STOP=1 -f pipeline4/sql/00_run_all.sql
+pipeline4's cleanup is what removes rejected bids (no participant data / all
+names masked) from staging; until it runs, a re-run of the month will not
+retry them.
 
 Features:
   - Fault tolerance: Each pipeline wrapped in try-catch
@@ -25,7 +41,7 @@ from datetime import datetime, timezone
 # Add project root to path
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from pipeline2.orchestrator import process_month as pipeline2_process_month
+from pipeline2.orchestrator import process_month as pipeline2_process_month, gem_date
 from pipeline3.orchestrator import process_month as pipeline3_process_month
 from pipeline2.db import create_indexes as p2_create_indexes, init_month_status, reset_in_progress_months
 
@@ -77,15 +93,27 @@ def main():
     signal.signal(signal.SIGINT, _signal_handler)
     signal.signal(signal.SIGTERM, _signal_handler)
 
+    # Optional test-only day window: --days 15-16 (single month only)
+    args = sys.argv[1:]
+    day_window = None
+    if "--days" in args:
+        i = args.index("--days")
+        try:
+            d1, d2 = (int(x) for x in args[i + 1].split("-"))
+        except (IndexError, ValueError):
+            sys.exit("--days expects a range like 15-16")
+        day_window = (d1, d2)
+        del args[i:i + 2]
+
     # Parse optional CLI args: start_month end_month
-    if len(sys.argv) >= 3:
-        start = sys.argv[1]  # e.g. "2024-01"
-        end = sys.argv[2]    # e.g. "2024-06"
+    if len(args) >= 2:
+        start = args[0]  # e.g. "2024-01"
+        end = args[1]    # e.g. "2024-06"
         sy, sm = int(start[:4]), int(start[5:7])
         ey, em = int(end[:4]), int(end[5:7])
-    elif len(sys.argv) == 2:
+    elif len(args) == 1:
         # Single month
-        start = sys.argv[1]
+        start = args[0]
         sy, sm = int(start[:4]), int(start[5:7])
         ey, em = sy, sm
     else:
@@ -93,6 +121,14 @@ def main():
         ey, em = END_YEAR, END_MONTH
 
     months = generate_month_list(sy, sm, ey, em)
+
+    window_from = window_to = None
+    if day_window:
+        if len(months) != 1:
+            sys.exit("--days can only be used with a single month")
+        window_from = gem_date(sy, sm, day_window[0])
+        window_to = gem_date(sy, sm, day_window[1])
+        print(f"  [TEST] Day window: {window_from} to {window_to}")
 
     print("=" * 70)
     print("  COMBINED PIPELINE — Pipeline2 + Pipeline3")
@@ -144,8 +180,9 @@ def main():
         print(f"\n  [STEP 1] Pipeline2: Extracting all listings for {month}...")
         try:
             init_month_status(month)
-            pipeline2_process_month(month)
-            p2_success = True
+            p2_success = bool(pipeline2_process_month(month, window_from, window_to))
+            if not p2_success:
+                raise RuntimeError("pipeline2 did not complete the month (see log above)")
             print(f"  ✓ Pipeline2 completed successfully")
         except Exception as e:
             error_msg = f"{type(e).__name__}: {str(e)}"

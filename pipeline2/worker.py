@@ -12,7 +12,7 @@ from playwright.sync_api import sync_playwright
 
 from pipeline2.config import (
     BASE_URL, USER_AGENT, BROWSER_LOCALE, BROWSER_VIEWPORT,
-    SORT_BY, DELAY_BETWEEN_PAGES, PAGE_SIZE
+    SORT_BY, DELAY_BETWEEN_PAGES, PAGE_SIZE, STAGE_OF, CANCELLED_BID_STATUSES
 )
 from pipeline2.db import log_failed_page, log_error
 
@@ -67,8 +67,12 @@ def capture_csrf(page):
     return captured["value"]
 
 
-def fetch_page(page, csrf, from_date, to_date, page_no):
-    """Fetch a single page from the GeM API. Returns (docs, numFound)."""
+def fetch_page(page, csrf, from_date, to_date, page_no, by_status):
+    """
+    Fetch a single page from the GeM API. Returns (docs, numFound).
+    by_status: "tech_evaluated" | "fin_evaluated" | "bid_awarded". With
+    bidStatusType "all_bids" GeM returns live AND cancelled bids at that stage.
+    """
     payload = {
         "page": page_no,
         "param": {"searchBid": "", "searchType": "fullText"},
@@ -78,7 +82,7 @@ def fetch_page(page, csrf, from_date, to_date, page_no):
             "highBidValue": "",
             "byEndDate": {"from": from_date, "to": to_date},
             "sort": SORT_BY,
-            "byStatus": "bid_awarded"
+            "byStatus": by_status
         }
     }
     payload_json = json.dumps(payload)
@@ -128,18 +132,30 @@ def extract_bid_id(doc):
     return b_id[0] if isinstance(b_id, list) else int(doc.get("id", 0))
 
 
-def parse_doc_to_tender(doc, month: str) -> dict:
+def parse_doc_to_tender(doc, month: str, stage: int = None) -> dict:
     """
     Parse a raw API document into the tenderGemAll schema.
     Only listing fields — no results/details yet.
     Field names match the Solr schema used by GeM's API.
+
+    stage: 1/2/3 from the byStatus list this doc came from (tech/fin/awarded).
     """
     bid_id = extract_bid_id(doc)
 
     def get_first(val):
         return val[0] if isinstance(val, list) and val else val
 
+    raw_status = get_first(doc.get("b_status", [None]))
+    try:
+        bid_status = int(raw_status) if raw_status is not None else None
+    except (TypeError, ValueError):
+        bid_status = None
+
     return {
+        "stage": stage,
+        "bid_status": bid_status,
+        # None when GeM didn't send b_status (unknown, not "not cancelled")
+        "is_cancelled": (bid_status in CANCELLED_BID_STATUSES) if bid_status is not None else None,
         "bid_id": bid_id,
         "bid_number": get_first(doc.get("b_bid_number", [""])),
         "bid_number_parent": get_first(doc.get("b_bid_number_parent", [""])),
@@ -178,12 +194,13 @@ def parse_doc_to_tender(doc, month: str) -> dict:
     }
 
 
-def worker_fetch_pages(worker_id, from_date, to_date, month, page_list):
+def worker_fetch_pages(worker_id, from_date, to_date, month, page_list, by_status):
     """
-    Worker process: launches browser, fetches pages in page_list (round-robin assigned).
-    Returns dict with collected tender docs and stats.
+    Worker process: launches browser, fetches pages in page_list (round-robin assigned)
+    of the `by_status` list. Returns dict with collected tender docs and stats.
     """
     global _progress
+    stage = STAGE_OF[by_status]
     try:
         with sync_playwright() as p:
             browser = p.chromium.launch(headless=True, args=["--no-sandbox", "--disable-dev-shm-usage"])
@@ -204,24 +221,24 @@ def worker_fetch_pages(worker_id, from_date, to_date, month, page_list):
 
             for pg in page_list:
                 try:
-                    docs, total = fetch_page(page, csrf, from_date, to_date, pg)
+                    docs, total = fetch_page(page, csrf, from_date, to_date, pg, by_status)
                 except RuntimeError:
                     # Retry once with fresh CSRF
                     try:
                         time.sleep(2)
                         csrf = capture_csrf(page)
-                        docs, total = fetch_page(page, csrf, from_date, to_date, pg)
+                        docs, total = fetch_page(page, csrf, from_date, to_date, pg, by_status)
                     except Exception as e:
                         errors += 1
                         err_msg = str(e)
                         failed_pages_log.append({"page": pg, "error": err_msg})
                         # Log to file
-                        _log_to_file(worker_id, month, pg, err_msg, "retry failed")
+                        _log_to_file(worker_id, month, pg, err_msg, f"{by_status} retry failed")
                         # Log to DB
                         try:
                             log_failed_page(month, pg, worker_id, err_msg, pass_num=0)
                             log_error("pipeline2", month, err_msg,
-                                      context=f"page={pg}, retry failed",
+                                      context=f"{by_status} page={pg}, retry failed",
                                       worker_id=worker_id, page_no=pg)
                         except Exception:
                             pass
@@ -239,7 +256,7 @@ def worker_fetch_pages(worker_id, from_date, to_date, month, page_list):
                     bid_id = extract_bid_id(doc)
                     if bid_id not in bid_ids_found:
                         bid_ids_found.add(bid_id)
-                        tender_docs.append(parse_doc_to_tender(doc, month))
+                        tender_docs.append(parse_doc_to_tender(doc, month, stage))
 
                 pages_done += 1
 

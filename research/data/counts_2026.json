@@ -1,0 +1,717 @@
+{
+ "year": 2026,
+ "generated_at": "2026-11-17T11:40:42",
+ "groups": [
+  "awarded_live",
+  "awarded_cancelled",
+  "fin_live",
+  "fin_cancelled",
+  "tech_live",
+  "tech_cancelled",
+  "noteval_live",
+  "cancelled_stage0"
+ ],
+ "by_type": {
+  "all": {
+   "raw": {
+    "all": 1084423,
+    "all_awarded": 497203,
+    "all_fin": 245979,
+    "all_tech": 134977,
+    "live": 904860,
+    "live_awarded": 497117,
+    "live_fin": 211899,
+    "live_tech": 91109,
+    "canc": 137715,
+    "canc_awarded": 86,
+    "canc_fin": 34080,
+    "canc_tech": 43868,
+    "ongoing": 41848
+   },
+   "groups": {
+    "awarded_live": 497117,
+    "awarded_cancelled": 86,
+    "fin_live": 211899,
+    "fin_cancelled": 34080,
+    "tech_live": 91109,
+    "tech_cancelled": 43868,
+    "noteval_live": 104735,
+    "cancelled_stage0": 59681,
+    "_sum_groups": 1042575,
+    "_all_bids": 1084423,
+    "_ongoing": 41848,
+    "_reconcile_diff": 0
+   }
+  },
+  "product": {
+   "raw": {
+    "all": 811433,
+    "all_awarded": 362503,
+    "all_fin": 190232,
+    "all_tech": 99558,
+    "live": 684419,
+    "live_awarded": 362417,
+    "live_fin": 167392,
+    "live_tech": 69267,
+    "canc": 95684,
+    "canc_awarded": 86,
+    "canc_fin": 22840,
+    "canc_tech": 30291,
+    "ongoing": 31330
+   },
+   "groups": {
+    "awarded_live": 362417,
+    "awarded_cancelled": 86,
+    "fin_live": 167392,
+    "fin_cancelled": 22840,
+    "tech_live": 69267,
+    "tech_cancelled": 30291,
+    "noteval_live": 85343,
+    "cancelled_stage0": 42467,
+    "_sum_groups": 780103,
+    "_all_bids": 811433,
+    "_ongoing": 31330,
+    "_reconcile_diff": 0
+   }
+  },
+  "service": {
+   "raw": {
+    "all": 272990,
+    "all_awarded": 134700,
+    "all_fin": 55747,
+    "all_tech": 35419,
+    "live": 220441,
+    "live_awarded": 134700,
+    "live_fin": 44507,
+    "live_tech": 21842,
+    "canc": 42031,
+    "canc_awarded": 0,
+    "canc_fin": 11240,
+    "canc_tech": 13577,
+    "ongoing": 10518
+   },
+   "groups": {
+    "awarded_live": 134700,
+    "awarded_cancelled": 0,
+    "fin_live": 44507,
+    "fin_cancelled": 11240,
+    "tech_live": 21842,
+    "tech_cancelled": 13577,
+    "noteval_live": 19392,
+    "cancelled_stage0": 17214,
+    "_sum_groups": 262472,
+    "_all_bids": 272990,
+    "_ongoing": 10518,
+    "_reconcile_diff": 0
+   }
+  },
+  "bidToRA": {
+   "raw": {
+    "all": 173295,
+    "all_awarded": 100494,
+    "all_fin": 19069,
+    "all_tech": 0,
+    "live": 167197,
+    "live_awarded": 100430,
+    "live_fin": 15192,
+    "live_tech": 0,
+    "canc": 4745,
+    "canc_awarded": 64,
+    "canc_fin": 3877,
+    "canc_tech": 0,
+    "ongoing": 1353
+   },
+   "groups": {
+    "awarded_live": 100430,
+    "awarded_cancelled": 64,
+    "fin_live": 15192,
+    "fin_cancelled": 3877,
+    "tech_live": 0,
+    "tech_cancelled": 0,
+    "noteval_live": 51575,
+    "cancelled_stage0": 804,
+    "_sum_groups": 171942,
+    "_all_bids": 173295,
+    "_ongoing": 1353,
+    "_reconcile_diff": 0
+   }
+  },
+  "custom": {
+   "raw": {
+    "all": 282963,
+    "all_awarded": 122369,
+    "all_fin": 70180,
+    "all_tech": 38229,
+    "live": 244278,
+    "live_awarded": 122366,
+    "live_fin": 63680,
+    "live_tech": 29467,
+    "canc": 25751,
+    "canc_awarded": 3,
+    "canc_fin": 6500,
+    "canc_tech": 8762,
+    "ongoing": 12934
+   },
+   "groups": {
+    "awarded_live": 122366,
+    "awarded_cancelled": 3,
+    "fin_live": 63680,
+    "fin_cancelled": 6500,
+    "tech_live": 29467,
+    "tech_cancelled": 8762,
+    "noteval_live": 28765,
+    "cancelled_stage0": 10486,
+    "_sum_groups": 270029,
+    "_all_bids": 282963,
+    "_ongoing": 12934,
+    "_reconcile_diff": 0
+   }
+  },
+  "boq": {
+   "raw": {
+    "all": 210920,
+    "all_awarded": 109328,
+    "all_fin": 51963,
+    "all_tech": 19566,
+    "live": 185629,
+    "live_awarded": 109328,
+    "live_fin": 48243,
+    "live_tech": 14010,
+    "canc": 17197,
+    "canc_awarded": 0,
+    "canc_fin": 3720,
+    "canc_tech": 5556,
+    "ongoing": 8094
+   },
+   "groups": {
+    "awarded_live": 109328,
+    "awarded_cancelled": 0,
+    "fin_live": 48243,
+    "fin_cancelled": 3720,
+    "tech_live": 14010,
+    "tech_cancelled": 5556,
+    "noteval_live": 14048,
+    "cancelled_stage0": 7921,
+    "_sum_groups": 202826,
+    "_all_bids": 210920,
+    "_ongoing": 8094,
+    "_reconcile_diff": 0
+   }
+  },
+  "rcbid": {
+   "raw": {
+    "all": 289,
+    "all_awarded": 0,
+    "all_fin": 107,
+    "all_tech": 108,
+    "live": 228,
+    "live_awarded": 0,
+    "live_fin": 107,
+    "live_tech": 90,
+    "canc": 33,
+    "canc_awarded": 0,
+    "canc_fin": 0,
+    "canc_tech": 18,
+    "ongoing": 28
+   },
+   "groups": {
+    "awarded_live": 0,
+    "awarded_cancelled": 0,
+    "fin_live": 107,
+    "fin_cancelled": 0,
+    "tech_live": 90,
+    "tech_cancelled": 18,
+    "noteval_live": 31,
+    "cancelled_stage0": 15,
+    "_sum_groups": 261,
+    "_all_bids": 289,
+    "_ongoing": 28,
+    "_reconcile_diff": 0
+   }
+  },
+  "gt": {
+   "raw": {
+    "all": 159,
+    "all_awarded": 22,
+    "all_fin": 20,
+    "all_tech": 46,
+    "live": 90,
+    "live_awarded": 22,
+    "live_fin": 19,
+    "live_tech": 39,
+    "canc": 23,
+    "canc_awarded": 0,
+    "canc_fin": 1,
+    "canc_tech": 7,
+    "ongoing": 46
+   },
+   "groups": {
+    "awarded_live": 22,
+    "awarded_cancelled": 0,
+    "fin_live": 19,
+    "fin_cancelled": 1,
+    "tech_live": 39,
+    "tech_cancelled": 7,
+    "noteval_live": 10,
+    "cancelled_stage0": 15,
+    "_sum_groups": 113,
+    "_all_bids": 159,
+    "_ongoing": 46,
+    "_reconcile_diff": 0
+   }
+  },
+  "lt": {
+   "raw": {
+    "all": 17233,
+    "all_awarded": 8290,
+    "all_fin": 4083,
+    "all_tech": 1297,
+    "live": 14324,
+    "live_awarded": 8286,
+    "live_fin": 3613,
+    "live_tech": 967,
+    "canc": 2050,
+    "canc_awarded": 4,
+    "canc_fin": 470,
+    "canc_tech": 330,
+    "ongoing": 859
+   },
+   "groups": {
+    "awarded_live": 8286,
+    "awarded_cancelled": 4,
+    "fin_live": 3613,
+    "fin_cancelled": 470,
+    "tech_live": 967,
+    "tech_cancelled": 330,
+    "noteval_live": 1458,
+    "cancelled_stage0": 1246,
+    "_sum_groups": 16374,
+    "_all_bids": 17233,
+    "_ongoing": 859,
+    "_reconcile_diff": 0
+   }
+  },
+  "st": {
+   "raw": {
+    "all": 18261,
+    "all_awarded": 9100,
+    "all_fin": 4672,
+    "all_tech": 710,
+    "live": 15754,
+    "live_awarded": 9100,
+    "live_fin": 4418,
+    "live_tech": 665,
+    "canc": 1435,
+    "canc_awarded": 0,
+    "canc_fin": 254,
+    "canc_tech": 45,
+    "ongoing": 1072
+   },
+   "groups": {
+    "awarded_live": 9100,
+    "awarded_cancelled": 0,
+    "fin_live": 4418,
+    "fin_cancelled": 254,
+    "tech_live": 665,
+    "tech_cancelled": 45,
+    "noteval_live": 1571,
+    "cancelled_stage0": 1136,
+    "_sum_groups": 17189,
+    "_all_bids": 18261,
+    "_ongoing": 1072,
+    "_reconcile_diff": 0
+   }
+  }
+ },
+ "by_month": {
+  "2026-01": {
+   "raw": {
+    "all": 96995,
+    "all_awarded": 54031,
+    "all_fin": 20775,
+    "all_tech": 8524,
+    "live": 82190,
+    "live_awarded": 54015,
+    "live_fin": 16803,
+    "live_tech": 3412,
+    "canc": 14805,
+    "canc_awarded": 16,
+    "canc_fin": 3972,
+    "canc_tech": 5112,
+    "ongoing": 0
+   },
+   "groups": {
+    "awarded_live": 54015,
+    "awarded_cancelled": 16,
+    "fin_live": 16803,
+    "fin_cancelled": 3972,
+    "tech_live": 3412,
+    "tech_cancelled": 5112,
+    "noteval_live": 7960,
+    "cancelled_stage0": 5705,
+    "_sum_groups": 96995,
+    "_all_bids": 96995,
+    "_ongoing": 0,
+    "_reconcile_diff": 0
+   }
+  },
+  "2026-02": {
+   "raw": {
+    "all": 105592,
+    "all_awarded": 60669,
+    "all_fin": 21183,
+    "all_tech": 8729,
+    "live": 90460,
+    "live_awarded": 60647,
+    "live_fin": 17326,
+    "live_tech": 3655,
+    "canc": 15132,
+    "canc_awarded": 22,
+    "canc_fin": 3857,
+    "canc_tech": 5074,
+    "ongoing": 0
+   },
+   "groups": {
+    "awarded_live": 60647,
+    "awarded_cancelled": 22,
+    "fin_live": 17326,
+    "fin_cancelled": 3857,
+    "tech_live": 3655,
+    "tech_cancelled": 5074,
+    "noteval_live": 8832,
+    "cancelled_stage0": 6179,
+    "_sum_groups": 105592,
+    "_all_bids": 105592,
+    "_ongoing": 0,
+    "_reconcile_diff": 0
+   }
+  },
+  "2026-03": {
+   "raw": {
+    "all": 110522,
+    "all_awarded": 60925,
+    "all_fin": 22290,
+    "all_tech": 9900,
+    "live": 93683,
+    "live_awarded": 60917,
+    "live_fin": 18070,
+    "live_tech": 4401,
+    "canc": 16839,
+    "canc_awarded": 8,
+    "canc_fin": 4220,
+    "canc_tech": 5499,
+    "ongoing": 0
+   },
+   "groups": {
+    "awarded_live": 60917,
+    "awarded_cancelled": 8,
+    "fin_live": 18070,
+    "fin_cancelled": 4220,
+    "tech_live": 4401,
+    "tech_cancelled": 5499,
+    "noteval_live": 10295,
+    "cancelled_stage0": 7112,
+    "_sum_groups": 110522,
+    "_all_bids": 110522,
+    "_ongoing": 0,
+    "_reconcile_diff": 0
+   }
+  },
+  "2026-04": {
+   "raw": {
+    "all": 64856,
+    "all_awarded": 33172,
+    "all_fin": 15967,
+    "all_tech": 6149,
+    "live": 54204,
+    "live_awarded": 33162,
+    "live_fin": 12942,
+    "live_tech": 2668,
+    "canc": 10652,
+    "canc_awarded": 10,
+    "canc_fin": 3025,
+    "canc_tech": 3481,
+    "ongoing": 0
+   },
+   "groups": {
+    "awarded_live": 33162,
+    "awarded_cancelled": 10,
+    "fin_live": 12942,
+    "fin_cancelled": 3025,
+    "tech_live": 2668,
+    "tech_cancelled": 3481,
+    "noteval_live": 5432,
+    "cancelled_stage0": 4136,
+    "_sum_groups": 64856,
+    "_all_bids": 64856,
+    "_ongoing": 0,
+    "_reconcile_diff": 0
+   }
+  },
+  "2026-05": {
+   "raw": {
+    "all": 80779,
+    "all_awarded": 42368,
+    "all_fin": 20138,
+    "all_tech": 7103,
+    "live": 68675,
+    "live_awarded": 42355,
+    "live_fin": 16642,
+    "live_tech": 3289,
+    "canc": 12104,
+    "canc_awarded": 13,
+    "canc_fin": 3496,
+    "canc_tech": 3814,
+    "ongoing": 0
+   },
+   "groups": {
+    "awarded_live": 42355,
+    "awarded_cancelled": 13,
+    "fin_live": 16642,
+    "fin_cancelled": 3496,
+    "tech_live": 3289,
+    "tech_cancelled": 3814,
+    "noteval_live": 6389,
+    "cancelled_stage0": 4781,
+    "_sum_groups": 80779,
+    "_all_bids": 80779,
+    "_ongoing": 0,
+    "_reconcile_diff": 0
+   }
+  },
+  "2026-06": {
+   "raw": {
+    "all": 101508,
+    "all_awarded": 53753,
+    "all_fin": 24383,
+    "all_tech": 9269,
+    "live": 86921,
+    "live_awarded": 53736,
+    "live_fin": 20491,
+    "live_tech": 4606,
+    "canc": 14587,
+    "canc_awarded": 17,
+    "canc_fin": 3892,
+    "canc_tech": 4663,
+    "ongoing": 0
+   },
+   "groups": {
+    "awarded_live": 53736,
+    "awarded_cancelled": 17,
+    "fin_live": 20491,
+    "fin_cancelled": 3892,
+    "tech_live": 4606,
+    "tech_cancelled": 4663,
+    "noteval_live": 8088,
+    "cancelled_stage0": 6015,
+    "_sum_groups": 101508,
+    "_all_bids": 101508,
+    "_ongoing": 0,
+    "_reconcile_diff": 0
+   }
+  },
+  "2026-07": {
+   "raw": {
+    "all": 110367,
+    "all_awarded": 57328,
+    "all_fin": 26325,
+    "all_tech": 11031,
+    "live": 95618,
+    "live_awarded": 57328,
+    "live_fin": 22551,
+    "live_tech": 6142,
+    "canc": 14749,
+    "canc_awarded": 0,
+    "canc_fin": 3774,
+    "canc_tech": 4889,
+    "ongoing": 0
+   },
+   "groups": {
+    "awarded_live": 57328,
+    "awarded_cancelled": 0,
+    "fin_live": 22551,
+    "fin_cancelled": 3774,
+    "tech_live": 6142,
+    "tech_cancelled": 4889,
+    "noteval_live": 9597,
+    "cancelled_stage0": 6086,
+    "_sum_groups": 110367,
+    "_all_bids": 110367,
+    "_ongoing": 0,
+    "_reconcile_diff": 0
+   }
+  },
+  "2026-08": {
+   "raw": {
+    "all": 107468,
+    "all_awarded": 52064,
+    "all_fin": 27030,
+    "all_tech": 12874,
+    "live": 93519,
+    "live_awarded": 52064,
+    "live_fin": 23763,
+    "live_tech": 8315,
+    "canc": 13949,
+    "canc_awarded": 0,
+    "canc_fin": 3267,
+    "canc_tech": 4559,
+    "ongoing": 0
+   },
+   "groups": {
+    "awarded_live": 52064,
+    "awarded_cancelled": 0,
+    "fin_live": 23763,
+    "fin_cancelled": 3267,
+    "tech_live": 8315,
+    "tech_cancelled": 4559,
+    "noteval_live": 9377,
+    "cancelled_stage0": 6123,
+    "_sum_groups": 107468,
+    "_all_bids": 107468,
+    "_ongoing": 0,
+    "_reconcile_diff": 0
+   }
+  },
+  "2026-09": {
+   "raw": {
+    "all": 103376,
+    "all_awarded": 44131,
+    "all_fin": 27548,
+    "all_tech": 16570,
+    "live": 91546,
+    "live_awarded": 44131,
+    "live_fin": 24948,
+    "live_tech": 12917,
+    "canc": 11830,
+    "canc_awarded": 0,
+    "canc_fin": 2600,
+    "canc_tech": 3653,
+    "ongoing": 0
+   },
+   "groups": {
+    "awarded_live": 44131,
+    "awarded_cancelled": 0,
+    "fin_live": 24948,
+    "fin_cancelled": 2600,
+    "tech_live": 12917,
+    "tech_cancelled": 3653,
+    "noteval_live": 9550,
+    "cancelled_stage0": 5577,
+    "_sum_groups": 103376,
+    "_all_bids": 103376,
+    "_ongoing": 0,
+    "_reconcile_diff": 0
+   }
+  },
+  "2026-10": {
+   "raw": {
+    "all": 106190,
+    "all_awarded": 32441,
+    "all_fin": 29175,
+    "all_tech": 27363,
+    "live": 96489,
+    "live_awarded": 32441,
+    "live_fin": 27448,
+    "live_tech": 24629,
+    "canc": 9701,
+    "canc_awarded": 0,
+    "canc_fin": 1727,
+    "canc_tech": 2734,
+    "ongoing": 0
+   },
+   "groups": {
+    "awarded_live": 32441,
+    "awarded_cancelled": 0,
+    "fin_live": 27448,
+    "fin_cancelled": 1727,
+    "tech_live": 24629,
+    "tech_cancelled": 2734,
+    "noteval_live": 11971,
+    "cancelled_stage0": 5240,
+    "_sum_groups": 106190,
+    "_all_bids": 106190,
+    "_ongoing": 0,
+    "_reconcile_diff": 0
+   }
+  },
+  "2026-11": {
+   "raw": {
+    "all": 90826,
+    "all_awarded": 6321,
+    "all_fin": 11165,
+    "all_tech": 17465,
+    "live": 51555,
+    "live_awarded": 6321,
+    "live_fin": 10915,
+    "live_tech": 17075,
+    "canc": 3247,
+    "canc_awarded": 0,
+    "canc_fin": 250,
+    "canc_tech": 390,
+    "ongoing": 36024
+   },
+   "groups": {
+    "awarded_live": 6321,
+    "awarded_cancelled": 0,
+    "fin_live": 10915,
+    "fin_cancelled": 250,
+    "tech_live": 17075,
+    "tech_cancelled": 390,
+    "noteval_live": 17244,
+    "cancelled_stage0": 2607,
+    "_sum_groups": 54802,
+    "_all_bids": 90826,
+    "_ongoing": 36024,
+    "_reconcile_diff": 0
+   }
+  },
+  "2026-12": {
+   "raw": {
+    "all": 5944,
+    "all_awarded": 0,
+    "all_fin": 0,
+    "all_tech": 0,
+    "live": 0,
+    "live_awarded": 0,
+    "live_fin": 0,
+    "live_tech": 0,
+    "canc": 120,
+    "canc_awarded": 0,
+    "canc_fin": 0,
+    "canc_tech": 0,
+    "ongoing": 5824
+   },
+   "groups": {
+    "awarded_live": 0,
+    "awarded_cancelled": 0,
+    "fin_live": 0,
+    "fin_cancelled": 0,
+    "tech_live": 0,
+    "tech_cancelled": 0,
+    "noteval_live": 0,
+    "cancelled_stage0": 120,
+    "_sum_groups": 120,
+    "_all_bids": 5944,
+    "_ongoing": 5824,
+    "_reconcile_diff": 0
+   }
+  }
+ },
+ "pool_stats": {
+  "requests": 773,
+  "errors": 487,
+  "retries": 461,
+  "csrf_refresh": 11,
+  "error_kinds": {
+   "HTTP 429 | <html>\r\n<head><title>429 Too Many Requests</title></head>\r\n<body>\r\n<center><h1>4": 487
+  }
+ },
+ "elapsed_s": 132.3,
+ "checks": {
+  "year_groups_sum_equals_all_bids": true,
+  "months_sum_all_bids": 1084423,
+  "year_all_bids": 1084423,
+  "months_with_reconcile_diff": {},
+  "types_sum_all_bids": 1787543
+ }
+}

@@ -118,11 +118,15 @@ BID_RESULTS_JS = """async (urls) => {
     let ra_financial = [];
     let found_ra_number = '';
     let found_buyer = {};
+    // One entry per URL fetched: {status, len} (status -1 = network error).
+    // Lets Python tell "page loaded, no table" apart from "page never loaded".
+    const page_diag = [];
 
     for (const url of urls) {
         try {
             const resp = await fetch(url, {credentials: 'include'});
             const html = await resp.text();
+            page_diag.push({status: resp.status, len: html ? html.length : 0});
             if (!html || html.length < 1000) continue;
 
             const parser = new DOMParser();
@@ -265,6 +269,7 @@ BID_RESULTS_JS = """async (urls) => {
             if (hasBid && hasRA) break;
 
         } catch(e) {
+            page_diag.push({status: -1, len: 0, error: String(e).slice(0, 120)});
             continue;
         }
     }
@@ -277,9 +282,31 @@ BID_RESULTS_JS = """async (urls) => {
         ra_technical_evaluation: ra_technical,
         ra_financial_evaluation: ra_financial,
         ra_number: found_ra_number,
-        buyer_details: found_buyer
+        buyer_details: found_buyer,
+        page_diag: page_diag
     };
 }"""
+
+# A real GeM result page is ~120 KB+ even when it has no seller table (measured:
+# 123-127 KB for 663 genuine "no table" pages). Blocked / throttled / error
+# responses are not. Some secondary result URLs legitimately return an empty
+# 200, so the rule is "at least one URL returned a full page".
+FULL_RESULT_PAGE_MIN_LEN = 20000
+
+
+class ResultPageNotLoaded(RuntimeError):
+    """No result URL returned a full page: the fetch failed (e.g. GeM throttling).
+    Raised so the worker retries / marks the tender failed, instead of recording
+    'this bid has no participants'."""
+
+
+def _ensure_page_loaded(raw: dict, bid_result, ra_result, tender: dict):
+    if bid_result is not None or ra_result is not None:
+        return      # got participants
+    diag = raw.get("page_diag") or []
+    if any(d.get("status") == 200 and (d.get("len") or 0) >= FULL_RESULT_PAGE_MIN_LEN for d in diag):
+        return      # page loaded fine and genuinely has no participant table
+    raise ResultPageNotLoaded(f"result page not loaded for bid_id={tender.get('bid_id')}: {diag}")
 
 
 # ═══════════════════════════════════════════════════════════════
@@ -586,10 +613,14 @@ def fetch_bid_results(page, tender: dict) -> dict:
                         "financial_evaluation": ra_fin,
                     }
 
+    # Failed / throttled page load -> raise (retry), never "no participants"
+    _ensure_page_loaded(raw, bid_result, ra_result, tender)
+
     # ─── Contract Details ─────────────────────────────────────────
+    # Only awarded bids (stage 3) have a contract. Stage NULL = old awarded row.
     contract_details = None
     bid_number = tender.get("bid_number", "")
-    if bid_number:
+    if bid_number and (tender.get("stage") or 3) >= 3:
         contract_details = fetch_contract_details(page, bid_number)
         # Navigate back to bidplus to keep session alive for next tender
         try:
@@ -757,10 +788,15 @@ async def fetch_bid_results_async(page, tender: dict) -> dict:
                         "financial_evaluation": ra_fin,
                     }
 
+    # Failed / throttled page load -> raise (retry), never "no participants"
+    _ensure_page_loaded(raw, bid_result, ra_result, tender)
+
     # ─── Contract Details ─────────────────────────────────────────
+    # Only awarded bids (stage 3) have a contract; skipping it saves two page
+    # loads per tech/fin bid. Stage NULL = old awarded row.
     contract_details = None
     bid_number = tender.get("bid_number", "")
-    if bid_number:
+    if bid_number and (tender.get("stage") or 3) >= 3:
         contract_details = await fetch_contract_details_async(page, bid_number)
         # Navigate back to bidplus to keep session alive for next tender
         try:

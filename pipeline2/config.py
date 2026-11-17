@@ -29,11 +29,28 @@ POSTGRES_DSN = os.getenv("POSTGRES_DSN")
 # ═══════════════════════════════════════════════════════════════
 # Worker Settings
 # ═══════════════════════════════════════════════════════════════
-NUM_WORKERS = 10          # Parallel browser workers per pass
+NUM_WORKERS = int(os.getenv("P2_NUM_WORKERS", "10"))   # Parallel browser workers per pass
 
 # Multi-pass settings
-MAX_PASSES = 15             # Max passes per month before moving on
-SORT_BY = "bid_id"          # Stable sort to reduce pagination drift
+MAX_PASSES = 15             # Max passes per status per month before moving on
+# One of GeM's own sort values. GeM silently ignores unknown values (the old
+# "bid_id" fell back to an unstable default order, causing pagination drift).
+SORT_BY = "Bid-End-Date-Oldest"
+
+# ═══════════════════════════════════════════════════════════════
+# Which bids to list
+# ═══════════════════════════════════════════════════════════════
+# Each value is sent as `byStatus` together with bidStatusType = "all_bids",
+# which returns BOTH live and cancelled bids at that stage. Crawled in this
+# order (lowest stage first) so a bid that moves up mid-crawl ends up staged
+# with its higher stage.
+BY_STATUSES = ["tech_evaluated", "fin_evaluated", "bid_awarded"]
+
+# byStatus -> stage stored on the tender (1 tech, 2 fin, 3 awarded)
+STAGE_OF = {"tech_evaluated": 1, "fin_evaluated": 2, "bid_awarded": 3}
+
+# GeM b_status codes that mean "cancelled" (from GeM's all-bids page JS)
+CANCELLED_BID_STATUSES = (3, 5)
 
 # Rate limiting
 DELAY_BETWEEN_PAGES = 0.1   # Seconds between page requests

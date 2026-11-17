@@ -1,0 +1,34 @@
+{
+  "day": "2025-07-15",
+  "test_db": "TenderIntelligence_test",
+  "seeded_at": "2026-11-13T18:11:12.786090+00:00",
+  "a_awarded_unchanged": [
+    7560081,
+    7629466,
+    7673513,
+    7682551,
+    7704340
+  ],
+  "b_stage_advance": [
+    7728309,
+    7744295,
+    7757292,
+    7775043,
+    7781445
+  ],
+  "c_newly_cancelled": [
+    7973928,
+    7804311,
+    8044906
+  ],
+  "stale_seller": "TEST STALE SELLER",
+  "stale_partner": "DELLEPSON INFOTECH SYSTEM",
+  "keep_seller": "TEST KEEP SELLER",
+  "a_participations": {
+    "7673513": 377,
+    "7704340": 2,
+    "7682551": 3,
+    "7560081": 3,
+    "7629466": 9
+  }
+}

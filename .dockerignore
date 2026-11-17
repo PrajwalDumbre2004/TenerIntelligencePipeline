@@ -1,0 +1,10 @@
+# Allowlist: only what the scraping image needs.
+# Keeps .env, venv/, logs/, research data and tests out of the image.
+*
+!common/
+!pipeline2/
+!pipeline3/
+!pipeline_main/
+!deploy/
+**/__pycache__/
+**/*.pyc
