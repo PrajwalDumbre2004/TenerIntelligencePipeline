@@ -463,21 +463,52 @@ CONTRACT_JS = """() => {
 }"""
 
 
+# The contract page (CONTRACT_URL) is an empty shell: its own script loads the
+# contract from this endpoint. Calling it directly is 1 request instead of
+# ~60 for a full page load, and the tab never leaves bidplus, so no /all-bids
+# reload (~54 more requests, ~35 of them to rate-limited bidplus) is needed.
+# Validated on 200 awarded bids: identical fields for all 108 with a contract.
+CONTRACT_DETAILS_URL = "https://gem.gov.in/view_contracts/contract_details"
+
+# CONTRACT_JS run against the returned HTML snippet instead of the live page
+CONTRACT_HTML_JS = ("(html) => { const document = new DOMParser().parseFromString(html, 'text/html'); "
+                    "return (" + CONTRACT_JS + ")(); }")
+
+
+class ContractNotLoaded(RuntimeError):
+    """contract_details gave neither a contract nor GeM's 'no contract' answer:
+    retry the tender instead of recording 'no contract'."""
+
+
+def _contract_request_args(bid_number: str) -> dict:
+    return {
+        "form": {"seller_org_name": "1", "bno": bid_number, "page": "0"},
+        "headers": {"X-Requested-With": "XMLHttpRequest", "Referer": f"{CONTRACT_URL}{bid_number}"},
+        "timeout": 30000,
+    }
+
+
+def _has_contract(status: int, html: str, bid_number: str) -> bool:
+    """True: snippet holds a contract. False: GeM says no contract. Else raise.
+    GeM's 'no contract' reply is whitespace only (b'  ', seen for all 92 such
+    bids in validation); a 0-byte body is treated as a failed fetch."""
+    if status == 200 and html and not html.strip():
+        return False
+    if status == 200 and "Contract NO" in html:
+        return True
+    raise ContractNotLoaded(f"contract not loaded for {bid_number}: status={status} len={len(html)}")
+
+
 def fetch_contract_details(page, bid_number: str) -> Optional[dict]:
-    """
-    Navigate to gem.gov.in contract page and extract contract details.
-    Returns dict with contract info or None if not found.
-    """
+    """Contract details for an awarded bid, or None if it has no contract.
+    One request through the page's browser context; the page is not navigated."""
     if not bid_number:
         return None
-    url = f"{CONTRACT_URL}{bid_number}"
-    try:
-        page.goto(url, wait_until="domcontentloaded", timeout=30000)
-        page.wait_for_load_state("networkidle", timeout=15000)
-        result = page.evaluate(CONTRACT_JS)
-        return result
-    except Exception:
+    resp = page.context.request.post(CONTRACT_DETAILS_URL, **_contract_request_args(bid_number))
+    html = resp.text()
+    if not _has_contract(resp.status, html, bid_number):
         return None
+    return page.evaluate(CONTRACT_HTML_JS, html)
 
 
 def fetch_bid_results(page, tender: dict) -> dict:
@@ -622,12 +653,6 @@ def fetch_bid_results(page, tender: dict) -> dict:
     bid_number = tender.get("bid_number", "")
     if bid_number and (tender.get("stage") or 3) >= 3:
         contract_details = fetch_contract_details(page, bid_number)
-        # Navigate back to bidplus to keep session alive for next tender
-        try:
-            page.goto(f"{BASE_URL}/all-bids", wait_until="domcontentloaded", timeout=30000)
-            page.wait_for_load_state("networkidle", timeout=15000)
-        except Exception:
-            pass
 
     return {
         "buyer_details": buyer_details,
@@ -643,17 +668,14 @@ def fetch_bid_results(page, tender: dict) -> dict:
 # ═══════════════════════════════════════════════════════════════
 
 async def fetch_contract_details_async(page, bid_number: str) -> Optional[dict]:
-    """Async version: Navigate to contract page and extract contract details."""
+    """Async version of fetch_contract_details (1 request, page not navigated)."""
     if not bid_number:
         return None
-    url = f"{CONTRACT_URL}{bid_number}"
-    try:
-        await page.goto(url, wait_until="domcontentloaded", timeout=30000)
-        await page.wait_for_load_state("networkidle", timeout=15000)
-        result = await page.evaluate(CONTRACT_JS)
-        return result
-    except Exception:
+    resp = await page.context.request.post(CONTRACT_DETAILS_URL, **_contract_request_args(bid_number))
+    html = await resp.text()
+    if not _has_contract(resp.status, html, bid_number):
         return None
+    return await page.evaluate(CONTRACT_HTML_JS, html)
 
 
 async def fetch_bid_results_async(page, tender: dict) -> dict:
@@ -792,18 +814,11 @@ async def fetch_bid_results_async(page, tender: dict) -> dict:
     _ensure_page_loaded(raw, bid_result, ra_result, tender)
 
     # ─── Contract Details ─────────────────────────────────────────
-    # Only awarded bids (stage 3) have a contract; skipping it saves two page
-    # loads per tech/fin bid. Stage NULL = old awarded row.
+    # Only awarded bids (stage 3) have a contract. Stage NULL = old awarded row.
     contract_details = None
     bid_number = tender.get("bid_number", "")
     if bid_number and (tender.get("stage") or 3) >= 3:
         contract_details = await fetch_contract_details_async(page, bid_number)
-        # Navigate back to bidplus to keep session alive for next tender
-        try:
-            await page.goto(f"{BASE_URL}/all-bids", wait_until="domcontentloaded", timeout=30000)
-            await page.wait_for_load_state("networkidle", timeout=15000)
-        except Exception:
-            pass
 
     return {
         "buyer_details": buyer_details,

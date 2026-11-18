@@ -21,6 +21,17 @@ _LOG_FILE = os.path.join(_LOG_DIR, "error_logs.txt")
 
 BROWSER_RESTART_EVERY = 500
 
+# Tabs only need the /all-bids HTML (session cookies + same origin for fetch);
+# the page's images/css/fonts/scripts are ~52 extra GeM requests per tab.
+_BLOCKED_RESOURCES = {"image", "stylesheet", "font", "media", "script"}
+
+
+async def _block_heavy(route):
+    if route.request.resource_type in _BLOCKED_RESOURCES:
+        await route.abort()
+    else:
+        await route.continue_()
+
 
 def _log_to_file(worker_id, bid_id, error, context=""):
     """Append error to local log file."""
@@ -104,6 +115,7 @@ async def browser_worker(worker_id, tenders, pw, month=""):
                 locale=BROWSER_LOCALE,
                 viewport=BROWSER_VIEWPORT,
             )
+            await context.route("**/*", _block_heavy)
             pages = [await context.new_page() for _ in range(PAGES_PER_BROWSER)]
 
             # Initialize all pages with GeM session
