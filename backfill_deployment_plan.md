@@ -1,6 +1,6 @@
 # One-time backfill (May 2018 → last month) on Azure Spot: DevOps plan
 
-*Status: plan, nothing built yet. Written 2026-11-18. Numbers marked "est." are estimates (see section 13).*
+*Status: written 2026-11-18. Code changes C1–C3 implemented 2026-11-19 (section 7); Azure setup (C4) and the merge method (C5) still open. Numbers marked "est." are estimates (see section 13).*
 
 ## 1. Summary
 
@@ -112,7 +112,7 @@ Recent months are what users look at most, and 2026 is the most incomplete. Doin
 ## 6. How a batch runs
 
 ```
-operator: set VMSS tags  run_args = "--backfill --months 2025-01 … 2025-12"
+operator: set VMSS tags  run_args = "--backfill --months 2025-01..2025-12"
                          cycle_done = backfill
             │
 Logic App (hourly) or operator: capacity 1
@@ -146,9 +146,9 @@ The core pipeline (pipeline2, pipeline3, pipeline4 SQL, validation SQL) needs **
 
 | # | Change | Where | Type | Blocker? |
 |---|---|---|---|---|
-| C1 | Add `PGCRYPTO` to the server parameter `azure.extensions`, **or** delete `CREATE EXTENSION IF NOT EXISTS pgcrypto` from `pipeline2/db.py`. `gen_random_uuid()` is built into PostgreSQL since v13, so pgcrypto isn't actually needed. | Azure DB server parameters (dynamic, no restart), or one line of code | DB setting | **Yes, for every run on prod, monthly included.** Today the first run would fail creating its tables. |
-| C2 | A backfill mode in `spot_run.py`: `--backfill` (a) skips the startup rule "this month's run is already done → exit 0", and (b) stores the run with `kind = 'backfill'`. The monthly rule then only counts scheduled runs. Needs migration 005: `ALTER TABLE ops.pipeline_runs ADD COLUMN kind TEXT NOT NULL DEFAULT 'scheduled'`. | Entry point (orchestration only) + migration | Small code change | **Yes.** Without (a), batch 2 exits immediately when started in the same calendar month as batch 1. Without (b), the first monthly run after the backfill is skipped. |
-| C3 | `gem-runner.sh` reads the VMSS tag `run_args` (`az vmss show --query tags.run_args`; the identity already has the rights) and passes it to the container. Empty means the normal monthly run. | Deploy script | Small script change | **Yes.** Without it the VM always runs the default 6-month window. |
+| C1 | **Done 2026-11-19:** `CREATE EXTENSION IF NOT EXISTS pgcrypto` removed from `pipeline2/db.py`. `gen_random_uuid()` is built into PostgreSQL since v13, so pgcrypto isn't needed, and prod's allow-list doesn't include it. | `pipeline2/db.py` | One line of code | Was a blocker for every run on prod |
+| C2 | **Done 2026-11-19:** `spot_run.py --backfill --months …`. Months take single values and inclusive ranges (`2018-06..2020-12`, which keeps the tag under 256 characters). Runs carry `kind` (`scheduled` / `backfill`). The monthly "already done this month" rule counts only scheduled runs and is skipped in backfill mode. A `done` backfill run with the same months → "already done", exit 0. A backfill run always ends with exit 0. Migration `005_run_kind.sql` adds `ops.pipeline_runs.kind` (applied on prod 2026-11-19). | `pipeline_main/spot_run.py` + migration 005 | Small code change | Was a blocker: batch 2 would exit at once; the first monthly run after the backfill would be skipped |
+| C3 | **Done 2026-11-19:** `gem-runner.sh` reads the VMSS tag `run_args` before every attempt and runs `spot_run.py <run_args>`. No tag = the monthly run. If the tag can't be read, the attempt counts as a crash and is retried, never falling back to a monthly run. | `deploy/gem-runner.sh` | Small script change | Was a blocker: the VM would always run the 6-month window |
 | C4 | Part C of the Spot plan: `deploy/cloud-init.yaml`, `deploy/azure/setup.sh` (Scale Set, identity + role, Logic App), image in the registry, DB firewall "Allow Azure services" | `deploy/` | Deploy work | Yes (also needed for the monthly run) |
 | C5 | Merge after each batch: pg_cron + `ops.run_pending_merge()` (deploy plan 2.1–2.3), **or** manual merges (section 8) | DB / runbook | DB work or manual steps | No (manual works) |
 | C6 | *Optional:* run deadline from an env var (`RUN_DEADLINE_DAYS`, default 5) | `spot_run.py` | Tiny code change | No (batches are sized to fit 5 days) |
@@ -268,8 +268,9 @@ Making it faster costs little more but isn't possible: GeM's rate limiting, not 
 
 ## 15. Pre-flight checklist
 
-- [ ] C1: `PGCRYPTO` allow-listed (or the `CREATE EXTENSION` line removed)
-- [ ] C2, C3 built and tested on the test DB (extend `tests/e2e/run_resilience.py` with a two-batch case)
+- [x] C1: the `CREATE EXTENSION pgcrypto` line removed
+- [x] C2, C3 built; backfill steps added to `tests/e2e/run_resilience.py` (`bf_*`)
+- [x] Migration 005 applied on prod (2026-11-19)
 - [ ] C4: Scale Set, Logic App, identity and role, registry image, DB firewall rule
 - [ ] Merge method chosen (pg_cron or manual) and, for manual, a night window agreed
 - [ ] DB storage headroom ≥ 50 GB free or autogrow on; IOPS model checked

@@ -37,7 +37,9 @@ def _ensure_schema(conn):
         return
 
     with conn.cursor() as cur:
-        cur.execute("CREATE EXTENSION IF NOT EXISTS pgcrypto;")
+        # gen_random_uuid() (pipeline2_status.run_id default) is built in since
+        # PostgreSQL 13, so no pgcrypto extension is needed (Azure's allow-list
+        # does not include it).
         cur.execute("CREATE SCHEMA IF NOT EXISTS staging;")
 
         cur.execute("""

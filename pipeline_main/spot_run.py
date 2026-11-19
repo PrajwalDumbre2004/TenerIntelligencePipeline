@@ -5,34 +5,49 @@ pipeline4/sql/migrations/004_ops_runs.sql and azure_deployment_plan.md 1.5).
 Every start (first start, or a restart after an eviction / crash) runs the
 same flow, so resuming needs no saved state:
 
+Two modes (ops.pipeline_runs.kind, migration 005):
+  scheduled  the monthly run: window M-6 .. M-1 (default)
+  backfill   one batch of the one-time backfill: --backfill --months ...
+
   1. Startup check against ops.pipeline_runs:
-       this month's run already pending/running/done -> exit 0 (nothing to do)
+       [scheduled] this month's scheduled run already
+                   pending/running/done              -> exit 0 (nothing to do)
        a merge is pending/running                    -> exit 75 (try later)
        a 'scraping' run older than 5 days            -> close it as pending
                                                         ('incomplete: ...'), exit
-       a 'scraping' run                              -> resume it
-       otherwise                                     -> new 'scraping' run for
-                                                        the window M-6 .. M-1
+       a 'scraping' run (any kind)                   -> resume it, with its own
+                                                        months and kind
+       [backfill]  a 'done' backfill run with exactly
+                   these months                      -> exit 0 (batch already done)
+       otherwise                                     -> new 'scraping' run
   2. For each month of the run, in order: pipeline2, then pipeline3 (only if
      pipeline2 finished the month). Both pick up where they stopped: pipeline2
      skips lists already captured, pipeline3 scrapes only unscraped, unknown bids.
   3. Set the run 'pending' (the merge picks it up) and exit.
 
 Exit codes, read by deploy/gem-runner.sh:
-  0   done for this month (finished, or nothing to do) -> tag + scale to 0
-  75  blocked until a merge finishes                   -> scale to 0, retried later
+  0   done (finished, or nothing to do)        -> tag + scale to 0
+  75  blocked until a merge finishes           -> scale to 0, retried later
+      (also: a scheduled run that started in an earlier month and just
+      finished, so this month's run starts after its merge)
   other  crash (incl. a DB outage longer than the ~5 min retry) -> restarted
+A backfill run always ends with exit 0, so the VM stops after each batch
+instead of being restarted (which would repeat the batch after the merge).
 
 Usage:
-    python pipeline_main/spot_run.py                          # window M-6 .. M-1
-    python pipeline_main/spot_run.py --months 2026-03         # TEST: own month list
-    python pipeline_main/spot_run.py --months 2026-03 --days 16-16   # TEST: one day
-(--months / --days only apply when a new run is created; a resumed run keeps
-its stored months.)
+    python pipeline_main/spot_run.py                                  # monthly window
+    python pipeline_main/spot_run.py --backfill --months 2025-01..2025-12
+    python pipeline_main/spot_run.py --backfill --months 2018-05 2026-06..2026-10
+    python pipeline_main/spot_run.py --months 2026-03                 # TEST: scheduled, own months
+    python pipeline_main/spot_run.py --months 2026-03 --days 16-16    # TEST: one day
+--months takes single months (YYYY-MM) and inclusive ranges (YYYY-MM..YYYY-MM).
+--months / --days only apply when a new run is created; a resumed run keeps
+its stored months.
 """
 import argparse
 import asyncio
 import os
+import re
 import signal
 import sys
 from datetime import datetime, timedelta, timezone
@@ -84,25 +99,72 @@ def default_window(today) -> list:
     return months
 
 
+_MONTH_RE = re.compile(r"^(\d{4})-(0[1-9]|1[0-2])$")
+
+
+def _parse_month(text: str):
+    m = _MONTH_RE.match(text)
+    if not m:
+        raise ValueError(f"bad month '{text}' (expected YYYY-MM)")
+    return int(m.group(1)), int(m.group(2))
+
+
+def expand_months(tokens: list) -> list:
+    """['2018-05', '2026-06..2026-10'] -> every month, in the given order,
+    ranges inclusive and oldest first, duplicates dropped. Ranges keep the
+    Azure tag that carries a batch (max 256 characters) short."""
+    months = []
+    for token in tokens:
+        if ".." in token:
+            start, end = token.split("..", 1)
+            (y, m), (ey, em) = _parse_month(start), _parse_month(end)
+            if (y, m) > (ey, em):
+                raise ValueError(f"empty range '{token}' (start after end)")
+            while (y, m) <= (ey, em):
+                months.append(f"{y:04d}-{m:02d}")
+                y, m = (y + 1, 1) if m == 12 else (y, m + 1)
+        else:
+            _parse_month(token)
+            months.append(token)
+    return list(dict.fromkeys(months))
+
+
 # ═══════════════════════════════════════════════════════════════
 # ops.pipeline_runs
 # ═══════════════════════════════════════════════════════════════
 
-_RUN_COLUMNS = "id, months, status, scrape_started"
+_RUN_COLUMNS = "id, kind, months, status, scrape_started"
 
 
 @db_retry
 def _this_month_finished_run(this_month: str):
-    """This month's run, if it already finished scraping (pending/running/done)."""
+    """This month's scheduled run, if it already finished scraping
+    (pending/running/done). Backfill batches don't count."""
     with get_connection().cursor(row_factory=dict_row) as cur:
         cur.execute(
             f"""
             SELECT {_RUN_COLUMNS} FROM ops.pipeline_runs
-            WHERE status IN ('pending', 'running', 'done')
+            WHERE kind = 'scheduled'
+              AND status IN ('pending', 'running', 'done')
               AND to_char(scrape_started AT TIME ZONE 'UTC', 'YYYY-MM') = %s
             ORDER BY id DESC LIMIT 1
             """,
             (this_month,),
+        )
+        return cur.fetchone()
+
+
+@db_retry
+def _backfill_batch_done(months: list):
+    """A finished (merged) backfill run over exactly these months, if any."""
+    with get_connection().cursor(row_factory=dict_row) as cur:
+        cur.execute(
+            f"""
+            SELECT {_RUN_COLUMNS} FROM ops.pipeline_runs
+            WHERE kind = 'backfill' AND status = 'done' AND months = %s::text[]
+            ORDER BY id DESC LIMIT 1
+            """,
+            (months,),
         )
         return cur.fetchone()
 
@@ -122,12 +184,12 @@ def _active_run():
 
 
 @db_retry
-def _create_run(months: list):
+def _create_run(months: list, kind: str):
     with get_connection().cursor(row_factory=dict_row) as cur:
         cur.execute(
-            f"INSERT INTO ops.pipeline_runs (months, status) VALUES (%s, 'scraping') "
+            f"INSERT INTO ops.pipeline_runs (kind, months, status) VALUES (%s, %s, 'scraping') "
             f"RETURNING {_RUN_COLUMNS}",
-            (months,),
+            (kind, months),
         )
         return cur.fetchone()
 
@@ -166,13 +228,15 @@ def _set_pending(run_id: int, error):
 
 
 def _finish(run, error=None):
-    """Hand the run to the merge and exit. Exit 0 if it is this month's run;
-    75 if it started in an earlier month, so this month's run is started once
-    that merge is done."""
+    """Hand the run to the merge and exit.
+    Backfill: always exit 0, so the VM stops after the batch (a restart would
+    repeat the batch once it is merged). Scheduled: exit 0 if it is this
+    month's run; 75 if it started in an earlier month, so this month's run is
+    started once that merge is done."""
     if not _set_pending(run["id"], error):
         print(f"  [!] Run #{run['id']} was no longer 'scraping'; status left as it is.")
     print(f"  Run #{run['id']} -> pending" + (f" ({error})" if error else ""))
-    if _month_of(run["scrape_started"]) == _month_of(_now()):
+    if run["kind"] == "backfill" or _month_of(run["scrape_started"]) == _month_of(_now()):
         sys.exit(EXIT_DONE)
     print("  It started in an earlier month: this month's run starts after its merge.")
     sys.exit(EXIT_WAIT_FOR_MERGE)
@@ -187,14 +251,18 @@ def _check_deadline(run):
     _finish(run, f"incomplete: deadline passed; unfinished months: {', '.join(unfinished) or 'none'}")
 
 
-def start_or_resume(months_override):
-    """Startup check (see module docstring). Returns the run to work on, or exits."""
-    this_month = _month_of(_now())
+def _month_list(months) -> str:
+    months = list(months)
+    return ", ".join(months) if len(months) <= 6 else f"{months[0]} .. {months[-1]} ({len(months)} months)"
 
-    done = _this_month_finished_run(this_month)
-    if done:
-        print(f"  This month's run #{done['id']} is already '{done['status']}'. Nothing to do.")
-        sys.exit(EXIT_DONE)
+
+def start_or_resume(months_override, backfill=False):
+    """Startup check (see module docstring). Returns the run to work on, or exits."""
+    if not backfill:
+        done = _this_month_finished_run(_month_of(_now()))
+        if done:
+            print(f"  This month's run #{done['id']} is already '{done['status']}'. Nothing to do.")
+            sys.exit(EXIT_DONE)
 
     run = _active_run()
     if run and run["status"] in ("pending", "running"):
@@ -203,14 +271,22 @@ def start_or_resume(months_override):
 
     if run:
         _check_deadline(run)
-        print(f"  Resuming run #{run['id']} (started {run['scrape_started']:%Y-%m-%d %H:%M} UTC, "
-              f"months {', '.join(run['months'])})")
+        print(f"  Resuming run #{run['id']} ({run['kind']}, started {run['scrape_started']:%Y-%m-%d %H:%M} UTC, "
+              f"months {_month_list(run['months'])})")
         if months_override and list(months_override) != list(run["months"]):
             print("  [!] --months ignored: a resumed run keeps its own months.")
         return run
 
-    run = _create_run(months_override or default_window(_now()))
-    print(f"  Started run #{run['id']} for months {', '.join(run['months'])}")
+    if backfill:
+        done = _backfill_batch_done(months_override)
+        if done:
+            print(f"  Backfill batch {_month_list(months_override)} is already done (run #{done['id']}). "
+                  f"Nothing to do: set the next batch.")
+            sys.exit(EXIT_DONE)
+
+    kind = "backfill" if backfill else "scheduled"
+    run = _create_run(months_override or default_window(_now()), kind)
+    print(f"  Started run #{run['id']} ({kind}) for months {_month_list(run['months'])}")
     return run
 
 
@@ -223,12 +299,21 @@ def main():
     signal.signal(signal.SIGTERM, _signal_handler)
 
     parser = argparse.ArgumentParser(description=__doc__.split("\n")[0])
-    parser.add_argument("--months", nargs="+", help="TEST: months to scrape (YYYY-MM ...) for a new run")
+    parser.add_argument("--backfill", action="store_true",
+                        help="run one backfill batch (needs --months)")
+    parser.add_argument("--months", nargs="+",
+                        help="months for a new run: YYYY-MM and/or ranges YYYY-MM..YYYY-MM")
     parser.add_argument("--days", help="TEST: day range inside a single month, e.g. 15-16")
     args = parser.parse_args()
+    if args.backfill and not args.months:
+        parser.error("--backfill needs --months")
+    try:
+        months_override = expand_months(args.months) if args.months else None
+    except ValueError as e:
+        parser.error(str(e))
 
     print("=" * 70)
-    print("  SPOT RUN — Pipeline2 + Pipeline3")
+    print(f"  SPOT RUN — Pipeline2 + Pipeline3 ({'backfill' if args.backfill else 'scheduled'})")
     print("=" * 70)
 
     p2_create_indexes()
@@ -236,7 +321,7 @@ def main():
     if reset:
         print(f"  [!] Reset {reset} in_progress month(s) to pending (previous start was interrupted)")
 
-    run = start_or_resume(args.months)
+    run = start_or_resume(months_override, backfill=args.backfill)
     months = list(run["months"])
 
     window_from = window_to = None
