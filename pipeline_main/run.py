@@ -19,11 +19,17 @@ technically evaluated, financially evaluated and awarded -- cancelled bids at
 those stages included.
 
 IMPORTANT: after a month finishes here, run pipeline4 before re-running that
-same month:
+same month for fresh data:
     psql "$POSTGRES_DSN" -v ON_ERROR_STOP=1 -f pipeline4/sql/00_run_all.sql
-pipeline4's cleanup is what removes rejected bids (no participant data / all
-names masked) from staging; until it runs, a re-run of the month will not
-retry them.
+Until pipeline4's cleanup runs, every bid listed for the month stays in
+staging (already-known bids are only marked known_at), so a re-run counts the
+month's lists as captured and skips them -- that is what lets a killed run
+resume cheaply, but it also means a re-run before pipeline4 won't re-list.
+The cleanup also removes rejected bids (no participant data / all names
+masked), so the next re-run retries them.
+
+Pipeline3 runs for a month only if pipeline2 finished it: before that,
+already-known bids aren't marked yet and pipeline3 would re-scrape them.
 
 Features:
   - Fault tolerance: Each pipeline wrapped in try-catch
@@ -197,21 +203,27 @@ def main():
         if _shutdown:
             break
 
-        # Step 2: Pipeline3 — Extract results for this month
-        print(f"\n  [STEP 2] Pipeline3: Extracting results for {month}...")
-        try:
-            asyncio.run(pipeline3_process_month(month))
-            p3_success = True
-            print(f"  ✓ Pipeline3 completed successfully")
-        except Exception as e:
-            error_msg = f"{type(e).__name__}: {str(e)}"
-            print(f"  ✗ Pipeline3 FAILED: {error_msg[:200]}")
-            _log_failure_to_file(month, "Pipeline3", error_msg)
-            pipeline_stats["failures"].append({
-                "month": month,
-                "pipeline": "Pipeline3",
-                "error": error_msg[:500]
-            })
+        # Step 2: Pipeline3 — Extract results for this month. Only after
+        # pipeline2 finished the month: until then known bids aren't marked
+        # and pipeline3 would re-scrape bids already in production.
+        if not p2_success:
+            print(f"\n  [STEP 2] Pipeline3: skipped for {month} (pipeline2 did not finish the month; "
+                  f"re-run it to resume)")
+        else:
+            print(f"\n  [STEP 2] Pipeline3: Extracting results for {month}...")
+            try:
+                asyncio.run(pipeline3_process_month(month))
+                p3_success = True
+                print(f"  ✓ Pipeline3 completed successfully")
+            except Exception as e:
+                error_msg = f"{type(e).__name__}: {str(e)}"
+                print(f"  ✗ Pipeline3 FAILED: {error_msg[:200]}")
+                _log_failure_to_file(month, "Pipeline3", error_msg)
+                pipeline_stats["failures"].append({
+                    "month": month,
+                    "pipeline": "Pipeline3",
+                    "error": error_msg[:500]
+                })
 
         elapsed = time.time() - t_start
 

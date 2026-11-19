@@ -22,4 +22,6 @@ COPY pipeline3/ pipeline3/
 COPY pipeline_main/ pipeline_main/
 COPY deploy/memprobe.py deploy/memprobe.py
 
-CMD ["python3", "pipeline_main/run.py"]
+# Scheduled runs: status in ops.pipeline_runs, resumes after a restart.
+# For a manual run, override the command: ... python3 pipeline_main/run.py 2026-03
+CMD ["python3", "pipeline_main/spot_run.py"]

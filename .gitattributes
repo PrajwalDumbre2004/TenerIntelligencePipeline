@@ -1,0 +1,4 @@
+# Files that run on the Linux Spot VM must keep LF line endings
+# (core.autocrlf would otherwise check them out as CRLF on Windows).
+deploy/*.sh       text eol=lf
+deploy/*.service  text eol=lf

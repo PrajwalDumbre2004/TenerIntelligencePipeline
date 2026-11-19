@@ -29,6 +29,11 @@ ALTER TABLE staging.bid_participations_raw
 ALTER TABLE staging.tenders_raw
     ADD COLUMN IF NOT EXISTS scrape_error TEXT;
 
+-- 03_validate_tenders.sql and pipeline4/sql/05_cleanup.sql read known_at
+-- (pipeline2/db.py adds it; same reasoning as scrape_error above).
+ALTER TABLE staging.tenders_raw
+    ADD COLUMN IF NOT EXISTS known_at TIMESTAMPTZ;
+
 CREATE INDEX IF NOT EXISTS ix_staging_bid_participations_raw_pending_validate
     ON staging.bid_participations_raw (run_id, batch_key)
     WHERE merged_at IS NULL AND validated_at IS NULL;

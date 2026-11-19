@@ -13,6 +13,11 @@
 -- a later pipeline3 pass and must then be allowed through. Rows that already
 -- passed are not re-judged. Safe to re-run repeatedly.
 --
+-- Rows marked `known_at` (already in production at the same stage, see
+-- pipeline2/db.py mark_known_bid_ids) are out of scope: they are never scraped,
+-- so they stay `validated = FALSE`, 01_merge.sql never touches them, and
+-- pipeline4/sql/05_cleanup.sql deletes them.
+--
 -- Scrape-completeness checks ('not_scraped', 'scrape_failed'): a tender must
 -- never reach `public.tenders` without its results. Once merged, staging is
 -- cleaned up and pipeline2 prunes the bid_id as "already known", so an empty
@@ -49,6 +54,7 @@ WITH pending AS (
            scraped_at, scrape_error
     FROM staging.tenders_raw
     WHERE merged_at IS NULL
+      AND known_at IS NULL
       AND (validation_errors IS NULL OR NOT validated)
 ),
 checks AS (

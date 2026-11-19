@@ -11,7 +11,7 @@ from datetime import datetime, timezone
 from psycopg.rows import dict_row
 from psycopg.types.json import Json
 
-from common.db import get_connection
+from common.db import get_connection, db_retry
 from pipeline2.db import create_indexes as _ensure_base_schema, log_failed_tender, log_error
 from pipeline3.config import DERIVE_BATCH_SIZE
 
@@ -103,6 +103,7 @@ def _get_run_id(month: str):
 # Pipeline3 Status Tracking (p3_* columns on pipeline2_status)
 # ═══════════════════════════════════════════════════════════════
 
+@db_retry
 def update_p3_status(month: str, status: str, pending: int = 0, done: int = 0,
                      total: int = 0, passes: int = 0, error: str = ""):
     """Update pipeline3 status fields on the shared pipeline2_status row."""
@@ -123,6 +124,7 @@ def update_p3_status(month: str, status: str, pending: int = 0, done: int = 0,
         )
 
 
+@db_retry
 def get_p3_status(month: str) -> dict:
     """Get pipeline3 status for a month."""
     conn = get_connection()
@@ -150,9 +152,11 @@ _NEEDS_RESULTS_COLUMNS = [
 ]
 
 
+@db_retry
 def get_tenders_needing_results(month: str) -> list:
     """
     Get all tenders staged for this month's run that don't have results yet.
+    Bids marked known_at (already in production at the same stage) are skipped.
     Returns list of dicts with fields needed to determine result URLs.
     """
     run_id = _get_run_id(month)
@@ -165,6 +169,7 @@ def get_tenders_needing_results(month: str) -> list:
             SELECT {", ".join(_NEEDS_RESULTS_COLUMNS)}
             FROM staging.tenders_raw
             WHERE run_id = %s AND batch_key = %s AND scraped_at IS NULL
+              AND known_at IS NULL
             ORDER BY bid_id ASC
             """,
             (run_id, month),
@@ -172,8 +177,10 @@ def get_tenders_needing_results(month: str) -> list:
         return cur.fetchall()
 
 
+@db_retry
 def get_month_result_stats(month: str) -> dict:
-    """Get counts of processed vs unprocessed staged tenders for a month."""
+    """Get counts of processed vs unprocessed staged tenders for a month
+    (known rows excluded: pipeline3 never scrapes them)."""
     run_id = _get_run_id(month)
     if run_id is None:
         return {"total": 0, "done": 0, "pending": 0}
@@ -183,7 +190,7 @@ def get_month_result_stats(month: str) -> dict:
             """
             SELECT COUNT(*), COUNT(*) FILTER (WHERE scraped_at IS NOT NULL)
             FROM staging.tenders_raw
-            WHERE run_id = %s AND batch_key = %s
+            WHERE run_id = %s AND batch_key = %s AND known_at IS NULL
             """,
             (run_id, month),
         )
@@ -191,6 +198,7 @@ def get_month_result_stats(month: str) -> dict:
         return {"total": total, "done": done, "pending": total - done}
 
 
+@db_retry
 def update_tender_results(bid_id: int, month: str, results: dict) -> bool:
     """
     Update a staged tender row with scraped results.
@@ -224,6 +232,7 @@ def update_tender_results(bid_id: int, month: str, results: dict) -> bool:
         return cur.rowcount > 0
 
 
+@db_retry
 def mark_tender_failed(bid_id: int, error: str, month: str = "", worker_id: int = 0):
     """Record a failed scrape on the staged tender (scrape_error only).
     scraped_at is deliberately left NULL so the tender stays pending: the next
@@ -261,6 +270,7 @@ _DERIVE_SOURCE_COLUMNS = [
 ]
 
 
+@db_retry
 def get_tenders_needing_derivation(month: str, batch_size: int = DERIVE_BATCH_SIZE) -> list:
     """
     Fetch staged tenders that have been scraped but not yet flattened into
@@ -293,6 +303,7 @@ _PARTICIPATION_INSERT_COLUMNS = [
 ]
 
 
+@db_retry
 def bulk_insert_participations(month: str, records: list) -> int:
     """
     Bulk insert flattened participation records into staging.bid_participations_raw.
@@ -324,6 +335,7 @@ def bulk_insert_participations(month: str, records: list) -> int:
     return len(rows)
 
 
+@db_retry
 def mark_tenders_derived(month: str, bid_ids: list) -> None:
     """Mark a batch of staged tenders as derived (participants extracted)."""
     if not bid_ids:

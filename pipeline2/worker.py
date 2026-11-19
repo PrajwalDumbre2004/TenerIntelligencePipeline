@@ -14,7 +14,7 @@ from pipeline2.config import (
     BASE_URL, USER_AGENT, BROWSER_LOCALE, BROWSER_VIEWPORT,
     SORT_BY, DELAY_BETWEEN_PAGES, PAGE_SIZE, STAGE_OF, CANCELLED_BID_STATUSES
 )
-from pipeline2.db import log_failed_page, log_error
+from pipeline2.db import log_failed_page, log_error, bulk_upsert_tenders
 
 _LOG_DIR = os.environ.get("LOG_DIR", os.path.join(os.path.dirname(os.path.dirname(__file__)), "logs"))
 os.makedirs(_LOG_DIR, exist_ok=True)
@@ -197,7 +197,12 @@ def parse_doc_to_tender(doc, month: str, stage: int = None) -> dict:
 def worker_fetch_pages(worker_id, from_date, to_date, month, page_list, by_status):
     """
     Worker process: launches browser, fetches pages in page_list (round-robin assigned)
-    of the `by_status` list. Returns dict with collected tender docs and stats.
+    of the `by_status` list, and saves each page to staging as soon as it is
+    fetched. Returns dict with the bid_ids saved and stats.
+
+    A bid_id is reported only after its page was saved, so the orchestrator
+    never counts a bid as captured that isn't in the DB. A page whose save
+    fails counts as an error; the next pass fetches it again.
     """
     global _progress
     stage = STAGE_OF[by_status]
@@ -212,7 +217,6 @@ def worker_fetch_pages(worker_id, from_date, to_date, month, page_list, by_statu
             page = context.new_page()
             csrf = capture_csrf(page)
 
-            tender_docs = []
             bid_ids_found = set()
             num_found = None
             errors = 0
@@ -252,11 +256,28 @@ def worker_fetch_pages(worker_id, from_date, to_date, month, page_list, by_statu
                 if not docs:
                     continue
 
+                page_docs, page_ids = [], set()
                 for doc in docs:
                     bid_id = extract_bid_id(doc)
-                    if bid_id not in bid_ids_found:
-                        bid_ids_found.add(bid_id)
-                        tender_docs.append(parse_doc_to_tender(doc, month, stage))
+                    if bid_id not in bid_ids_found and bid_id not in page_ids:
+                        page_ids.add(bid_id)
+                        page_docs.append(parse_doc_to_tender(doc, month, stage))
+
+                try:
+                    bulk_upsert_tenders(page_docs, month)
+                except Exception as e:
+                    errors += 1
+                    err_msg = f"db save failed: {e}"
+                    failed_pages_log.append({"page": pg, "error": err_msg})
+                    _log_to_file(worker_id, month, pg, err_msg[:500], f"{by_status} save failed")
+                    try:
+                        log_failed_page(month, pg, worker_id, err_msg, pass_num=0)
+                    except Exception:
+                        pass
+                    if errors > 10:
+                        break
+                    continue
+                bid_ids_found |= page_ids
 
                 pages_done += 1
 
@@ -271,7 +292,6 @@ def worker_fetch_pages(worker_id, from_date, to_date, month, page_list, by_statu
 
         return {
             "worker_id": worker_id,
-            "tender_docs": tender_docs,
             "bid_ids": list(bid_ids_found),
             "num_found": num_found or 0,
             "pages": pages_done,
@@ -290,7 +310,6 @@ def worker_fetch_pages(worker_id, from_date, to_date, month, page_list, by_statu
             pass
         return {
             "worker_id": worker_id,
-            "tender_docs": [],
             "bid_ids": [],
             "num_found": 0,
             "pages": 0,

@@ -53,11 +53,19 @@ def month_run(conn, month):
     return row
 
 
-def prune_correct(conn, run_id):
+def known_marked_correct(conn, run_id):
     n = one(conn, """
         SELECT count(*) FROM staging.tenders_raw sr JOIN tenders t USING (bid_id)
-        WHERE sr.run_id = %s AND COALESCE(sr.stage, 3) <= COALESCE(t.stage, 3)""", (run_id,))
-    check("No already-stored bid (same or lower stage) left in staging", n == 0, f"{n} rows")
+        WHERE sr.run_id = %s AND COALESCE(sr.stage, 3) <= COALESCE(t.stage, 3)
+          AND sr.known_at IS NULL""", (run_id,))
+    check("Every already-stored bid (same or lower stage) is marked known_at", n == 0, f"{n} unmarked")
+    n = one(conn, """SELECT count(*) FROM staging.tenders_raw
+                     WHERE run_id = %s AND known_at IS NOT NULL
+                       AND (scraped_at IS NOT NULL OR validated)""", (run_id,))
+    check("No known bid was scraped or validated", n == 0, f"{n} rows")
+    info("known bids kept in staging (deleted by pipeline4 cleanup)",
+         one(conn, "SELECT count(*) FROM staging.tenders_raw WHERE run_id = %s AND known_at IS NOT NULL",
+             (run_id,)))
 
 
 def phase_staged(conn, m, gem):
@@ -73,17 +81,19 @@ def phase_staged(conn, m, gem):
         check(f"{s}: bids seen >= 99% of GeM numFound", ok, f"seen={seen} gem_now={g} "
               f"gem_at_crawl={(sc.get(s) or {}).get('num_found')}")
 
-    print("\n-- Duplicates / prune --")
-    prune_correct(conn, run_id)
+    print("\n-- Duplicates / known bids --")
+    known_marked_correct(conn, run_id)
     a, b, c = m["a_awarded_unchanged"], m["b_stage_advance"], m["c_newly_cancelled"]
-    n = one(conn, "SELECT count(*) FROM staging.tenders_raw WHERE run_id=%s AND bid_id = ANY(%s)", (run_id, a))
-    check("(a) stored awarded bids were pruned, not staged", n == 0, f"{n} staged")
-    rows = conn.execute("SELECT bid_id, stage FROM staging.tenders_raw WHERE run_id=%s AND bid_id = ANY(%s)",
-                        (run_id, b)).fetchall()
-    check("(b) stage-advance bids are staged at stage 3", len(rows) == len(b) and all(r[1] == 3 for r in rows),
-          f"{rows}")
-    n = one(conn, "SELECT count(*) FROM staging.tenders_raw WHERE run_id=%s AND bid_id = ANY(%s)", (run_id, c))
-    check("(c) same-stage cancelled bids were pruned, not staged", n == 0, f"{n} staged")
+    n = one(conn, """SELECT count(*) FROM staging.tenders_raw WHERE run_id=%s AND bid_id = ANY(%s)
+                     AND (known_at IS NULL OR scraped_at IS NOT NULL)""", (run_id, a))
+    check("(a) stored awarded bids marked known, not scraped", n == 0, f"{n} unmarked or scraped")
+    rows = conn.execute("""SELECT bid_id, stage FROM staging.tenders_raw WHERE run_id=%s AND bid_id = ANY(%s)
+                           AND known_at IS NULL""", (run_id, b)).fetchall()
+    check("(b) stage-advance bids are staged at stage 3, not marked known",
+          len(rows) == len(b) and all(r[1] == 3 for r in rows), f"{rows}")
+    n = one(conn, """SELECT count(*) FROM staging.tenders_raw WHERE run_id=%s AND bid_id = ANY(%s)
+                     AND (known_at IS NULL OR scraped_at IS NOT NULL)""", (run_id, c))
+    check("(c) same-stage cancelled bids marked known, not scraped", n == 0, f"{n} unmarked or scraped")
     rows = conn.execute("SELECT bid_id, is_cancelled, bid_status FROM tenders WHERE bid_id = ANY(%s)", (c,)).fetchall()
     check("(c) tenders.is_cancelled flipped to TRUE with bid_status 3/5",
           len(rows) == len(c) and all(r[1] is True and r[2] in (3, 5) for r in rows), f"{rows}")
@@ -106,7 +116,8 @@ def phase_staged(conn, m, gem):
     print("\n-- Scraping --")
     pend, failed = conn.execute("""SELECT count(*) FILTER (WHERE scraped_at IS NULL AND scrape_error IS NULL),
                                           count(*) FILTER (WHERE scrape_error IS NOT NULL)
-                                   FROM staging.tenders_raw WHERE run_id=%s""", (run_id,)).fetchone()
+                                   FROM staging.tenders_raw WHERE run_id=%s AND known_at IS NULL""",
+                                (run_id,)).fetchone()
     info("staged rows not scraped / failed", f"{pend} / {failed}")
     n = one(conn, """SELECT count(*) FROM staging.tenders_raw WHERE run_id=%s AND stage < 3
                      AND contract_details_raw IS NOT NULL""", (run_id,))
@@ -118,7 +129,8 @@ def phase_staged(conn, m, gem):
     by_stage = conn.execute("""SELECT stage, count(*),
                                       count(*) FILTER (WHERE EXISTS (SELECT 1 FROM staging.bid_participations_raw bp
                                             WHERE bp.run_id=sr.run_id AND bp.bid_id=sr.bid_id))
-                               FROM staging.tenders_raw sr WHERE run_id=%s GROUP BY 1 ORDER BY 1""",
+                               FROM staging.tenders_raw sr WHERE run_id=%s AND known_at IS NULL
+                               GROUP BY 1 ORDER BY 1""",
                             (run_id,)).fetchall()
     for st, n, with_p in by_stage:
         info(f"stage {st}", f"{n} staged, {with_p} with participants ({with_p * 100 // max(n, 1)}%)")
@@ -144,6 +156,8 @@ def phase_merged(conn, m, gem):
     check("Rejected no-participant rows removed from staging", n == 0, f"{n} left")
     n = one(conn, "SELECT count(*) FROM staging.tenders_raw WHERE merged_at IS NOT NULL")
     check("Merged rows cleaned out of staging", n == 0, f"{n} left")
+    n = one(conn, "SELECT count(*) FROM staging.tenders_raw WHERE known_at IS NOT NULL")
+    check("Known rows cleaned out of staging", n == 0, f"{n} left")
     left = conn.execute("""SELECT validated, count(*) FROM staging.tenders_raw GROUP BY 1""").fetchall()
     info("staging rows left (failed scrapes wait here for a retry)", f"{left}")
 
@@ -221,9 +235,9 @@ def phase_rerun(conn, m, gem):
     month = m["day"][:7]
     run_id, _ = month_run(conn, month)
     print("\n-- Second run of the same day --")
-    prune_correct(conn, run_id)
+    known_marked_correct(conn, run_id)
     rows = conn.execute("SELECT stage, count(*) FROM staging.tenders_raw WHERE run_id=%s AND merged_at IS NULL "
-                        "GROUP BY 1 ORDER BY 1", (run_id,)).fetchall()
+                        "AND known_at IS NULL GROUP BY 1 ORDER BY 1", (run_id,)).fetchall()
     info("re-staged (only bids NOT in the main DB, e.g. no participants last time)", f"{rows}")
 
 

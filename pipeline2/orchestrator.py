@@ -6,11 +6,11 @@ Flow:
   2. For each status in BY_STATUSES (tech_evaluated -> fin_evaluated -> bid_awarded):
        a. Get numFound for that status (live + cancelled bids at that stage)
        b. Run passes (up to MAX_PASSES) with NUM_WORKERS parallel page-fetchers
-       c. After each pass, bulk-upsert docs into staging (dedup by bid_id)
+       c. Each worker saves every page to staging as soon as it is fetched (dedup by bid_id)
        d. Stop when the bids seen for this status >= numFound, when a pass finds
           nothing new (bids that moved to a higher status mid-crawl can never be
           found in this list again), or at MAX_PASSES
-  3. complete_month(): prune bids already stored at the same stage
+  3. complete_month(): mark bids already stored at the same stage (known_at)
   4. Move to next month
 """
 import sys
@@ -30,8 +30,8 @@ from pipeline2.db import (
     create_indexes, init_month_status, start_month,
     update_month_progress, complete_month, fail_month,
     get_next_pending_month, get_all_month_statuses,
-    bulk_upsert_tenders, get_month_bid_count, get_staged_bid_ids,
-    prune_known_bid_ids
+    get_month_bid_count, get_staged_bid_ids,
+    mark_known_bid_ids
 )
 from pipeline2.worker import (
     worker_fetch_pages, capture_csrf, fetch_page, _init_worker
@@ -91,9 +91,10 @@ def get_num_found(from_date, to_date, by_status):
 def run_pass(pass_num, from_date, to_date, month, expected_pages, by_status):
     """
     Run one pass over one status list: divide all pages among NUM_WORKERS
-    (round-robin), fetch in parallel.
-    Returns (list of tender_docs, unique ids in pass, errors) where errors counts
-    crashed workers plus pages that failed after retry.
+    (round-robin), fetch in parallel. Workers save each page to staging
+    themselves.
+    Returns (set of bid_ids saved in this pass, errors) where errors counts
+    crashed workers plus pages that failed to fetch or save.
     """
     # Round-robin: page 1→W1, page 2→W2, ..., page N→W(N%workers)+1
     page_assignments = [[] for _ in range(NUM_WORKERS)]
@@ -146,7 +147,6 @@ def run_pass(pass_num, from_date, to_date, month, expected_pages, by_status):
             worker_results.append(future.result())
 
     # Collect results
-    all_docs = []
     all_ids = set()
     total_errors = 0
 
@@ -156,16 +156,9 @@ def run_pass(pass_num, from_date, to_date, month, expected_pages, by_status):
             total_errors += 1
             continue
         total_errors += r.get("errors", 0)
-        for doc in r["tender_docs"]:
-            bid_id = doc["bid_id"]
-            if bid_id not in all_ids:
-                all_ids.add(bid_id)
-                all_docs.append(doc)
+        all_ids.update(r["bid_ids"])
 
-    # Free worker results (each holds its own tender_docs list)
-    del worker_results
-
-    return all_docs, len(all_ids), total_errors
+    return all_ids, total_errors
 
 
 def process_status(month_str, from_date, to_date, by_status):
@@ -213,27 +206,23 @@ def process_status(month_str, from_date, to_date, by_status):
         t_start = time.time()
         print(f"\n  [{by_status}] Pass {pass_num}/{MAX_PASSES}:", flush=True)
 
-        docs, pass_unique, errors = run_pass(
+        pass_ids, errors = run_pass(
             pass_num, from_date, to_date, month_str, expected_pages, by_status
         )
 
-        pass_ids = {d["bid_id"] for d in docs}
         new_in_status = len(pass_ids - seen)
         seen |= pass_ids
-
-        newly_inserted = bulk_upsert_tenders(docs, month_str)
-        del docs
 
         info["captured"] = len(seen)
         info["passes"] = pass_num
 
         elapsed = time.time() - t_start
         capture_pct = len(seen) / num_found * 100
-        print(f"    Pass {pass_num}: +{new_in_status} new in {by_status} (+{newly_inserted} new rows) | "
+        print(f"    Pass {pass_num}: +{new_in_status} new in {by_status} | "
               f"Seen: {len(seen)}/{num_found} ({capture_pct:.1f}%) | "
               f"Gap: {num_found - len(seen)} | Errors: {errors} | Time: {elapsed:.0f}s")
 
-        update_month_progress(month_str, pass_num, get_month_bid_count(month_str), newly_inserted)
+        update_month_progress(month_str, pass_num, get_month_bid_count(month_str), new_in_status)
 
         if len(seen) >= num_found:
             print(f"  *** 100% CAPTURED for {by_status} after {pass_num} passes ***")
@@ -253,8 +242,12 @@ def process_status(month_str, from_date, to_date, by_status):
 
 def process_month(month_str, from_date=None, to_date=None):
     """
-    Process a single month: list every status in BY_STATUSES, then prune bids
+    Process a single month: list every status in BY_STATUSES, then mark bids
     already stored at the same stage (complete_month).
+
+    A list whose staged count already reaches GeM's numFound is skipped, so a
+    restarted run only re-lists what it hasn't captured yet (known rows count
+    as captured until pipeline4's cleanup deletes them).
 
     from_date / to_date (GeM format "15-Jul-2025") narrow the window inside the
     month -- used for test runs only. Rows are still staged under month_str.
@@ -294,10 +287,11 @@ def process_month(month_str, from_date=None, to_date=None):
         print(f"    {s:15s} numFound={v['num_found']:>7}  seen={v['captured']:>7}  passes={v['passes']}")
 
     if failed:
-        # Still prune, so pipeline3 doesn't re-scrape bids we already have.
-        status_updated, pruned = prune_known_bid_ids(month_str)
+        # Still mark known bids, so staging is consistent for a later pipeline3 run.
+        status_updated, marked = mark_known_bid_ids(month_str)
         msg = f"numFound failed for: {', '.join(failed)}"
-        print(f"  [!] {msg} — month marked failed (re-run it). Pruned {pruned}, status-updated {status_updated}.")
+        print(f"  [!] {msg} — month marked failed (re-run it). Marked known {marked}, "
+              f"status-updated {status_updated}.")
         fail_month(month_str, msg)
         return False
 

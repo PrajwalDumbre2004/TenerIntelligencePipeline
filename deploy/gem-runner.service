@@ -1,0 +1,21 @@
+# deploy/gem-runner.service -- systemd unit for the Spot VM (R4).
+# Installed to /etc/systemd/system/ by cloud-init and started once per boot.
+# Retries are handled by gem-runner.sh itself (at most 3 per boot), so systemd
+# must not restart it.
+[Unit]
+Description=GeM scraping run (pipeline2 + pipeline3)
+After=docker.service network-online.target
+Wants=network-online.target
+Requires=docker.service
+
+[Service]
+Type=simple
+EnvironmentFile=/etc/gem/runner.conf
+ExecStart=/opt/gem/gem-runner.sh
+Restart=no
+# Stopping the unit stops the container, not just the script.
+ExecStop=/usr/bin/docker stop -t 30 gem-run
+TimeoutStopSec=60
+
+[Install]
+WantedBy=multi-user.target

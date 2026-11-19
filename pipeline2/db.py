@@ -2,9 +2,12 @@
 Database layer for Pipeline2: PostgreSQL connection, staged tender storage, month status.
 
 Tables:
-  - staging.tenders_raw:  This run's newly scraped listing rows, keyed (run_id, bid_id).
-                          Pruned down to only genuinely-new bid_ids once a month's
-                          capture completes (see complete_month / prune_known_bid_ids).
+  - staging.tenders_raw:  This run's listing rows, keyed (run_id, bid_id). Once a
+                          month's capture completes, rows already in production at
+                          the same stage are marked known_at (see complete_month /
+                          mark_known_bid_ids). They stay in staging so a restarted
+                          run sees the month as captured, are skipped by pipeline3
+                          and validation, and are deleted by pipeline4's cleanup.
   - pipeline2_status:     Per-month multi-pass progress tracking (was pipeline2_status
                           collection). Also carries this month's run_id.
   - failed_pages:         Pages that failed to fetch (for retry/debugging).
@@ -18,7 +21,7 @@ import psycopg
 from psycopg.rows import dict_row
 from psycopg.types.json import Json, Jsonb
 
-from common.db import get_connection
+from common.db import get_connection, db_retry
 
 _SCHEMA_READY = False
 
@@ -95,6 +98,9 @@ def _ensure_schema(conn):
                 ADD COLUMN IF NOT EXISTS is_cancelled BOOLEAN,
                 ADD COLUMN IF NOT EXISTS bid_status   SMALLINT;
         """)
+        # known_at: set by mark_known_bid_ids() when the bid is already in
+        # production at the same or a higher stage (no scrape, no merge needed).
+        cur.execute("ALTER TABLE staging.tenders_raw ADD COLUMN IF NOT EXISTS known_at TIMESTAMPTZ;")
 
         cur.execute("""
             CREATE TABLE IF NOT EXISTS pipeline2_status (
@@ -168,6 +174,7 @@ def _ensure_schema(conn):
     _SCHEMA_READY = True
 
 
+@db_retry
 def create_indexes():
     """Ensure staging/status/log tables and indexes exist (was Mongo index setup)."""
     conn = get_connection()
@@ -215,6 +222,9 @@ _INSERT_COLUMNS = _STAGING_COLUMNS + list(_JSON_DOC_TO_COLUMN.values())
 # crawl (it moved up mid-crawl; lists are crawled tech -> fin -> awarded) gets
 # its listing status raised -- but only while it is still unscraped, so a row
 # pipeline3 already worked on is never silently changed underneath it.
+# Raising the stage also clears known_at: the next mark_known_bid_ids() then
+# compares the new stage with production, so pipeline3 scrapes it if it moved
+# above the stored stage.
 # RETURNING (xmax = 0) is TRUE only for a genuine insert, so updates aren't
 # counted as "new".
 _INSERT_SQL = f"""
@@ -225,7 +235,8 @@ _INSERT_SQL = f"""
         is_cancelled       = EXCLUDED.is_cancelled,
         bid_status         = EXCLUDED.bid_status,
         buyer_status       = EXCLUDED.buyer_status,
-        listing_scraped_at = EXCLUDED.listing_scraped_at
+        listing_scraped_at = EXCLUDED.listing_scraped_at,
+        known_at           = NULL
     WHERE EXCLUDED.stage > COALESCE(sr.stage, 0) AND sr.scraped_at IS NULL
     RETURNING (xmax = 0) AS inserted
 """
@@ -240,38 +251,59 @@ def _doc_to_row(run_id, month, doc):
     return values
 
 
-def bulk_upsert_tenders(docs: list, month: str, chunk_size: int = 5000) -> int:
+# month -> run_id. A month's run_id is permanent once init_month_status() has
+# created it, so each process (main or pipeline2 worker) looks it up only once.
+_run_id_cache = {}
+
+
+def _cached_run_id(month: str):
+    """Like _get_run_id(), cached, and without the schema DDL: workers call this
+    on every page, after the main process has already ensured the schema."""
+    run_id = _run_id_cache.get(month)
+    if run_id is None:
+        with get_connection().cursor() as cur:
+            cur.execute("SELECT run_id FROM pipeline2_status WHERE month = %s", (month,))
+            row = cur.fetchone()
+        if row is None:
+            raise RuntimeError(f"No pipeline2_status row for {month} (init_month_status not called)")
+        run_id = _run_id_cache[month] = row[0]
+    return run_id
+
+
+@db_retry
+def bulk_upsert_tenders(docs: list, month: str) -> int:
     """
-    Bulk upsert tender documents into staging.tenders_raw, in chunks.
-    Uses (run_id, bid_id) as the unique key -- only inserts rows not already
-    staged for this month's run, skips existing ones (mirrors old $setOnInsert).
-    Processes in chunks to avoid holding everything in memory.
+    Upsert tender documents into staging.tenders_raw, all in one transaction
+    (one round trip and one commit). pipeline2 workers call it once per fetched
+    page (10 bids), so an interrupted pass loses at most the page in flight.
+    Uses (run_id, bid_id) as the unique key -- see _INSERT_SQL for what a
+    repeat does. Raises on failure (nothing of this call is saved then).
     Returns count of newly inserted rows.
     """
     if not docs:
         return 0
 
-    run_id = _get_run_id(month)
+    run_id = _cached_run_id(month)
+    rows = [_doc_to_row(run_id, month, doc) for doc in docs]
     conn = get_connection()
-    total_upserted = 0
+    newly = 0
 
-    with conn.cursor() as cur:
-        for i in range(0, len(docs), chunk_size):
-            chunk = docs[i:i + chunk_size]
-            newly = 0
-            for doc in chunk:
-                cur.execute(_INSERT_SQL, _doc_to_row(run_id, month, doc))
-                row = cur.fetchone()          # None when the conflict update was skipped
-                if row and row[0]:
-                    newly += 1
-            total_upserted += newly
-            del chunk
+    with conn.transaction(), conn.cursor() as cur:
+        cur.executemany(_INSERT_SQL, rows, returning=True)
+        # One result set per row; empty when the conflict update was skipped.
+        while True:
+            row = cur.fetchone()
+            if row and row[0]:
+                newly += 1
+            if not cur.nextset():
+                break
 
-    return total_upserted
+    return newly
 
 
+@db_retry
 def get_month_bid_count(month: str) -> int:
-    """Count of tenders currently staged for this month's run (pre-prune)."""
+    """Count of tenders currently staged for this month's run (known rows included)."""
     run_id = _get_run_id(month)
     if run_id is None:
         return 0
@@ -284,6 +316,7 @@ def get_month_bid_count(month: str) -> int:
         return cur.fetchone()[0]
 
 
+@db_retry
 def get_staged_bid_ids(month: str, stage: int) -> set:
     """bid_ids already staged for this month's run at this stage (resume after a crash)."""
     run_id = _get_run_id(month)
@@ -298,23 +331,29 @@ def get_staged_bid_ids(month: str, stage: int) -> set:
         return {r[0] for r in cur.fetchall()}
 
 
-def prune_known_bid_ids(month: str) -> tuple:
+@db_retry
+def mark_known_bid_ids(month: str) -> tuple:
     """
     Compare this month's staged bids with production `tenders` (any year) and
-    drop the ones that need no work. Called once capture finishes, from
-    complete_month(). Returns (status_updated, pruned).
+    mark the ones that need no work with known_at. Called once capture
+    finishes, from complete_month(). Returns (status_updated, marked).
 
-    A staged bid is kept (-> scraped by pipeline3 -> merged by pipeline4) when:
+    A staged bid stays unmarked (-> scraped by pipeline3 -> merged by pipeline4) when:
       - its bid_id is not in `tenders` yet (new, or previously rejected for
         having no valid participants), or
       - its stage moved up (1 -> 2 -> 3). Old rows with stage NULL were all
         fetched from the awarded list, so NULL counts as 3.
 
-    A staged bid whose stage did NOT move up is dropped. Before dropping, if only
-    its cancellation changed, `tenders.is_cancelled / bid_status /
+    A staged bid whose stage did NOT move up is marked known. Before that, if
+    only its cancellation changed, `tenders.is_cancelled / bid_status /
     status_updated_at` are updated in place -- no re-scrape, because a cancelled
     bid's page often masks seller names and would overwrite real ones.
     Listings without a b_status (bid_status NULL) never overwrite a known value.
+
+    Known rows are kept, not deleted, so that a restarted run still counts them
+    as captured (pipeline2 then skips the lists it already has). pipeline3 and
+    validation ignore them; pipeline4/sql/05_cleanup.sql deletes them after the
+    merge. Safe to call again: already-marked rows are left as they are.
     """
     run_id = _get_run_id(month)
     if run_id is None:
@@ -341,16 +380,18 @@ def prune_known_bid_ids(month: str) -> tuple:
 
         cur.execute(
             """
-            DELETE FROM staging.tenders_raw sr
-            USING tenders t
+            UPDATE staging.tenders_raw sr
+            SET known_at = now()
+            FROM tenders t
             WHERE sr.run_id = %s AND sr.batch_key = %s
               AND sr.bid_id = t.bid_id
               AND COALESCE(sr.stage, 3) <= COALESCE(t.stage, 3)
+              AND sr.known_at IS NULL
             """,
             (run_id, month),
         )
-        pruned = cur.rowcount
-    return status_updated, pruned
+        marked = cur.rowcount
+    return status_updated, marked
 
 
 # ═══════════════════════════════════════════════════════════════
@@ -404,6 +445,7 @@ def log_error(pipeline: str, month: str, error: str, context: str = "",
 # Month Status Tracking
 # ═══════════════════════════════════════════════════════════════
 
+@db_retry
 def init_month_status(month: str):
     """Initialize a month in pipeline2_status if not exists (also assigns its run_id)."""
     conn = get_connection()
@@ -419,6 +461,7 @@ def init_month_status(month: str):
         )
 
 
+@db_retry
 def start_month(month: str):
     """Mark month as in_progress."""
     conn = get_connection()
@@ -433,6 +476,7 @@ def start_month(month: str):
         )
 
 
+@db_retry
 def update_month_progress(month: str, pass_num: int, unique_captured: int,
                           last_pass_new: int, total_tenders: int = 0):
     """Update progress after each pass."""
@@ -459,14 +503,15 @@ def update_month_progress(month: str, pass_num: int, unique_captured: int,
             )
 
 
+@db_retry
 def complete_month(month: str, unique_captured: int, passes_done: int,
                    status_counts: Optional[dict] = None, total_tenders: Optional[int] = None):
     """
     Mark month as completed. Capture is finished at this point, so this is also
-    where staging gets pruned (see prune_known_bid_ids): pipeline3/4 downstream
-    only see new bids and bids whose stage moved up.
+    where already-known bids are marked (see mark_known_bid_ids): pipeline3/4
+    downstream only work on new bids and bids whose stage moved up.
     """
-    status_updated, pruned = prune_known_bid_ids(month)
+    status_updated, marked = mark_known_bid_ids(month)
 
     conn = get_connection()
     with conn.cursor() as cur:
@@ -486,11 +531,12 @@ def complete_month(month: str, unique_captured: int, passes_done: int,
 
     if status_updated:
         print(f"  [db] Updated cancellation status of {status_updated} stored tender(s) for {month}.")
-    if pruned:
-        print(f"  [db] Pruned {pruned} already-known bid_id(s) (stage unchanged) from staging for {month} "
-              f"-> {unique_captured - pruned} to scrape (new or stage moved up).")
+    if marked:
+        print(f"  [db] Marked {marked} already-known bid_id(s) (stage unchanged) in staging for {month}; "
+              f"pipeline3 skips them.")
 
 
+@db_retry
 def fail_month(month: str, error: str):
     """Mark month as failed."""
     conn = get_connection()
@@ -505,6 +551,7 @@ def fail_month(month: str, error: str):
         )
 
 
+@db_retry
 def get_month_status(month: str) -> Optional[dict]:
     """Get current status for a month."""
     conn = get_connection()
@@ -513,6 +560,7 @@ def get_month_status(month: str) -> Optional[dict]:
         return cur.fetchone()
 
 
+@db_retry
 def reset_in_progress_months():
     """
     Reset any months stuck in 'in_progress' back to 'pending'.
@@ -527,6 +575,7 @@ def reset_in_progress_months():
         return cur.rowcount
 
 
+@db_retry
 def get_next_pending_month() -> Optional[str]:
     """Get the next month that needs processing (oldest pending/failed first)."""
     conn = get_connection()
@@ -542,6 +591,7 @@ def get_next_pending_month() -> Optional[str]:
         return row[0] if row else None
 
 
+@db_retry
 def get_all_month_statuses() -> list:
     """Get all month statuses for summary display."""
     conn = get_connection()
